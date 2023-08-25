@@ -1,0 +1,35 @@
+# 编译静态库，暂不添加任何源码。
+add_library(sort "" KthNumber.cpp KthNumber.h)
+
+# 随后用target_sources添加源码。
+# 这种方式更好，因为可以更细粒度地访问权限。
+# 例如对cpp文件就是PRIVATE，而hpp则是PUBLIC
+target_sources(sort
+        PRIVATE
+        # 注：${CMAKE_CURRENT_LIST_DIR}代表当前的CMakeLists.txt文件所在的绝对路径。
+        ${CMAKE_CURRENT_LIST_DIR}/TopK.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/HighAdd.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/HighDiv.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/HighSub.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/HighMultiply.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/KthNumber.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/NumberRange.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/ReversePairNumber.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/TirTimesSolu.cpp
+        PUBLIC
+        ${CMAKE_CURRENT_LIST_DIR}/TopK.h
+        ${CMAKE_CURRENT_LIST_DIR}/HighAdd.h
+        ${CMAKE_CURRENT_LIST_DIR}/HighDiv.h
+        ${CMAKE_CURRENT_LIST_DIR}/HighSub.h
+        ${CMAKE_CURRENT_LIST_DIR}/HighMultiply.h
+        ${CMAKE_CURRENT_LIST_DIR}/KthNumber.h
+        ${CMAKE_CURRENT_LIST_DIR}/NumberRange.h
+        ${CMAKE_CURRENT_LIST_DIR}/ReversePairNumber.h
+        ${CMAKE_CURRENT_LIST_DIR}/TirTimesSolu.h
+        )
+
+# 增加头文件目录
+target_include_directories(sort
+        PUBLIC
+        ${CMAKE_CURRENT_LIST_DIR}
+        )
