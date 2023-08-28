@@ -12,6 +12,8 @@ using namespace std;
  *
  * f[,i1,i2] -> [1,1][1,1] -> [i1,k-i1][i2,k-i2] max
  * k represents two way sum:x+y
+ * 
+ * 
  */
 
 // k = i1+j1 = i2+j2

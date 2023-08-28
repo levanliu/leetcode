@@ -39,7 +39,7 @@ int main()
                     f[i] = max(f[i], f[j] + 1);
             res = max(res, f[i]);
         }
-        return res;
+        cout << res;
     }
     return 0;
 }
