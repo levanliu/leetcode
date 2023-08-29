@@ -1,5 +1,6 @@
 # leetcode
 @author LevanLiu
+@author LevanLiu
 
 some classic leetcode practice.
 all solution by c++.
