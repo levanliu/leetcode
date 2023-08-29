@@ -1,4 +1,6 @@
 # leetcode
+@author LevanLiu
+
 some classic leetcode practice.
 all solution by c++.
 
