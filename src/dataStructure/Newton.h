@@ -5,6 +5,7 @@
 #include <string>
 #include <cmath>
 #include <iomanip>
+#include <stdexcept>
 
 using namespace std;
 
@@ -50,6 +51,11 @@ public:
         // 计算精度
         long double precision = 1e-64;
         cin >> initPos >> num;
+        if (num < 0)
+        {
+            throw std::domain_error("invalid input");
+            // return;
+        }
         newton(initPos, num, precision);
     }
 };
