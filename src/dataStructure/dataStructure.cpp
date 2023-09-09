@@ -9,3 +9,4 @@
 #include "ThreadTest.h"
 #include "Trie.h"
 #include "UnionFind.h"
+#include "Newton.h"
