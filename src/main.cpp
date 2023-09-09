@@ -36,10 +36,10 @@ int main()
   // v->vectorSortMain();
   // cout << "hello" << endl;
   // cout << "hi" << endl;
-  // unique_ptr<kmp> k(new kmp());
-  // k->KmpMain();
-  unique_ptr<Newton> n(new Newton());
-  n->NewtonMain();
+  unique_ptr<kmp> k(new kmp());
+  k->KmpMain();
+  // unique_ptr<Newton> n(new Newton());
+  // n->NewtonMain();
   // unique_ptr<HashTableSim> h(new HashTableSim());
   // h->hashTableSimMain();
   return 0;
