@@ -1,15 +1,18 @@
 #### leetcode
+
 @author LevanLiu
 
 some classic leetcode practice.
 all solution by c++.
 
-##### build 
+##### build
+
 ```bash
 cmake -B build && cd build && make && cd .. && ./bin/main
 ```
 
 ##### input
+
 ```bash
 dsahflkjahdsflkaasdfdsflkaasdf
 flka
@@ -18,7 +21,8 @@ flka
 kmp will be executed
 
 #### output
-````bash
+
+```bash
 12
 flka
 22
