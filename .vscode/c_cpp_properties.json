@@ -1,30 +1,38 @@
 {
-  "configurations": [
-    {
-      "name": "Win32",
-      "includePath": [
-        "c:/ProgramData/chocolatey/lib/mingw/tools/install/mingw64/**",
-        "${workspaceFolder}/**",
-        "${vcpkgRoot}/x64-windows/include",
-        "${vcpkgRoot}/x86-windows/include"
-      ],
-      "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
-      "windowsSdkVersion": "10.0.22000.0",
-      "compilerPath": "C:/ProgramData/chocolatey/bin/g++.exe",
-      "cStandard": "c17",
-      "cppStandard": "c++17",
-      "intelliSenseMode": "windows-gcc-x64"
-    },
-    {
-      "name": "Linux",
-      "includePath": ["${workspaceFolder}/**"],
-      "defines": [],
-      "compilerPath": "/usr/bin/gcc",
-      "cStandard": "c17",
-      "cppStandard": "gnu++17",
-      "intelliSenseMode": "linux-gcc-x64",
-      "compileCommands": "${workspaceFolder}/build/compile_commands.json"
-    }
-  ],
-  "version": 4
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "c:/Users/lan/Documents/leetcode/**",
+                "c:/ProgramData/chocolatey/lib/mingw/tools/install/mingw64/**"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compileCommands": "c:\\Users\\lan\\Documents\\leetcode/build/compile_commands.json",
+            "mergeConfigurations": false,
+            "browse": {
+                "path": [
+                    "c:/Users/lan/Documents/leetcode/**",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "compilerPath": "C:/ProgramData/chocolatey/bin/g++.exe"
+        }
+    ],
+    "version": 4
 }
