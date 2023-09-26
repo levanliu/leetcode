@@ -14,7 +14,6 @@
 #include "search/weightCenterTree.h"
 #include "sort/VectorSort.h"
 #include "dataStructure/hashTableSim.h"
-#include "dataStructure/Newton.h"
 using namespace std;
 
 int main()
@@ -38,8 +37,6 @@ int main()
   // cout << "hi" << endl;
   unique_ptr<kmp> k(new kmp());
   k->KmpMain();
-  // unique_ptr<Newton> n(new Newton());
-  // n->NewtonMain();
   // unique_ptr<HashTableSim> h(new HashTableSim());
   // h->hashTableSimMain();
   return 0;

@@ -7,6 +7,7 @@ public:
     {
         int m = board.size();
 
+        // row col cell  indicate the i row, j col, k cell has val?
         int row[m][m];
         int col[m][m];
         int cell[m][m];
