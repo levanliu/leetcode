@@ -1,6 +1,23 @@
-#include <bits/stdc++.h>
 #include <climits>
+#include <cstdint>
+#include <bit>
+#include <limits>
+#include <cstdint>
+#include <iostream>
 using namespace std;
+
+/**
+//gcc 13.1
+//-std=c++2a -mx32 -O3
+constexpr float Q_rsqrtc20(float number) noexcept
+{
+	static_assert(std::numeric_limits<float>::is_iec559); // Проверка совместимости целевой машины
+
+	float const y = std::bit_cast<float>(
+		0x5f3759df - (std::bit_cast<std::uint32_t>(number) >> 1));
+	return y * (1.5f - (number * 0.5f * y * y));
+}
+*/
 
 float Q_rsqrt(float number) {
   long i;
@@ -23,8 +40,8 @@ float Q_rsqrt(float number) {
 
 int main() {
   float a;
-  cin >> a;
-  cout << Q_rsqrt(a) << endl;
-  cout << sizeof(float) * CHAR_BIT << endl;
+  std::cin >> a;
+  std::cout << Q_rsqrt(a) << std::endl;
+  std::cout << sizeof(float) * CHAR_BIT << std::endl;
   return 0;
 }
