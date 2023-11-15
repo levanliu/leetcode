@@ -40,4 +40,4 @@ class Solution {
 
 		return (max + max + k-1) * (k) /2 ;
 	}
-}
+};
