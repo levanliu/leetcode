@@ -26,7 +26,7 @@
         */
 
 using namespace std;
-clas Solution {
+class Solution {
  public:
   int maximizeSum(vector<int> & nums, int k)
 	{
