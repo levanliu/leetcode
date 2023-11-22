@@ -1,6 +1,6 @@
 // A recursive solution for subset sum problem
 
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 // Returns true if there is a subset

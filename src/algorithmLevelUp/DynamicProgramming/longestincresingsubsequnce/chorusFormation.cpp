@@ -1,6 +1,6 @@
 //acwing 482
 
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 const int N = 1010;

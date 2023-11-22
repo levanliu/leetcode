@@ -11,7 +11,7 @@ int fib(int n)
 ```
 ###### dynamic programming
 ```cpp
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 const int N = 50;

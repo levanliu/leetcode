@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 // 买卖股票的最佳时机 II
 class Solution

@@ -1,6 +1,6 @@
 // C++ program to count all subsets with
 // given sum.
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 // dp[i][j] is going to store true if sum j is

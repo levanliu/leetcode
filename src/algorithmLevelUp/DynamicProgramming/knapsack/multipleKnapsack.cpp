@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 /**
  * 有N种物品和一个容量是V的背包。第i种物品最多有si件，每件体积是 vi，价值是 wi

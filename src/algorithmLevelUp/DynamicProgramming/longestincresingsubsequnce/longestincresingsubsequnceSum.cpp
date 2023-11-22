@@ -1,5 +1,5 @@
 // acwing 1016
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 // f[1]...f[i-1] + a[i]

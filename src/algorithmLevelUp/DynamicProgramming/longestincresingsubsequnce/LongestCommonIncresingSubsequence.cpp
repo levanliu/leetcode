@@ -13,7 +13,7 @@
  * 包含a[i] 可以划分k类 lcs模式 空
  */
 
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 const int N = 3010;

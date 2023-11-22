@@ -1,5 +1,5 @@
 //acwing 1010
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 //greedy algorithm

@@ -23,7 +23,7 @@ Case #1: 250
 Case #2: 180
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 #define ll long long

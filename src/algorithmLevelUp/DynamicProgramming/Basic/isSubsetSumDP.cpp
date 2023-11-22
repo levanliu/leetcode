@@ -1,6 +1,6 @@
 // A Dynamic Programming solution
 // for subset sum problem
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 /**

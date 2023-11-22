@@ -9,7 +9,7 @@
  *
  * 先求出双向LIS<从左往右+从右往左> 再把左右两边相加
  */
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 const int N = 1010;

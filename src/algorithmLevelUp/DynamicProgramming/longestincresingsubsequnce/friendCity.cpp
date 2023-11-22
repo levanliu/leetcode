@@ -1,5 +1,5 @@
 // acwing 1012
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 /**
  * build bridge numbers max;

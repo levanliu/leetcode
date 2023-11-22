@@ -1,7 +1,7 @@
 // acwing 187
 //  3 2 5 4 1，target:多少个上升or下降子序列
 // 决策：是放到上升还是下降，无法优化，只能暴力搜索 dfs求最小步数（记忆一个全局最小值，不断更新）or（迭代加深）
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 const int N = 55;

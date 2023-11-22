@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <string.h>
-#include <bits/stdc++.h>
+#include <iostream>
 
 #define DEBUG
 
