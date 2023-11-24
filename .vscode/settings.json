@@ -103,6 +103,7 @@
     "semaphore": "cpp",
     "spanstream": "cpp",
     "stacktrace": "cpp",
-    "syncstream": "cpp"
+    "syncstream": "cpp",
+    "climits": "cpp"
   }
 }
