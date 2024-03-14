@@ -105,5 +105,6 @@
     "stacktrace": "cpp",
     "syncstream": "cpp",
     "climits": "cpp"
-  }
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }
