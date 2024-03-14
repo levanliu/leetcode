@@ -23,3 +23,38 @@ int main()
 
     return 0;
 }
+
+
+
+int maxSquare()
+{
+	const int N = 103;
+	int a[N][N];
+	int b[N][N];
+
+	int m,n;
+	cin >> m >> n;
+	for(int i=1;i<=m;i++){
+		for(int j=1;j<=n;j++){
+			cin >> a[i][j];
+			b[i][j] = 
+	 				b[i][j-1] + b[i-1][j] - b[i-1][j-1] + a[i][j];
+		}
+	}
+
+	int ans = 1;
+
+	int l = 2;
+
+	while(l < min(m,n)){
+		for(int i=1;i<=m;i++){
+			for(int j=1;j<=n;j++){
+				if(l*l == b[i][j] + b[i-l][j-l] - b[i-l][j] - b[i][j-l]){
+					ans = max(ans,l);
+				}
+			}
+		}
+		l++;
+	}
+	return ans;
+}
