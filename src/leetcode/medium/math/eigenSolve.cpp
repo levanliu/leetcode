@@ -1,5 +1,6 @@
 #include <iostream>
 //#include <Eigen/Eigenvalues>
+//root: cmake -B build && cd build && cmake --build . --target install
 #include "C:/Program Files (x86)/Eigen3/include/eigen3/Eigen/Eigenvalues"
 
 int main() {
