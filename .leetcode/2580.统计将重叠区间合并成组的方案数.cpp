@@ -18,7 +18,6 @@ public:
             {
                 r = max(r, ranges[j][1]);
                 j++;
-
                 res = res * 2 % mod;
             }
             i = j;
