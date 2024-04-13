@@ -5,24 +5,32 @@
  */
 
 // @lc code=start
-#include<iostream>
+#include <iostream>
+#include <unordered_set>
+
 using namespace std;
-class Solution {
+class Solution
+{
 public:
-    int longestConsecutive(vector<int>& nums) {
+    int longestConsecutive(vector<int> &nums)
+    {
         unordered_set<int> num_set;
-        for (const int& num : nums) {
+        for (auto num : nums)
+        {
             num_set.insert(num);
         }
 
         int longestStreak = 0;
 
-        for (const int& num : num_set) {
-            if (!num_set.count(num - 1)) {
+        for (const int &num : num_set)
+        {
+
+            if (!num_set.count(num - 1))
+            {
                 int currentNum = num;
                 int currentStreak = 1;
-
-                while (num_set.count(currentNum + 1)) {
+                while (num_set.count(currentNum + 1))
+                {
                     currentNum += 1;
                     currentStreak += 1;
                 }
@@ -30,9 +38,7 @@ public:
                 longestStreak = max(longestStreak, currentStreak);
             }
         }
-
-        return longestStreak;           
+        return longestStreak;
     }
 };
 // @lc code=end
-
