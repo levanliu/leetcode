@@ -1,0 +1,10 @@
+#include <iostream>
+
+int main()
+{
+    int n, m;
+    std::cin >> n;
+    m = (n % 10) * 100 + (n / 10 % 10) * 10 + (n / 100);
+    printf("%03d\n", m);
+    return 0;
+}
