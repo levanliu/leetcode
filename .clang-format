@@ -1,0 +1,14 @@
+BasedOnStyle: Google
+IndentWidth: 4
+UseTab: Never
+AlignTrailingComments: true
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+BraceWrapping:
+  AfterFunction: true
+  AfterClass: true
+  AfterNamespace: true
+ColumnLimit: 0
+NamespaceIndentation: None
+ContinuationIndentWidth: 4
+BreakBeforeBraces: Custom
