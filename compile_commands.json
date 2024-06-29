@@ -1,0 +1,128 @@
+[
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/dataStructure -I/Users/levan/Storage/cppProjects/leetcode/src/sort -I/Users/levan/Storage/cppProjects/leetcode/src/stringAlgorithm -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekTwo -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekThree -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest -I/Users/levan/Storage/cppProjects/leetcode/src/search -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/main.dir/main.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/main.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/main.cpp",
+  "output": "src/CMakeFiles/main.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/dataStructure",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/dataStructure -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/dataStructure.dir/dataStructure.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/dataStructure/dataStructure.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/dataStructure/dataStructure.cpp",
+  "output": "src/dataStructure/CMakeFiles/dataStructure.dir/dataStructure.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/dataStructure",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/dataStructure -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/dataStructure.dir/intervalSum.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/dataStructure/intervalSum.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/dataStructure/intervalSum.cpp",
+  "output": "src/dataStructure/CMakeFiles/dataStructure.dir/intervalSum.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/dataStructure",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/dataStructure -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/dataStructure.dir/lower_bound.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/dataStructure/lower_bound.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/dataStructure/lower_bound.cpp",
+  "output": "src/dataStructure/CMakeFiles/dataStructure.dir/lower_bound.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/dataStructure",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/dataStructure -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/dataStructure.dir/messgeQueue.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/dataStructure/messgeQueue.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/dataStructure/messgeQueue.cpp",
+  "output": "src/dataStructure/CMakeFiles/dataStructure.dir/messgeQueue.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/dataStructure",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/dataStructure -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/dataStructure.dir/prefixSum.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/dataStructure/prefixSum.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/dataStructure/prefixSum.cpp",
+  "output": "src/dataStructure/CMakeFiles/dataStructure.dir/prefixSum.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/dataStructure",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/dataStructure -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/dataStructure.dir/redBlackTree.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/dataStructure/redBlackTree.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/dataStructure/redBlackTree.cpp",
+  "output": "src/dataStructure/CMakeFiles/dataStructure.dir/redBlackTree.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/dataStructure",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/Users/levan/Storage/cppProjects/leetcode/src/dataStructure -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/dataStructure.dir/skiplist.c.o -c /Users/levan/Storage/cppProjects/leetcode/src/dataStructure/skiplist.c",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/dataStructure/skiplist.c",
+  "output": "src/dataStructure/CMakeFiles/dataStructure.dir/skiplist.c.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/dataStructure",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/dataStructure -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/dataStructure.dir/skiplist.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/dataStructure/skiplist.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/dataStructure/skiplist.cpp",
+  "output": "src/dataStructure/CMakeFiles/dataStructure.dir/skiplist.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/sort",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/sort -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/sort.dir/pairSort.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/sort/pairSort.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/sort/pairSort.cpp",
+  "output": "src/sort/CMakeFiles/sort.dir/pairSort.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/sort",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/sort -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/sort.dir/sort.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/sort/sort.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/sort/sort.cpp",
+  "output": "src/sort/CMakeFiles/sort.dir/sort.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/stringAlgorithm",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/stringAlgorithm -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/stringAlgorithm.dir/stringAlgorithm.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/stringAlgorithm/stringAlgorithm.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/stringAlgorithm/stringAlgorithm.cpp",
+  "output": "src/stringAlgorithm/CMakeFiles/stringAlgorithm.dir/stringAlgorithm.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/leetcode",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekTwo -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekThree -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/leetcode.dir/weekOne/MaxCount.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne/MaxCount.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne/MaxCount.cpp",
+  "output": "src/leetcode/CMakeFiles/leetcode.dir/weekOne/MaxCount.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/leetcode",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekTwo -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekThree -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/leetcode.dir/weekOne/TwoSum.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne/TwoSum.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne/TwoSum.cpp",
+  "output": "src/leetcode/CMakeFiles/leetcode.dir/weekOne/TwoSum.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/leetcode",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekTwo -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekThree -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/leetcode.dir/weekTwo/ThreeSum.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekTwo/ThreeSum.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekTwo/ThreeSum.cpp",
+  "output": "src/leetcode/CMakeFiles/leetcode.dir/weekTwo/ThreeSum.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/leetcode",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekTwo -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekThree -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/leetcode.dir/weekThree/Sum.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekThree/Sum.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekThree/Sum.cpp",
+  "output": "src/leetcode/CMakeFiles/leetcode.dir/weekThree/Sum.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/leetcode",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekTwo -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekThree -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/leetcode.dir/weeklyContest/802.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest/802.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest/802.cpp",
+  "output": "src/leetcode/CMakeFiles/leetcode.dir/weeklyContest/802.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/leetcode",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekTwo -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekThree -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/leetcode.dir/weeklyContest/SimilarPairs.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest/SimilarPairs.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest/SimilarPairs.cpp",
+  "output": "src/leetcode/CMakeFiles/leetcode.dir/weeklyContest/SimilarPairs.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/leetcode",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekOne -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekTwo -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weekThree -I/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/leetcode.dir/weeklyContest/lastDie.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest/lastDie.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/leetcode/weeklyContest/lastDie.cpp",
+  "output": "src/leetcode/CMakeFiles/leetcode.dir/weeklyContest/lastDie.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/search",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/search -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/search.dir/hanoi.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/search/hanoi.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/search/hanoi.cpp",
+  "output": "src/search/CMakeFiles/search.dir/hanoi.cpp.o"
+},
+{
+  "directory": "/Users/levan/Storage/cppProjects/leetcode/build/src/search",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/levan/Storage/cppProjects/leetcode/src/search -g -std=c++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/search.dir/search.cpp.o -c /Users/levan/Storage/cppProjects/leetcode/src/search/search.cpp",
+  "file": "/Users/levan/Storage/cppProjects/leetcode/src/search/search.cpp",
+  "output": "src/search/CMakeFiles/search.dir/search.cpp.o"
+}
+]
