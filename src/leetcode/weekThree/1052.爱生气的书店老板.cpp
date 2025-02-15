@@ -4,7 +4,7 @@
 class Solution
 {
 public:
-  int maxSatisfied(vector<int> &customers, vector<int> &grumpy, int minutes)
+  int maxSatisfied(std::vector<int> &customers, std::vector<int> &grumpy, int minutes)
   {
     int total = 0;
     int n = customers.size();
@@ -24,7 +24,7 @@ public:
     for (int i = minutes; i < n; i++)
     {
       increase = increase - customers[i - minutes] * grumpy[i - minutes] + customers[i] * grumpy[i];
-      maxIncrease = max(maxIncrease, increase);
+      maxIncrease = std::max(maxIncrease, increase);
     }
     return total + maxIncrease;
   }

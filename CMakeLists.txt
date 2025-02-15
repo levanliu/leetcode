@@ -1,7 +1,7 @@
 # cmake最低版本
 cmake_minimum_required(VERSION 3.16)
-# SET(CMAKE_C_COMPILER /usr/bin/gcc)
-# SET(CMAKE_CXX_COMPILER /usr/bin/g++)
+SET(CMAKE_C_COMPILER /usr/bin/gcc)
+SET(CMAKE_CXX_COMPILER /usr/bin/g++)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
