@@ -1,30 +1,24 @@
-#### leetcode
+1. Data structure
+    - Array & String
+    - Linked List
+    - Stack & Queue
+    - Hash Map/Set
 
-@author LevanLiu
+2. SKills
+    - Two Pointers
+    - Sliding Pointers
+    - Binary Search
+    - Prefix Sum
 
-some classic leetcode practice.
-all solution by c++.
+3. Search
+    - BFS
+    - DFS
+    - Backtracking
+    - Tree Traversal
 
-##### build
-
-```bash
-cmake -B build && cd build && make && cd .. && ./bin/main
-```
-
-##### input
-
-```bash
-dsahflkjahdsflkaasdfdsflkaasdf
-flka
-```
-
-kmp will be executed
-
-#### output
-
-```bash
-12
-flka
-22
-flka
-```
+4. Complicated
+    - Dynamic Programming
+    - Greedy
+    - Divide and Conquer
+    - Monotonic Stack
+    - Topological Sort

@@ -1,11 +1,11 @@
 {
   "C_Cpp.intelliSenseEngine": "disabled",
-  "clangd.path": "/usr/local/opt/llvm/bin/clangd",
+  "clangd.path": "/usr/bin/clangd",
   "clangd.arguments": [
     "-log=verbose",
     "-pretty",
     "--background-index",
-    "--compile-commands-dir=${workspaceFolder}/build/"
+    "--compile-commands-dir=${workspaceFolder}"
   ],
   "files.associations": {
     "*.html": "html",
