@@ -1,13 +1,12 @@
-#include <cstring>
 #include <string>
+#include <vector>
 namespace ns_skills_string_algorithm_longest_palindrome {
 
 class Solution {
 public:
     std::string longestPalindrome(std::string s) {
         int n = s.size();
-        bool dp[n][n];
-        memset(dp, 0, sizeof dp);
+        std::vector<std::vector<bool>> dp(n, std::vector<bool>(n, false));
         int start = 0, maxLength = 1;
         for (std::size_t right = 1; right < s.size(); right++) {
             for (std::size_t left = 0; left < right; left++) {
