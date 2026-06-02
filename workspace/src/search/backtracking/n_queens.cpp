@@ -3,7 +3,9 @@
 #include <string>
 #include <functional>
 
-class NQueens {
+namespace ns_search_backtracking_n_queens {
+
+class Solution {
 public:
     int countSolutions(int n) {
         int count = 0;
@@ -43,3 +45,5 @@ public:
         return results;
     }
 };
+
+}  // namespace ns_search_backtracking_n_queens

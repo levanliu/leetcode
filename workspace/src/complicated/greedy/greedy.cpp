@@ -4,7 +4,9 @@
 #include <climits>
 #include <utility>
 
-class Greedy {
+namespace ns_complicated_greedy {
+
+class Solution {
 public:
     int maxProfit(const std::vector<int>& prices) {
         int minPrice = INT_MAX, maxProfit = 0;
@@ -37,3 +39,5 @@ public:
         return true;
     }
 };
+
+}  // namespace ns_complicated_greedy

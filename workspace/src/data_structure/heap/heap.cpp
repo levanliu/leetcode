@@ -14,8 +14,10 @@
 // Top-K patterns:
 //   - K largest  → min-heap of size K; discard if top < new element
 //   - K smallest → max-heap of size K; discard if top > new element
+namespace ns_data_structure_heap {
+
 template <typename T, typename Compare = std::less<T>>
-class Heap {
+class Solution {
 private:
     std::vector<T> data_;
     Compare cmp_;
@@ -43,10 +45,10 @@ private:
     }
 
 public:
-    Heap() = default;
+    Solution() = default;
 
     // Build from existing data in O(n)
-    explicit Heap(std::vector<T> data) : data_(std::move(data)) {
+    explicit Solution(std::vector<T> data) : data_(std::move(data)) {
         for (int i = static_cast<int>(data_.size()) / 2 - 1; i >= 0; --i)
             siftDown(i);
     }
@@ -73,7 +75,7 @@ public:
 
     // Returns the K largest elements (unsorted) using a min-heap of size K
     static std::vector<T> topK(const std::vector<T>& arr, int k) {
-        Heap<T, std::greater<T>> minH;
+        Solution<T, std::greater<T>> minH;
         for (const T& v : arr) {
             minH.push(v);
             if (minH.size() > k) minH.pop();
@@ -86,5 +88,7 @@ public:
 };
 
 // Convenience aliases
-template <typename T> using MaxHeap = Heap<T, std::less<T>>;
-template <typename T> using MinHeap = Heap<T, std::greater<T>>;
+template <typename T> using MaxHeap = Solution<T, std::less<T>>;
+template <typename T> using MinHeap = Solution<T, std::greater<T>>;
+
+}  // namespace ns_data_structure_heap

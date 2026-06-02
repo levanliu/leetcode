@@ -2,7 +2,7 @@
 #include "workspace/src/data_structure/linked_list/linked_list.cpp"
 
 TEST_CASE("LinkedList operations", "[data_structure][linked_list]") {
-    LinkedList<int> list;
+    ns_data_structure_linked_list::Solution<int> list;
 
     REQUIRE(list.empty());
 

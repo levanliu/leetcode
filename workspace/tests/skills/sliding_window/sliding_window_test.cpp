@@ -2,7 +2,7 @@
 #include "workspace/src/skills/sliding_window/sliding_window.cpp"
 
 TEST_CASE("SlidingWindow", "[skills][sliding_window]") {
-    SlidingWindow sw;
+    ns_skills_sliding_window::Solution sw;
 
     SECTION("maxSumSubarray") {
         std::vector<int> nums = {1, 3, -1, -3, 5, 3, 6, 7};

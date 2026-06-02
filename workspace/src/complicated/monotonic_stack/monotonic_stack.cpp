@@ -3,7 +3,9 @@
 #include <stack>
 #include <algorithm>
 
-class MonotonicStack {
+namespace ns_complicated_monotonic_stack {
+
+class Solution {
 public:
     // For each element, index of nearest smaller element to the left (-1 if none)
     std::vector<int> prevSmaller(const std::vector<int>& nums) {
@@ -49,3 +51,5 @@ public:
         return maxArea;
     }
 };
+
+}  // namespace ns_complicated_monotonic_stack

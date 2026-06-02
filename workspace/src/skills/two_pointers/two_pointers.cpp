@@ -2,7 +2,9 @@
 #include <vector>
 #include <utility>
 
-class TwoPointers {
+namespace ns_skills_two_pointers {
+
+class Solution {
 public:
     // Find two indices in sorted array that sum to target
     std::pair<int,int> twoSumSorted(const std::vector<int>& nums, int target) {
@@ -32,3 +34,5 @@ public:
         while (pos < (int)nums.size()) nums[pos++] = 0;
     }
 };
+
+}  // namespace ns_skills_two_pointers

@@ -2,7 +2,7 @@
 #include "workspace/src/skills/binary_search/binary_search.cpp"
 
 TEST_CASE("BinarySearch", "[skills][binary_search]") {
-    BinarySearch bs;
+    ns_skills_binary_search::Solution bs;
     std::vector<int> nums = {1, 3, 5, 7, 9, 11};
 
     SECTION("search found") {

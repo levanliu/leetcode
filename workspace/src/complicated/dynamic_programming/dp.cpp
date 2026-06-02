@@ -4,7 +4,9 @@
 #include <algorithm>
 #include <climits>
 
-class DynamicProgramming {
+namespace ns_complicated_dynamic_programming {
+
+class Solution {
 public:
     int fib(int n) {
         if (n <= 1) return n;
@@ -48,3 +50,5 @@ public:
         return dp[amount] > amount ? -1 : dp[amount];
     }
 };
+
+}  // namespace ns_complicated_dynamic_programming

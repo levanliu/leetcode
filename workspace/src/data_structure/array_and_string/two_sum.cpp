@@ -2,7 +2,9 @@
 #include <vector>
 #include <unordered_map>
 
-class TwoSum {
+namespace ns_data_structure_array_and_string_two_sum {
+
+class Solution {
 public:
     std::vector<int> twoSum(std::vector<int>& nums, int target) {
         std::unordered_map<int, int> m;
@@ -15,3 +17,5 @@ public:
         return {};
     }
 };
+
+}  // namespace ns_data_structure_array_and_string_two_sum

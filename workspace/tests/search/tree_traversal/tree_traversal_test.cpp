@@ -1,17 +1,17 @@
 #include <catch2/catch_test_macros.hpp>
 #include "workspace/src/search/tree_traversal/tree_traversal.cpp"
 
-static TreeNode* buildTestTree() {
+static ns_search_tree_traversal::TreeNode* buildTestTree() {
     // Tree shape:  1 -> left:2, right:3; 2 -> left:4, right:5
-    auto* root = new TreeNode(1);
-    root->left = new TreeNode(2);
-    root->right = new TreeNode(3);
-    root->left->left = new TreeNode(4);
-    root->left->right = new TreeNode(5);
+    auto* root = new ns_search_tree_traversal::TreeNode(1);
+    root->left = new ns_search_tree_traversal::TreeNode(2);
+    root->right = new ns_search_tree_traversal::TreeNode(3);
+    root->left->left = new ns_search_tree_traversal::TreeNode(4);
+    root->left->right = new ns_search_tree_traversal::TreeNode(5);
     return root;
 }
 
-static void deleteTree(TreeNode* node) {
+static void deleteTree(ns_search_tree_traversal::TreeNode* node) {
     if (!node) return;
     deleteTree(node->left);
     deleteTree(node->right);
@@ -19,8 +19,8 @@ static void deleteTree(TreeNode* node) {
 }
 
 TEST_CASE("TreeTraversal", "[search][tree_traversal]") {
-    TreeTraversal tt;
-    TreeNode* root = buildTestTree();
+    ns_search_tree_traversal::Solution tt;
+    ns_search_tree_traversal::TreeNode* root = buildTestTree();
 
     SECTION("inorder: 4 2 5 1 3") {
         auto res = tt.inorder(root);

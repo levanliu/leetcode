@@ -4,7 +4,7 @@
 #include <algorithm>
 
 TEST_CASE("MaxHeap basic operations", "[data_structure][heap]") {
-    MaxHeap<int> h;
+    ns_data_structure_heap::MaxHeap<int> h;
     h.push(3); h.push(1); h.push(4); h.push(1); h.push(5);
 
     SECTION("top is max") {
@@ -19,7 +19,7 @@ TEST_CASE("MaxHeap basic operations", "[data_structure][heap]") {
 }
 
 TEST_CASE("MinHeap basic operations", "[data_structure][heap]") {
-    MinHeap<int> h;
+    ns_data_structure_heap::MinHeap<int> h;
     h.push(3); h.push(1); h.push(4); h.push(1); h.push(5);
 
     SECTION("top is min") {
@@ -34,14 +34,14 @@ TEST_CASE("MinHeap basic operations", "[data_structure][heap]") {
 }
 
 TEST_CASE("Heap build from vector", "[data_structure][heap]") {
-    MaxHeap<int> h(std::vector<int>{5, 3, 1, 4, 2});
+    ns_data_structure_heap::MaxHeap<int> h(std::vector<int>{5, 3, 1, 4, 2});
     REQUIRE(h.top() == 5);
     REQUIRE(h.size() == 5);
 }
 
 TEST_CASE("Heap topK", "[data_structure][heap]") {
     std::vector<int> arr = {3, 1, 4, 1, 5, 9, 2, 6};
-    auto res = MaxHeap<int>::topK(arr, 3);
+    auto res = ns_data_structure_heap::MaxHeap<int>::topK(arr, 3);
     std::sort(res.begin(), res.end());
     REQUIRE(res == std::vector<int>{5, 6, 9});
 }

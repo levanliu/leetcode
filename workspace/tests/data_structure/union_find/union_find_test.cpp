@@ -2,7 +2,7 @@
 #include "workspace/src/data_structure/union_find/union_find.cpp"
 
 TEST_CASE("UnionFind", "[data_structure][union_find]") {
-    UnionFind uf(5);
+    ns_data_structure_union_find::Solution uf(5);
 
     SECTION("initially disconnected") {
         REQUIRE_FALSE(uf.connected(1, 2));

@@ -3,7 +3,7 @@
 #include <algorithm>
 
 TEST_CASE("TopologicalSort", "[complicated][topological_sort]") {
-    TopologicalSort ts;
+    topological_sort::Solution ts;
 
     SECTION("simple DAG") {
         // 0 -> 1 -> 3

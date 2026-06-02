@@ -2,7 +2,7 @@
 #include "workspace/src/search/backtracking/n_queens.cpp"
 
 TEST_CASE("NQueens", "[search][backtracking]") {
-    NQueens nq;
+    ns_search_backtracking_n_queens::Solution nq;
 
     SECTION("n=1 has 1 solution") {
         REQUIRE(nq.countSolutions(1) == 1);

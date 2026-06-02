@@ -2,7 +2,7 @@
 #include "workspace/src/data_structure/array_and_string/two_sum.cpp"
 
 TEST_CASE("TwoSum basic cases", "[data_structure][array_and_string]") {
-    TwoSum sol;
+    ns_data_structure_array_and_string_two_sum::Solution sol;
 
     SECTION("standard case") {
         std::vector<int> nums = {2, 7, 11, 15};

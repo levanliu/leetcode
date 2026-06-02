@@ -5,8 +5,10 @@
 #include <stdexcept>
 #include <utility>
 
+namespace ns_data_structure_hash_map_set {
+
 template <typename K, typename V>
-class HashMap {
+class Solution {
 private:
     static constexpr std::size_t BUCKET_SIZE = 1024;
     std::vector<std::list<std::pair<K, V>>> buckets;
@@ -17,7 +19,7 @@ private:
     }
 
 public:
-    HashMap() : buckets(BUCKET_SIZE) {}
+    Solution() : buckets(BUCKET_SIZE) {}
 
     void insert(const K& key, const V& val) {
         auto idx = getBucket(key);
@@ -53,3 +55,5 @@ public:
     std::size_t size() const { return _size; }
     bool empty() const { return _size == 0; }
 };
+
+}  // namespace ns_data_structure_hash_map_set

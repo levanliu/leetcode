@@ -3,6 +3,8 @@
 #include <queue>
 #include <stack>
 
+namespace ns_search_tree_traversal {
+
 struct TreeNode {
     int val;
     TreeNode* left;
@@ -10,7 +12,7 @@ struct TreeNode {
     explicit TreeNode(int v = 0) : val(v), left(nullptr), right(nullptr) {}
 };
 
-class TreeTraversal {
+class Solution {
 public:
     std::vector<int> inorder(TreeNode* root) {
         std::vector<int> res;
@@ -58,3 +60,5 @@ public:
         return res;
     }
 };
+
+}  // namespace ns_search_tree_traversal

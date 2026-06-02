@@ -1,7 +1,9 @@
 #pragma once
 #include <vector>
 
-class BinarySearch {
+namespace ns_skills_binary_search {
+
+class Solution {
 public:
     // Returns index of target, -1 if not found
     int search(const std::vector<int>& nums, int target) {
@@ -37,3 +39,5 @@ public:
         return l;
     }
 };
+
+}  // namespace ns_skills_binary_search

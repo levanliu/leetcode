@@ -3,7 +3,9 @@
 #include <queue>
 #include <utility>
 
-class TopologicalSort {
+namespace topological_sort {
+
+class Solution {
 public:
     // Returns topological order, or empty if cycle detected
     std::vector<int> sort(int n, const std::vector<std::pair<int,int>>& edges) {
@@ -25,3 +27,5 @@ public:
         return sort(n, edges).empty();
     }
 };
+
+}  // namespace topological_sort

@@ -2,7 +2,9 @@
 #include <vector>
 #include <functional>
 
-class DFS {
+namespace ns_search_dfs {
+
+class Solution {
 public:
     // Flood fill: change all connected cells with same color
     void floodFill(std::vector<std::vector<int>>& image, int sr, int sc, int color) {
@@ -41,3 +43,5 @@ public:
         return count;
     }
 };
+
+}  // namespace ns_search_dfs

@@ -4,12 +4,14 @@
 // Union-Find (Disjoint Set Union) with path compression.
 // Supports merge and connected-query in near-O(1) amortized.
 // Reference: AcWing 836
-class UnionFind {
+namespace ns_data_structure_union_find {
+
+class Solution {
 private:
     std::vector<int> parent;
 
 public:
-    explicit UnionFind(int n) : parent(n + 1) {
+    explicit Solution(int n) : parent(n + 1) {
         for (int i = 0; i <= n; ++i) parent[i] = i;
     }
 
@@ -29,3 +31,5 @@ public:
         return find(a) == find(b);
     }
 };
+
+}  // namespace ns_data_structure_union_find

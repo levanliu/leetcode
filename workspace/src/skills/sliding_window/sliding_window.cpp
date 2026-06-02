@@ -5,7 +5,9 @@
 #include <deque>
 #include <algorithm>
 
-class SlidingWindow {
+namespace ns_skills_sliding_window {
+
+class Solution {
 public:
     // Maximum sum subarray of fixed size k
     int maxSumSubarray(const std::vector<int>& nums, int k) {
@@ -46,3 +48,5 @@ public:
         return result;
     }
 };
+
+}  // namespace ns_skills_sliding_window

@@ -3,11 +3,11 @@
 #include <climits>
 
 TEST_CASE("Dijkstra shortest path", "[search][shortest_path]") {
-    Dijkstra dij;
+    ns_search_shortest_path::Solution dij;
 
     SECTION("simple graph 0->1->2") {
         // 0 --(1)--> 1 --(2)--> 2
-        Dijkstra::Graph g(3);
+        ns_search_shortest_path::Solution::Graph g(3);
         g[0].push_back({1, 1});
         g[1].push_back({2, 2});
         auto dist = dij.shortestPath(3, g, 0);
@@ -17,7 +17,7 @@ TEST_CASE("Dijkstra shortest path", "[search][shortest_path]") {
     }
 
     SECTION("unreachable node") {
-        Dijkstra::Graph g(3);
+        ns_search_shortest_path::Solution::Graph g(3);
         g[0].push_back({1, 1});
         auto dist = dij.shortestPath(3, g, 0);
         REQUIRE(dist[2] == INT_MAX);
@@ -25,7 +25,7 @@ TEST_CASE("Dijkstra shortest path", "[search][shortest_path]") {
 
     SECTION("multiple paths, pick shortest") {
         // 0--(10)-->2, 0--(1)-->1--(1)-->2
-        Dijkstra::Graph g(3);
+        ns_search_shortest_path::Solution::Graph g(3);
         g[0].push_back({1, 1});
         g[0].push_back({2, 10});
         g[1].push_back({2, 1});

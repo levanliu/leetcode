@@ -2,7 +2,7 @@
 #include "workspace/src/skills/two_pointers/two_pointers.cpp"
 
 TEST_CASE("TwoPointers", "[skills][two_pointers]") {
-    TwoPointers tp;
+    ns_skills_two_pointers::Solution tp;
 
     SECTION("twoSumSorted found") {
         std::vector<int> nums = {1, 2, 3, 4, 5};

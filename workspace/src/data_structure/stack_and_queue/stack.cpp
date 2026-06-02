@@ -2,8 +2,10 @@
 #include <vector>
 #include <stdexcept>
 
+namespace ns_data_structure_stack_and_queue {
+
 template <typename T>
-class Stack {
+class Solution {
 private:
     std::vector<T> data;
 public:
@@ -23,3 +25,5 @@ public:
     bool empty() const { return data.empty(); }
     std::size_t size() const { return data.size(); }
 };
+
+}  // namespace ns_data_structure_stack_and_queue

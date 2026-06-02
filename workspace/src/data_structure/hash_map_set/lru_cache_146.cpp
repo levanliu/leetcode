@@ -6,7 +6,7 @@
 #include <map>
 using namespace std;
 
-class DlinkedNode
+struct DlinkedNode
 {
 public:
     int val;

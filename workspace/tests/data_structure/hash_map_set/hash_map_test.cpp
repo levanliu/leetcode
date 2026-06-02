@@ -3,7 +3,7 @@
 #include <string>
 
 TEST_CASE("HashMap operations", "[data_structure][hash_map_set]") {
-    HashMap<std::string, int> map;
+    ns_data_structure_hash_map_set::Solution<std::string, int> map;
 
     REQUIRE(map.empty());
     REQUIRE(map.size() == 0);

@@ -2,7 +2,7 @@
 #include "workspace/src/complicated/monotonic_stack/monotonic_stack.cpp"
 
 TEST_CASE("MonotonicStack", "[complicated][monotonic_stack]") {
-    MonotonicStack ms;
+    ns_complicated_monotonic_stack::Solution ms;
 
     SECTION("prevSmaller") {
         std::vector<int> nums = {2, 1, 5, 6, 2, 3};

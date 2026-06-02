@@ -2,7 +2,7 @@
 #include "workspace/src/search/dfs/dfs.cpp"
 
 TEST_CASE("DFS floodFill", "[search][dfs]") {
-    DFS dfs;
+    ns_search_dfs::Solution dfs;
 
     SECTION("basic flood fill") {
         std::vector<std::vector<int>> image = {{1, 1, 1}, {1, 1, 0}, {1, 0, 1}};
@@ -21,7 +21,7 @@ TEST_CASE("DFS floodFill", "[search][dfs]") {
 }
 
 TEST_CASE("DFS countPaths", "[search][dfs]") {
-    DFS dfs;
+    ns_search_dfs::Solution dfs;
 
     SECTION("2x2 grid has 2 paths") {
         std::vector<std::vector<int>> grid = {{0, 0}, {0, 0}};

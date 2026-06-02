@@ -4,7 +4,9 @@
 #include <functional>
 #include <utility>
 
-class BFS {
+namespace ns_search_bfs {
+
+class Solution {
 public:
     // Shortest path in binary maze (0=open, 1=wall), -1 if unreachable
     int shortestPath(const std::vector<std::vector<int>>& grid) {
@@ -57,3 +59,5 @@ public:
         return count;
     }
 };
+
+}  // namespace ns_search_bfs

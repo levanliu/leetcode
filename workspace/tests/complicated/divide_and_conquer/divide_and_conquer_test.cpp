@@ -2,7 +2,7 @@
 #include "workspace/src/complicated/divide_and_conquer/divide_and_conquer.cpp"
 
 TEST_CASE("DivideAndConquer", "[complicated][divide_and_conquer]") {
-    DivideAndConquer dc;
+    ns_complicated_divide_and_conquer::Solution dc;
 
     SECTION("quickSort") {
         std::vector<int> arr = {3, 1, 4, 1, 5, 9, 2, 6};

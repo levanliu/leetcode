@@ -2,7 +2,9 @@
 #include <vector>
 #include <algorithm>
 
-class DivideAndConquer {
+namespace ns_complicated_divide_and_conquer {
+
+class Solution {
 public:
     void quickSort(std::vector<int>& arr, int l, int r) {
         if (l >= r) return;
@@ -46,3 +48,5 @@ public:
         return cnt;
     }
 };
+
+}  // namespace ns_complicated_divide_and_conquer

@@ -1,6 +1,8 @@
 #pragma once
 #include <stdexcept>
 
+namespace ns_data_structure_linked_list {
+
 template <typename T>
 struct ListNode {
     T val;
@@ -9,7 +11,7 @@ struct ListNode {
 };
 
 template <typename T>
-class LinkedList {
+class Solution {
 public:
     ListNode<T>* head = nullptr;
 
@@ -33,7 +35,9 @@ public:
 
     bool empty() const { return head == nullptr; }
 
-    ~LinkedList() {
+    ~Solution() {
         while (head) pop_front();
     }
 };
+
+}  // namespace ns_data_structure_linked_list

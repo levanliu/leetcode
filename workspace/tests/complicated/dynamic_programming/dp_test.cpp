@@ -2,7 +2,7 @@
 #include "workspace/src/complicated/dynamic_programming/dp.cpp"
 
 TEST_CASE("DynamicProgramming", "[complicated][dynamic_programming]") {
-    DynamicProgramming dp;
+    ns_complicated_dynamic_programming::Solution dp;
 
     SECTION("fib") {
         REQUIRE(dp.fib(0) == 0);

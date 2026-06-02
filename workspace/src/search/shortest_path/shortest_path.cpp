@@ -7,7 +7,9 @@
 // Dijkstra's shortest path algorithm (heap-based, O((V+E) log V)).
 // Works on non-negative weighted directed/undirected graphs.
 // Graph is represented as adjacency list: adj[u] = {(v, w), ...}
-class Dijkstra {
+namespace ns_search_shortest_path {
+
+class Solution {
 public:
     using Edge = std::pair<int, int>; // {neighbor, weight}
     using Graph = std::vector<std::vector<Edge>>;
@@ -33,3 +35,5 @@ public:
         return dist;
     }
 };
+
+}  // namespace ns_search_shortest_path

@@ -2,7 +2,7 @@
 #include "workspace/src/search/bfs/bfs.cpp"
 
 TEST_CASE("BFS shortestPath", "[search][bfs]") {
-    BFS bfs;
+    ns_search_bfs::Solution bfs;
 
     SECTION("simple path") {
         std::vector<std::vector<int>> grid = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
@@ -26,7 +26,7 @@ TEST_CASE("BFS shortestPath", "[search][bfs]") {
 }
 
 TEST_CASE("BFS countComponents", "[search][bfs]") {
-    BFS bfs;
+    ns_search_bfs::Solution bfs;
 
     SECTION("two components") {
         std::vector<std::vector<int>> grid = {{1, 1, 0}, {0, 0, 0}, {0, 1, 1}};

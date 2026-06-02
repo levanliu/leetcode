@@ -2,7 +2,7 @@
 #include "workspace/src/data_structure/stack_and_queue/stack.cpp"
 
 TEST_CASE("Stack operations", "[data_structure][stack_and_queue]") {
-    Stack<int> s;
+    ns_data_structure_stack_and_queue::Solution<int> s;
 
     REQUIRE(s.empty());
     REQUIRE(s.size() == 0);

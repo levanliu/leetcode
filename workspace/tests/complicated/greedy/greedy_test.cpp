@@ -2,7 +2,7 @@
 #include "workspace/src/complicated/greedy/greedy.cpp"
 
 TEST_CASE("Greedy", "[complicated][greedy]") {
-    Greedy g;
+    ns_complicated_greedy::Solution g;
 
     SECTION("maxProfit") {
         REQUIRE(g.maxProfit({7, 1, 5, 3, 6, 4}) == 5);

@@ -2,7 +2,7 @@
 #include "workspace/src/data_structure/trie/trie.cpp"
 
 TEST_CASE("Trie insert and query", "[data_structure][trie]") {
-    Trie t;
+    ns_data_structure_trie::Solution t;
     t.insert("apple");
     t.insert("apple");
     t.insert("app");

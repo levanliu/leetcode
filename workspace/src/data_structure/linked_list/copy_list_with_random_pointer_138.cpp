@@ -4,7 +4,7 @@
 
 /*
 // Definition for a Node.
-class Node {
+struct Node {
 public:
     int val;
     Node* next;

@@ -1,10 +1,12 @@
 #pragma once
 #include <vector>
 
-class PrefixSum1D {
+namespace ns_skills_prefix_sum_1d {
+
+class Solution {
     std::vector<int> ps;
 public:
-    explicit PrefixSum1D(const std::vector<int>& nums) {
+    explicit Solution(const std::vector<int>& nums) {
         ps.resize(nums.size() + 1, 0);
         for (int i = 0; i < (int)nums.size(); i++)
             ps[i + 1] = ps[i] + nums[i];
@@ -13,10 +15,14 @@ public:
     int query(int l, int r) const { return ps[r + 1] - ps[l]; }
 };
 
-class PrefixSum2D {
+}  // namespace ns_skills_prefix_sum_1d
+
+namespace ns_skills_prefix_sum_2d {
+
+class Solution {
     std::vector<std::vector<int>> ps;
 public:
-    explicit PrefixSum2D(const std::vector<std::vector<int>>& matrix) {
+    explicit Solution(const std::vector<std::vector<int>>& matrix) {
         int m = matrix.size(), n = m ? (int)matrix[0].size() : 0;
         ps.assign(m + 1, std::vector<int>(n + 1, 0));
         for (int i = 1; i <= m; i++)
@@ -28,3 +34,5 @@ public:
         return ps[r2+1][c2+1] - ps[r1][c2+1] - ps[r2+1][c1] + ps[r1][c1];
     }
 };
+
+}  // namespace ns_skills_prefix_sum_2d

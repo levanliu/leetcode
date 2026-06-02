@@ -6,7 +6,9 @@
 // Trie (prefix tree): efficient string storage and prefix search.
 // Supports insert and query-count operations.
 // Reference: AcWing 835
-class Trie {
+namespace ns_data_structure_trie {
+
+class Solution {
 private:
     static const int N = 100010;
     // Heap-allocated to avoid large stack frames (~10 MB)
@@ -15,7 +17,7 @@ private:
     int idx;
 
 public:
-    Trie() : son(N), cnt(N, 0), idx(0) {
+    Solution() : son(N), cnt(N, 0), idx(0) {
         for (auto& arr : son) arr.fill(0);
     }
 
@@ -52,3 +54,5 @@ public:
         return true;
     }
 };
+
+}  // namespace ns_data_structure_trie
