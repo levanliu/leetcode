@@ -3,12 +3,11 @@
   "configurations": [
     {
       "name": "Debug test",
-      "type": "lldb",
+      "type": "lldb-dap",
       "request": "launch",
       "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
       "args": [],
       "cwd": "${workspaceFolder}",
-      "sourceLanguages": ["C++"],
       "preLaunchTask": "Build test (debug)"
     }
   ]

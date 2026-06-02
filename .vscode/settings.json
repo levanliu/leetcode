@@ -4,7 +4,7 @@
     "C_Cpp.intelliSenseEngine": "disabled",
 
     // ── Clangd ───────────────────────────────────────────────────
-    "clangd.path": "/opt/hp93000rt/el9/x86_64/llvm-clang-20/bin/clangd",
+    "clangd.path": "/usr/bin/clangd",
     "clangd.arguments": [
         "-log=verbose",
         "-pretty",
@@ -15,7 +15,7 @@
     ],
 
     // ── lldb ───────────────────────────────────────────────────
-    "lldb-dap.executable-path": "/opt/hp93000rt/el9/x86_64/llvm-clang-20/bin/lldb",
+    "lldb-dap.executable-path": "/usr/bin/lldb",
 
     // ── C++ Editor ───────────────────────────────────────────────
     "[cpp]": {

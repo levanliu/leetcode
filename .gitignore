@@ -1,8 +1,8 @@
 # Bazel
 bazel-bin
-bazel-out/
+bazel-out
 bazel-testlogs
-bazel-leetcode/
+bazel-leetcode
 .bazelrc.user
 compile_commands.json
 
@@ -29,7 +29,6 @@ a.out
 
 # IDE / editor
 .idea/
-.vscode/
 *.swp
 *.swo
 *~
@@ -37,3 +36,5 @@ a.out
 # OS
 .DS_Store
 Thumbs.db
+
+.cache
