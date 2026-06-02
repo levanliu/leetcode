@@ -49,8 +49,9 @@ public:
         }
 
         res += (long long)cnt[0] * (cnt[0] - 1) / 2 +
-               (long long)cnt[30] * (cnt[30 - 1]) / 2;
+               (long long)cnt[30] * (cnt[30] - 1) / 2;
         return (int)res;
-    };
+    }
+};
 
 }  // namespace ns_data_structure_array_and_string_num_pairs_divisible_by60

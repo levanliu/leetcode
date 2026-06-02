@@ -27,8 +27,8 @@ public:
 
     explicit Solution(int capacity)
         : capacity(capacity),
-          head(make_unique<DlinkedNode>()),
-          tail(make_unique<DlinkedNode>()) {
+          head(std::make_unique<DlinkedNode>()),
+          tail(std::make_unique<DlinkedNode>()) {
         head->ne = tail.get();
         tail->pre = head.get();
     }
@@ -68,7 +68,7 @@ public:
 
     void put(int key, int value) {
         if (!cache.count(key)) {
-            auto node = make_unique<DlinkedNode>(key, value);
+            auto node = std::make_unique<DlinkedNode>(key, value);
             DlinkedNode* cur = node.get();
             cache[key] = std::move(node);
             addToHead(cur);

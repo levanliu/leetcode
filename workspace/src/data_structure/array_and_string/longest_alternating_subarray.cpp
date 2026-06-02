@@ -73,6 +73,5 @@ public:
         return res;
     }
 */
-};
 
 }  // namespace ns_data_structure_array_and_string_longest_alternating_subarray

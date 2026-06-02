@@ -1,9 +1,9 @@
-#include <algorithm>
+#include <climits>
 namespace ns_skills_string_algorithm_reverse {
 
 class Solution {
 public:
-    int std::reverse(int x) {
+    int reverse(int x) {
         int res = 0;
         while (x != 0) {
             int t = x % 10;

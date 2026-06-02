@@ -13,7 +13,7 @@ public:
         }
 
         int res = 0;
-        for (int i = 0; i < words.size(); i++) {
+        for (int i = 0; i < (int)words.size(); i++) {
             for (int j = 0; j < i; j++) {
                 if (words[i] == words[j]) {
                     res++;

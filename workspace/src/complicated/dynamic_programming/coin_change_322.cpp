@@ -33,7 +33,7 @@ int Solution::dp(std::vector<int>& coins, int rem) {
     if (count[rem - 1] != 0)
         return count[rem - 1];
     int Min = INT_MAX;
-    for (int i = 0; i < coins.size(); i++) {
+    for (std::size_t i = 0; i < coins.size(); i++) {
         int res = dp(coins, rem - coins[i]);
         if (res >= 0 && res < Min) {
             Min = res + 1;

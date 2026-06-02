@@ -10,13 +10,13 @@ public:
 
     void dfs(int u, std::vector<int>& nums) {
 
-        if (u == nums.size()) {
+        if (u == static_cast<int>(nums.size())) {
             std::vector<int> res(path, path + nums.size());
             ans.push_back(res);
             return;
         }
 
-        for (int i = 0; i < nums.size(); i++) {
+        for (std::size_t i = 0; i < nums.size(); i++) {
             if (!st[i]) {
                 path[u] = nums[i];
                 st[i] = true;

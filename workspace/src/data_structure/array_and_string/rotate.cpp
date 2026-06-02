@@ -5,7 +5,7 @@ namespace ns_data_structure_array_and_string_rotate {
 
 class Solution {
 public:
-    void std::rotate(std::vector<int>& nums, int k) {
+    void rotate(std::vector<int>& nums, int k) {
         k %= nums.size();
         std::reverse(nums.begin(), nums.end());
         std::reverse(nums.begin(), nums.begin() + k);

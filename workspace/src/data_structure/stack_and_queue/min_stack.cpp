@@ -1,4 +1,6 @@
 #include <algorithm>
+#include <climits>
+#include <cstring>
 namespace ns_stack_min_stack {
 
 class Solution {

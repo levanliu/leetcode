@@ -1,3 +1,4 @@
+#include <climits>
 #include "workspace/src/data_structure/tree/tree_node.hpp"
 namespace ns_data_structure_tree_is_valid_bst {
 

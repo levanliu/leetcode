@@ -24,12 +24,12 @@ public:
     }
     TreeNode* deserialize(std::string data) {
         std::queue<std::string> dataQueue;
-        for (int i = 0; i < data.size();) {
+        for (std::size_t i = 0; i < data.size();) {
             if (data[i] == ',') {
                 i++;
             }
-            int k = i;
-            while (data[i] != ',' && i < data.size())
+            std::size_t k = i;
+            while (i < data.size() && data[i] != ',')
                 i++;
             dataQueue.push(data.substr(k, i - k));
         }

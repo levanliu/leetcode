@@ -1,3 +1,4 @@
+#include <cstring>
 namespace ns_data_structure_array_and_string_count_primes {
 
 class Solution {

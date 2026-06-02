@@ -1,3 +1,4 @@
+#include <cstring>
 #include <utility>
 #include <vector>
 namespace ns_data_structure_array_and_string_spiral_order {

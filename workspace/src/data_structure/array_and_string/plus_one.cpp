@@ -14,7 +14,7 @@ public:
         }
         std::vector<int> res;
         res.push_back(1);
-        for (int i = 0; i < digits.size(); i++) {
+        for (int i = 0; i < (int)digits.size(); i++) {
             res.push_back(0);
         }
         return res;

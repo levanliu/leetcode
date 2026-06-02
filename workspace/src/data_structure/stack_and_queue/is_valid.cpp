@@ -6,7 +6,7 @@ class Solution {
 public:
     bool isValid(std::string s) {
         std::stack<char> st;
-        for (int i = 0; i < s.size(); i++) {
+        for (std::size_t i = 0; i < s.size(); i++) {
             switch (s[i]) {
                 case ')':
                     if (st.empty() || st.top() != '(')

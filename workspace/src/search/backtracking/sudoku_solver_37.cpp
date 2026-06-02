@@ -17,7 +17,7 @@ private:
 
 public:
     void dfs(std::vector<std::vector<char>>& board, int pos) {
-        if (pos == spaces.size()) {
+        if (pos == static_cast<int>(spaces.size())) {
             valid = true;
             return;
         }

@@ -10,12 +10,12 @@ public:
                                   {'5', "jkl"}, {'6', "mno"}, {'7', "pqrs"},
                                   {'8', "tuv"}, {'9', "wxyz"}};
     void dfs(int u, std::string cur, std::string digits) {
-        if (u == digits.size()) {
+        if (u == static_cast<int>(digits.size())) {
             res.push_back(cur);
             return;
         }
         std::string curMap = m[digits[u]];
-        for (int i = 0; i < curMap.size(); i++) {
+        for (std::size_t i = 0; i < curMap.size(); i++) {
             dfs(u + 1, cur + curMap[i], digits);
         }
     }

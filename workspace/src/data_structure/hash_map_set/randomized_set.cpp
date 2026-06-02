@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <unordered_map>
 #include <vector>
 namespace ns_hash_randomized_set {

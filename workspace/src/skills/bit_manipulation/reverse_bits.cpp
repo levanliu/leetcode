@@ -1,3 +1,4 @@
+#include <cstdint>
 namespace ns_skills_bit_manipulation_reverse_bits {
 
 class Solution {

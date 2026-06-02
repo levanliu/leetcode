@@ -31,7 +31,7 @@ public:
     int maximizeSum(std::vector<int>& nums, int k) {
 
         int max = nums[0];
-        for (int i = 1; i < nums.size(); i++) {
+        for (int i = 1; i < (int)nums.size(); i++) {
             if (max < nums[i])
                 max = nums[i];
         }

@@ -6,7 +6,7 @@ class Solution {
 public:
     bool dfs(std::vector<std::vector<char>>& board, std::string word, int i,
              int r, int c) {
-        if (i == word.size())
+        if (i == static_cast<int>(word.size()))
             return true;
 
         int m = board.size();

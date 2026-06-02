@@ -1,3 +1,4 @@
+#include <cmath>
 namespace ns_data_structure_array_and_string_my_sqrt {
 
 class Solution {

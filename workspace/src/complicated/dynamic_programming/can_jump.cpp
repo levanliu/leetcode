@@ -6,11 +6,11 @@ class Solution {
 public:
     bool canJump(std::vector<int>& nums) {
         int maxStep = nums[0];
-        for (int i = 1; i < nums.size(); i++) {
-            if (maxStep >= i)
-                maxStep = std::max(maxStep, i + nums[i]);
+        for (std::size_t i = 1; i < nums.size(); i++) {
+            if (maxStep >= static_cast<int>(i))
+                maxStep = std::max(maxStep, static_cast<int>(i) + nums[i]);
         }
-        return maxStep >= nums.size() - 1;
+        return maxStep >= static_cast<int>(nums.size()) - 1;
     }
 };
 }  // namespace ns_complicated_dynamic_programming_can_jump

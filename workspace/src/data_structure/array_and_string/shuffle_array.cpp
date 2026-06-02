@@ -11,7 +11,7 @@ public:
 
     std::vector<int> reset() { return res; }
 
-    std::vector<int> std::shuffle() {
+    std::vector<int> shuffle() {
         int n = res.size();
         std::vector<int> temp = res;
         for (int i = n; i; i--) {

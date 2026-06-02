@@ -4,7 +4,7 @@ namespace ns_data_structure_array_and_string_rotate_image {
 
 class Solution {
 public:
-    void std::rotate(std::vector<std::vector<int>>& matrix) {
+    void rotate(std::vector<std::vector<int>>& matrix) {
         //行交换 + 对角线交换
         int m = matrix.size();
         int n = matrix[0].size();

@@ -6,7 +6,7 @@ class Solution {
 public:
     std::vector<std::string> res;
     void dfs(std::string cur, int lsize, int rsize, int n) {
-        if (cur.size() == 2 * n) {
+        if (static_cast<int>(cur.size()) == 2 * n) {
             res.push_back(cur);
             return;
         }

@@ -16,7 +16,7 @@ public:
         if (left > right) {
             return nullptr;
         }
-        int mid = left + right >> 1;
+        int mid = (left + right) >> 1;
         TreeNode* root = new TreeNode(nums[mid]);
         root->left = sortedArrayToBSTHelper(nums, left, mid - 1);
         root->right = sortedArrayToBSTHelper(nums, mid + 1, right);

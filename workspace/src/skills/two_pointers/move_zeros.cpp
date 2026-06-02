@@ -7,11 +7,11 @@ public:
         if (nums.size() <= 1)
             return;
         int index = 0;
-        for (int i = 0; i < nums.size(); i++) {
+        for (std::size_t i = 0; i < nums.size(); i++) {
             if (nums[i] != 0)
                 nums[index++] = nums[i];
         }
-        while (index < nums.size())
+        while (index < static_cast<int>(nums.size()))
             nums[index++] = 0;
     }
 };

@@ -1,7 +1,6 @@
 //
 // Created by le on 25/11/2022.
 //
-#include <std::string>
 #include <string>
 #include <vector>
 namespace ns_string_longest_palindrome {

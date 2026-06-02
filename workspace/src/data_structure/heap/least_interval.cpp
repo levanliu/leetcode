@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cstring>
 #include <vector>
 namespace ns_data_structure_heap_least_interval {
 

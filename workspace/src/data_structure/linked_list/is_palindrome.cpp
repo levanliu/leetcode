@@ -18,7 +18,7 @@ public:
             slow = slow->next;
         }
         //反转后半部分链表
-        slow = std::reverse(slow);
+        slow = reverse(slow);
 
         fast = head;
         while (slow != nullptr) {
@@ -31,7 +31,7 @@ public:
         return true;
     }
 
-    ListNode* std::reverse(ListNode* head) {
+    ListNode* reverse(ListNode* head) {
         ListNode* p = head;
         head = nullptr;
         ListNode* q;

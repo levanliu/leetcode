@@ -7,7 +7,7 @@ public:
         int l = 0;
         int r = nums.size() - 1;
         while (l < r) {
-            int mid = l + r >> 1;
+            int mid = (l + r) >> 1;
             if (nums[mid] >= target)
                 r = mid;
             else
@@ -22,7 +22,7 @@ public:
         int l = 0;
         int r = nums.size() - 1;
         while (l < r) {
-            int mid = l + r + 1 >> 1;
+            int mid = (l + r + 1) >> 1;
             if (nums[mid] <= target)
                 l = mid;
             else
