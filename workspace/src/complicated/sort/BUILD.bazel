@@ -1,5 +1,5 @@
 cc_library(
     name = "sort",
-    hdrs = ["sort.h"],
+    hdrs = ["sort.cpp"],
     visibility = ["//visibility:public"],
 )

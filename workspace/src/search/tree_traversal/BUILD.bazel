@@ -1,5 +1,5 @@
 cc_library(
     name = "tree_traversal",
-    hdrs = ["tree_traversal.h"],
+    hdrs = ["tree_traversal.cpp"],
     visibility = ["//visibility:public"],
 )

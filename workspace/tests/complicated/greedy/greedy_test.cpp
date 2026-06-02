@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/complicated/greedy/greedy.h"
+#include "workspace/src/complicated/greedy/greedy.cpp"
 
 TEST_CASE("Greedy", "[complicated][greedy]") {
     Greedy g;

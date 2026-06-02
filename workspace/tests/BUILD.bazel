@@ -28,5 +28,6 @@ test_suite(
         "//workspace/tests/complicated/monotonic_stack:monotonic_stack_test",
         "//workspace/tests/complicated/topological_sort:topological_sort_test",
         "//workspace/tests/complicated/sort:sort_test",
+        "//workspace/tests/conventions:lc_files_test",
     ],
 )

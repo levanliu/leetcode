@@ -1,5 +1,5 @@
 cc_library(
     name = "greedy",
-    hdrs = ["greedy.h"],
+    hdrs = ["greedy.cpp"],
     visibility = ["//visibility:public"],
 )

@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/skills/prefix_sum/prefix_sum.h"
+#include "workspace/src/skills/prefix_sum/prefix_sum.cpp"
 
 TEST_CASE("PrefixSum1D", "[skills][prefix_sum]") {
     std::vector<int> nums = {1, 2, 3, 4, 5};

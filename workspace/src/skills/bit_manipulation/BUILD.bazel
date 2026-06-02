@@ -1,5 +1,5 @@
 cc_library(
     name = "bit_manipulation",
-    hdrs = ["bit_manipulation.h"],
+    hdrs = ["bit_manipulation.cpp"],
     visibility = ["//visibility:public"],
 )

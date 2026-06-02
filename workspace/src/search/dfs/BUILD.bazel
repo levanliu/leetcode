@@ -1,5 +1,5 @@
 cc_library(
     name = "dfs",
-    hdrs = ["dfs.h"],
+    hdrs = ["dfs.cpp"],
     visibility = ["//visibility:public"],
 )

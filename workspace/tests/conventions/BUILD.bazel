@@ -1,0 +1,7 @@
+cc_test(
+    name = "lc_files_test",
+    srcs = ["lc_files_test.cpp"],
+    deps = [
+        "@catch2//:catch2_main",
+    ],
+)

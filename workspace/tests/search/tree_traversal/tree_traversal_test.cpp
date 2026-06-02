@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/search/tree_traversal/tree_traversal.h"
+#include "workspace/src/search/tree_traversal/tree_traversal.cpp"
 
 static TreeNode* buildTestTree() {
     // Tree shape:  1 -> left:2, right:3; 2 -> left:4, right:5

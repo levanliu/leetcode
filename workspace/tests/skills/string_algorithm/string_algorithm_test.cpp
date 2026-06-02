@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/skills/string_algorithm/string_algorithm.h"
+#include "workspace/src/skills/string_algorithm/string_algorithm.cpp"
 #include <algorithm>
 
 TEST_CASE("kmpSearch", "[skills][string_algorithm]") {

@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/search/backtracking/n_queens.h"
+#include "workspace/src/search/backtracking/n_queens.cpp"
 
 TEST_CASE("NQueens", "[search][backtracking]") {
     NQueens nq;

@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/complicated/topological_sort/topological_sort.h"
+#include "workspace/src/complicated/topological_sort/topological_sort.cpp"
 #include <algorithm>
 
 TEST_CASE("TopologicalSort", "[complicated][topological_sort]") {

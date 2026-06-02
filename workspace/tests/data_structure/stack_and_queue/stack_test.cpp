@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/data_structure/stack_and_queue/stack.h"
+#include "workspace/src/data_structure/stack_and_queue/stack.cpp"
 
 TEST_CASE("Stack operations", "[data_structure][stack_and_queue]") {
     Stack<int> s;

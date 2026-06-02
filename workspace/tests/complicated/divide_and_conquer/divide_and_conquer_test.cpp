@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/complicated/divide_and_conquer/divide_and_conquer.h"
+#include "workspace/src/complicated/divide_and_conquer/divide_and_conquer.cpp"
 
 TEST_CASE("DivideAndConquer", "[complicated][divide_and_conquer]") {
     DivideAndConquer dc;

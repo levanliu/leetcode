@@ -1,5 +1,5 @@
 cc_library(
     name = "divide_and_conquer",
-    hdrs = ["divide_and_conquer.h"],
+    hdrs = ["divide_and_conquer.cpp"],
     visibility = ["//visibility:public"],
 )

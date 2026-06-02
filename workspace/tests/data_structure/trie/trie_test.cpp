@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/data_structure/trie/trie.h"
+#include "workspace/src/data_structure/trie/trie.cpp"
 
 TEST_CASE("Trie insert and query", "[data_structure][trie]") {
     Trie t;

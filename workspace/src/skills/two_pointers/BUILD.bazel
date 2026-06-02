@@ -1,5 +1,5 @@
 cc_library(
     name = "two_pointers",
-    hdrs = ["two_pointers.h"],
+    hdrs = ["two_pointers.cpp"],
     visibility = ["//visibility:public"],
 )

@@ -1,5 +1,5 @@
 cc_library(
     name = "graph",
-    hdrs = ["graph.h"],
+    hdrs = ["graph.cpp"],
     visibility = ["//visibility:public"],
 )

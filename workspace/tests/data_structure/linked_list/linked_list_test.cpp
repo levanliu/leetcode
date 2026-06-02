@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/data_structure/linked_list/linked_list.h"
+#include "workspace/src/data_structure/linked_list/linked_list.cpp"
 
 TEST_CASE("LinkedList operations", "[data_structure][linked_list]") {
     LinkedList<int> list;

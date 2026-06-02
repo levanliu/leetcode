@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/search/shortest_path/shortest_path.h"
+#include "workspace/src/search/shortest_path/shortest_path.cpp"
 #include <climits>
 
 TEST_CASE("Dijkstra shortest path", "[search][shortest_path]") {

@@ -1,5 +1,5 @@
 cc_library(
     name = "stack_and_queue",
-    hdrs = ["stack.h"],
+    hdrs = ["stack.cpp"],
     visibility = ["//visibility:public"],
 )

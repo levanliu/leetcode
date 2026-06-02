@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/search/interval/interval.h"
+#include "workspace/src/search/interval/interval.cpp"
 
 TEST_CASE("mergeIntervals", "[search][interval]") {
     REQUIRE(mergeIntervals({{1,3},{2,6},{8,10},{15,18}}) ==

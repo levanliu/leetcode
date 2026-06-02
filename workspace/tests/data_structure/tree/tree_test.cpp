@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/data_structure/tree/tree.h"
+#include "workspace/src/data_structure/tree/tree.cpp"
 
 static TreeNode* buildBST() {
     // BST: 4 -> left:2, right:6; 2->left:1,right:3; 6->left:5,right:7

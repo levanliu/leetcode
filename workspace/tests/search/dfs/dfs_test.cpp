@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/search/dfs/dfs.h"
+#include "workspace/src/search/dfs/dfs.cpp"
 
 TEST_CASE("DFS floodFill", "[search][dfs]") {
     DFS dfs;

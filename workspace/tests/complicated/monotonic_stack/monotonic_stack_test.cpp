@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/complicated/monotonic_stack/monotonic_stack.h"
+#include "workspace/src/complicated/monotonic_stack/monotonic_stack.cpp"
 
 TEST_CASE("MonotonicStack", "[complicated][monotonic_stack]") {
     MonotonicStack ms;

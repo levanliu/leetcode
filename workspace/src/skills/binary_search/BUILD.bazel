@@ -1,5 +1,5 @@
 cc_library(
     name = "binary_search",
-    hdrs = ["binary_search.h"],
+    hdrs = ["binary_search.cpp"],
     visibility = ["//visibility:public"],
 )

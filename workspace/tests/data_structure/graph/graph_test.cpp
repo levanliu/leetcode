@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/data_structure/graph/graph.h"
+#include "workspace/src/data_structure/graph/graph.cpp"
 #include <algorithm>
 
 TEST_CASE("countComponents", "[graph]") {

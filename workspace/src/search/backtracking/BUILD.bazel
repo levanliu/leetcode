@@ -1,5 +1,5 @@
 cc_library(
     name = "backtracking",
-    hdrs = ["n_queens.h"],
+    hdrs = ["n_queens.cpp"],
     visibility = ["//visibility:public"],
 )

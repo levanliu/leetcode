@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include "workspace/src/data_structure/hash_map_set/hash_map.h"
+#include "workspace/src/data_structure/hash_map_set/hash_map.cpp"
 #include <string>
 
 TEST_CASE("HashMap operations", "[data_structure][hash_map_set]") {
