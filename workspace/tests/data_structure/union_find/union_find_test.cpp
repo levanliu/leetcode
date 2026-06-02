@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/data_structure/union_find/union_find.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("UnionFind", "[data_structure][union_find]") {
     ns_data_structure_union_find::Solution uf(5);

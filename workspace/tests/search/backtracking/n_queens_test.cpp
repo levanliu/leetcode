@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/search/backtracking/n_queens.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("NQueens", "[search][backtracking]") {
     ns_search_backtracking_n_queens::Solution nq;
@@ -23,7 +23,9 @@ TEST_CASE("NQueens", "[search][backtracking]") {
             REQUIRE((int)board.size() == 4);
             for (const auto& row : board) {
                 int queens = 0;
-                for (char c : row) if (c == 'Q') queens++;
+                for (char c : row)
+                    if (c == 'Q')
+                        queens++;
                 REQUIRE(queens == 1);
             }
         }

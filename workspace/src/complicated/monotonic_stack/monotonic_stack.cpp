@@ -1,7 +1,7 @@
 #pragma once
-#include <vector>
-#include <stack>
 #include <algorithm>
+#include <stack>
+#include <vector>
 
 namespace ns_complicated_monotonic_stack {
 

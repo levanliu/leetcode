@@ -1,6 +1,8 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 cc_test(
     name = "greedy_test",
-    srcs = ["greedy_test.cpp"],
+    srcs = glob(["*_test.cpp"]),
     deps = [
         "//workspace/src/complicated/greedy",
         "@catch2//:catch2_main",

@@ -2,66 +2,29 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build with clang",
+      "label": "Build test (debug)",
       "type": "shell",
-      "command": "clang",
+      "command": "bazelisk",
       "args": [
-        "-std=c11",
-        "-g",
-        "${file}",
-        "-o",
-        "${workspaceFolder}/${fileBasenameNoExtension}"
+        "build",
+        "-c",
+        "dbg",
+        "//${relativeFileDirname}:${fileBasenameNoExtension}"
       ],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "${workspaceFolder}"
       },
       "problemMatcher": {
-        "owner": "lldb",
-        "fileLocation": [
-          "relative",
-          "${fileDirname}"
-        ],
-        "pattern": [
-          {
-            "regexp": "^(ld.lld:.*)$",
-            "message": 1,
-          },
-          {
-            "regexp": ">>> referenced by (.*):(\\d+)",
-            "file": 1,
-            "line": 2,
-          },
-        ]
-      }
-    },
-    {
-      "label": "Build with clang++",
-      "type": "shell",
-      "command": "clang++",
-      "args": [
-        "-std=c++11",
-        "-g",
-        "${file}",
-        "-o",
-        "${workspaceFolder}/${fileBasenameNoExtension}"
-      ],
-      "options": {
-        "cwd": "${fileDirname}"
-      },
-      "problemMatcher": {
-        "owner": "lldb",
-        "fileLocation": [
-          "relative",
-          "${fileDirname}"
-        ],
+        "owner": "cpp",
+        "fileLocation": ["relative", "${workspaceFolder}"],
         "pattern": {
           "regexp": "^(.*\\.cpp):(\\d+):(\\d+): (.*)$",
           "file": 1,
           "line": 2,
           "column": 3,
           "message": 4
-        },
+        }
       }
-    },
+    }
   ]
 }

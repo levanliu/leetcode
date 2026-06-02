@@ -1,18 +1,12 @@
+#include <iostream>
 //
 // Created by le on 25/11/2022.
 //
-
-#include <iostream>
-
-using namespace std;
-
 namespace ns_array_three_sum_stub {
 
 class Solution {
 public:
-	void printThree() {
-		cout << "hello world!" << endl;
-	}
+    void printThree() { std::cout << "hello world!" << std::endl; }
 };
 
-} // namespace ns_array_three_sum_stub
+}  // namespace ns_array_three_sum_stub

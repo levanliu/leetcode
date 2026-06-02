@@ -1,5 +1,11 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
 cc_library(
     name = "tree_traversal",
-    hdrs = ["tree_traversal.cpp"],
+    hdrs = glob(["*.cpp"]) + glob(
+        ["*.hpp"],
+        allow_empty = True,
+    ),
     visibility = ["//visibility:public"],
+    deps = ["//workspace/src/data_structure/tree"],
 )

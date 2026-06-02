@@ -1,6 +1,6 @@
 #pragma once
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 namespace ns_complicated_divide_and_conquer {
 
@@ -58,7 +58,8 @@ public:
             return 0;
         }
         int mid = l + ((r - l) / 2);
-        long long cnt = countInversions(arr, l, mid) + countInversions(arr, mid + 1, r);
+        long long cnt =
+            countInversions(arr, l, mid) + countInversions(arr, mid + 1, r);
         std::vector<int> tmp(r - l + 1);
         int i = l;
         int j = mid + 1;

@@ -1,5 +1,10 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
 cc_library(
     name = "topological_sort",
-    hdrs = ["topological_sort.cpp"],
+    hdrs = glob(["*.cpp"]) + glob(
+        ["*.hpp"],
+        allow_empty = True,
+    ),
     visibility = ["//visibility:public"],
 )

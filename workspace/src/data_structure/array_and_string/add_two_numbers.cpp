@@ -1,23 +1,14 @@
+#pragma once
+#include "workspace/src/data_structure/linked_list/list_node.hpp"
 //
 // Created by le on 25/11/2022.
 //
-
-struct ListNode {
-    int val;
-    ListNode *next;
-
-    ListNode() : val(0), next(nullptr) {}
-
-    ListNode(int x) : val(x), next(nullptr) {}
-
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
 
 namespace ns_array_add_two_numbers {
 
 class Solution {
 public:
-    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode *head = nullptr, *tail = nullptr;
         int carry = 0;
         while (l1 || l2) {
@@ -45,4 +36,4 @@ public:
     }
 };
 
-} // namespace ns_array_add_two_numbers
+}  // namespace ns_array_add_two_numbers

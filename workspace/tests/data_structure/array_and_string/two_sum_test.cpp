@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/data_structure/array_and_string/two_sum.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("TwoSum basic cases", "[data_structure][array_and_string]") {
     ns_data_structure_array_and_string_two_sum::Solution sol;

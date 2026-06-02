@@ -1,37 +1,27 @@
-#include <iostream>
-using namespace std;
-
-struct ListNode
-{
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next){};
-};
+#pragma once
+#include "workspace/src/data_structure/linked_list/list_node.hpp"
 namespace ns_data_structure_linked_list_remove_nth_from_end {
-
 
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         /** n = 0   1 = n-1  i = n - i */
 
-        if(head->next == nullptr )
+        if (head->next == nullptr)
             return nullptr;
 
         ListNode* p = head;
-        
+
         ListNode* cur = head;
         ListNode* pre = head;
-        while(n--){
+        while (n--) {
             p = p->next;
         }
 
-        if(p == nullptr)
+        if (p == nullptr)
             return head->next;
 
-        while(p != nullptr){
+        while (p != nullptr) {
             pre = cur;
             cur = cur->next;
             p = p->next;
@@ -42,4 +32,4 @@ public:
         return head;
     }
 };
-} // namespace ns_data_structure_linked_list_remove_nth_from_end
+}  // namespace ns_data_structure_linked_list_remove_nth_from_end

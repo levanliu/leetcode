@@ -1,7 +1,7 @@
 #pragma once
+#include <array>
 #include <string>
 #include <vector>
-#include <array>
 
 // Trie (prefix tree): efficient string storage and prefix search.
 // Supports insert and query-count operations.
@@ -18,7 +18,8 @@ private:
 
 public:
     Solution() : son(N), cnt(N, 0), idx(0) {
-        for (auto& arr : son) arr.fill(0);
+        for (auto& arr : son)
+            arr.fill(0);
     }
 
     // Insert a lowercase string into the trie
@@ -26,7 +27,8 @@ public:
         int p = 0;
         for (char ch : str) {
             int u = ch - 'a';
-            if (!son[p][u]) son[p][u] = ++idx;
+            if (!son[p][u])
+                son[p][u] = ++idx;
             p = son[p][u];
         }
         cnt[p]++;
@@ -37,7 +39,8 @@ public:
         int p = 0;
         for (char ch : str) {
             int u = ch - 'a';
-            if (!son[p][u]) return 0;
+            if (!son[p][u])
+                return 0;
             p = son[p][u];
         }
         return cnt[p];
@@ -48,7 +51,8 @@ public:
         int p = 0;
         for (char ch : prefix) {
             int u = ch - 'a';
-            if (!son[p][u]) return false;
+            if (!son[p][u])
+                return false;
             p = son[p][u];
         }
         return true;

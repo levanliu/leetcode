@@ -1,28 +1,36 @@
 #pragma once
-#include <string>
-#include <vector>
 #include <algorithm>
+#include <string>
 #include <unordered_map>
+#include <vector>
 
 // ---- KMP String Matching ------------------------------------------------
 // Find all starting positions (0-indexed) of pattern p in text s.  O(n+m)
 inline std::vector<int> kmpSearch(const std::string& s, const std::string& p) {
     std::vector<int> result;
-    if (p.empty()) return result;
+    if (p.empty())
+        return result;
     int m = static_cast<int>(p.size());
     int n = static_cast<int>(s.size());
     // Build failure function
     std::vector<int> ne(m, -1);
     for (int i = 1, j = -1; i < m; ++i) {
-        while (j != -1 && p[i] != p[j + 1]) j = ne[j];
-        if (p[i] == p[j + 1]) ++j;
+        while (j != -1 && p[i] != p[j + 1])
+            j = ne[j];
+        if (p[i] == p[j + 1])
+            ++j;
         ne[i] = j;
     }
     // Search
     for (int i = 0, j = -1; i < n; ++i) {
-        while (j != -1 && s[i] != p[j + 1]) j = ne[j];
-        if (s[i] == p[j + 1]) ++j;
-        if (j == m - 1) { result.push_back(i - j); j = ne[j]; }
+        while (j != -1 && s[i] != p[j + 1])
+            j = ne[j];
+        if (s[i] == p[j + 1])
+            ++j;
+        if (j == m - 1) {
+            result.push_back(i - j);
+            j = ne[j];
+        }
     }
     return result;
 }
@@ -30,22 +38,31 @@ inline std::vector<int> kmpSearch(const std::string& s, const std::string& p) {
 // ---- Longest Palindromic Substring (Manacher's) -------------------------
 // Returns the longest palindromic substring.  O(n)
 inline std::string longestPalindrome(const std::string& s) {
-    if (s.empty()) return "";
+    if (s.empty())
+        return "";
     // Transform: "abc" → "#a#b#c#"
     std::string t = "#";
-    for (char c : s) { t += c; t += '#'; }
+    for (char c : s) {
+        t += c;
+        t += '#';
+    }
     int n = static_cast<int>(t.size());
     std::vector<int> p(n, 0);
     int center = 0, right = 0;
     for (int i = 0; i < n; ++i) {
-        if (i < right) p[i] = std::min(right - i, p[2 * center - i]);
+        if (i < right)
+            p[i] = std::min(right - i, p[2 * center - i]);
         while (i - p[i] - 1 >= 0 && i + p[i] + 1 < n &&
                t[i - p[i] - 1] == t[i + p[i] + 1])
             ++p[i];
-        if (i + p[i] > right) { center = i; right = i + p[i]; }
+        if (i + p[i] > right) {
+            center = i;
+            right = i + p[i];
+        }
     }
     int maxLen = *std::max_element(p.begin(), p.end());
-    int maxIdx = static_cast<int>(std::max_element(p.begin(), p.end()) - p.begin());
+    int maxIdx =
+        static_cast<int>(std::max_element(p.begin(), p.end()) - p.begin());
     // Convert back to original indices
     int start = (maxIdx - maxLen) / 2;
     return s.substr(start, maxLen);
@@ -54,7 +71,9 @@ inline std::string longestPalindrome(const std::string& s) {
 // Check if a string is a palindrome.  O(n)
 inline bool isPalindrome(const std::string& s) {
     int l = 0, r = static_cast<int>(s.size()) - 1;
-    while (l < r) if (s[l++] != s[r--]) return false;
+    while (l < r)
+        if (s[l++] != s[r--])
+            return false;
     return true;
 }
 
@@ -64,7 +83,8 @@ inline bool isPalindrome(const std::string& s) {
 struct StringHash {
     static const long long MOD = 1e9 + 7, BASE = 131;
     std::vector<long long> h, pw;
-    explicit StringHash(const std::string& s) : h(s.size() + 1, 0), pw(s.size() + 1, 1) {
+    explicit StringHash(const std::string& s)
+        : h(s.size() + 1, 0), pw(s.size() + 1, 1) {
         for (int i = 0; i < static_cast<int>(s.size()); ++i) {
             h[i + 1] = (h[i] * BASE + s[i]) % MOD;
             pw[i + 1] = pw[i] * BASE % MOD;
@@ -78,8 +98,8 @@ struct StringHash {
 
 // ---- Anagram Grouping ---------------------------------------------------
 // Group strings that are anagrams of each other.  O(n * k log k)
-inline std::vector<std::vector<std::string>>
-groupAnagrams(const std::vector<std::string>& strs) {
+inline std::vector<std::vector<std::string>> groupAnagrams(
+    const std::vector<std::string>& strs) {
     std::unordered_map<std::string, std::vector<std::string>> map;
     for (const auto& s : strs) {
         std::string key = s;
@@ -87,7 +107,8 @@ groupAnagrams(const std::vector<std::string>& strs) {
         map[key].push_back(s);
     }
     std::vector<std::vector<std::string>> result;
-    for (auto& [k, v] : map) result.push_back(std::move(v));
+    for (auto& [k, v] : map)
+        result.push_back(std::move(v));
     return result;
 }
 
@@ -104,3 +125,26 @@ inline int lengthOfLongestSubstring(const std::string& s) {
     }
     return maxLen;
 }
+
+namespace ns_skills_string_algorithm {
+
+class Solution {
+public:
+    static std::vector<int> kmpSearch(const std::string& s,
+                                      const std::string& p) {
+        return ::kmpSearch(s, p);
+    }
+    static std::string longestPalindrome(const std::string& s) {
+        return ::longestPalindrome(s);
+    }
+    static bool isPalindrome(const std::string& s) { return ::isPalindrome(s); }
+    static std::vector<std::vector<std::string>> groupAnagrams(
+        const std::vector<std::string>& strs) {
+        return ::groupAnagrams(strs);
+    }
+    static int lengthOfLongestSubstring(const std::string& s) {
+        return ::lengthOfLongestSubstring(s);
+    }
+};
+
+}  // namespace ns_skills_string_algorithm

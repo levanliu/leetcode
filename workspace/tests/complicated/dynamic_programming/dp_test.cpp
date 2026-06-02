@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/complicated/dynamic_programming/dp.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("DynamicProgramming", "[complicated][dynamic_programming]") {
     ns_complicated_dynamic_programming::Solution dp;

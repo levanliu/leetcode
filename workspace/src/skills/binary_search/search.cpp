@@ -1,11 +1,9 @@
-#include <iostream>
-using namespace std;
+#include <vector>
 namespace ns_skills_binary_search_search {
-
 
 class Solution {
 public:
-    int search(vector<int>& nums, int target) {
+    int search(std::vector<int>& nums, int target) {
         int n = nums.size();
         if (n == 0) {
             return -1;
@@ -36,4 +34,4 @@ public:
         return -1;
     }
 };
-} // namespace ns_skills_binary_search_search
+}  // namespace ns_skills_binary_search_search

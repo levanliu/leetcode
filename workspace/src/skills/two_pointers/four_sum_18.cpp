@@ -1,46 +1,52 @@
+#include <algorithm>
+#include <vector>
 // LeetCode 18 - 4Sum
 // Difficulty: Medium | Category: Two Pointers
 // https://leetcode.com/problems/4sum/
-
-#include<iostream>
-using namespace std;
 namespace ns_skills_two_pointers_18_4sum {
-
 
 class Solution {
 public:
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        vector<vector<int>> quadruplets;
+    std::vector<std::vector<int>> fourSum(std::vector<int>& nums, int target) {
+        std::vector<std::vector<int>> quadruplets;
         if (nums.size() < 4) {
             return quadruplets;
         }
-        sort(nums.begin(), nums.end());
+        std::sort(nums.begin(), nums.end());
         int length = nums.size();
         for (int i = 0; i < length - 3; i++) {
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
-            if ((long) nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) {
+            if ((long)nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] >
+                target) {
                 break;
             }
-            if ((long) nums[i] + nums[length - 3] + nums[length - 2] + nums[length - 1] < target) {
+            if ((long)nums[i] + nums[length - 3] + nums[length - 2] +
+                    nums[length - 1] <
+                target) {
                 continue;
             }
             for (int j = i + 1; j < length - 2; j++) {
                 if (j > i + 1 && nums[j] == nums[j - 1]) {
                     continue;
                 }
-                if ((long) nums[i] + nums[j] + nums[j + 1] + nums[j + 2] > target) {
+                if ((long)nums[i] + nums[j] + nums[j + 1] + nums[j + 2] >
+                    target) {
                     break;
                 }
-                if ((long) nums[i] + nums[j] + nums[length - 2] + nums[length - 1] < target) {
+                if ((long)nums[i] + nums[j] + nums[length - 2] +
+                        nums[length - 1] <
+                    target) {
                     continue;
                 }
                 int left = j + 1, right = length - 1;
                 while (left < right) {
-                    long sum = (long) nums[i] + nums[j] + nums[left] + nums[right];
+                    long sum =
+                        (long)nums[i] + nums[j] + nums[left] + nums[right];
                     if (sum == target) {
-                        quadruplets.push_back({nums[i], nums[j], nums[left], nums[right]});
+                        quadruplets.push_back(
+                            {nums[i], nums[j], nums[left], nums[right]});
                         while (left < right && nums[left] == nums[left + 1]) {
                             left++;
                         }
@@ -63,4 +69,4 @@ public:
 
 // @lc code=end
 
-} // namespace ns_skills_two_pointers_18_4sum
+}  // namespace ns_skills_two_pointers_18_4sum

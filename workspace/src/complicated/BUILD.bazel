@@ -1,12 +1,14 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
 cc_library(
     name = "complicated",
+    visibility = ["//visibility:public"],
     deps = [
+        "//workspace/src/complicated/divide_and_conquer",
         "//workspace/src/complicated/dynamic_programming",
         "//workspace/src/complicated/greedy",
-        "//workspace/src/complicated/divide_and_conquer",
         "//workspace/src/complicated/monotonic_stack",
-        "//workspace/src/complicated/topological_sort",
         "//workspace/src/complicated/sort",
+        "//workspace/src/complicated/topological_sort",
     ],
-    visibility = ["//visibility:public"],
 )

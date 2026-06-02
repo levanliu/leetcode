@@ -1,12 +1,14 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
 cc_library(
     name = "search",
+    visibility = ["//visibility:public"],
     deps = [
+        "//workspace/src/search/backtracking",
         "//workspace/src/search/bfs",
         "//workspace/src/search/dfs",
-        "//workspace/src/search/backtracking",
-        "//workspace/src/search/tree_traversal",
-        "//workspace/src/search/shortest_path",
         "//workspace/src/search/interval",
+        "//workspace/src/search/shortest_path",
+        "//workspace/src/search/tree_traversal",
     ],
-    visibility = ["//visibility:public"],
 )

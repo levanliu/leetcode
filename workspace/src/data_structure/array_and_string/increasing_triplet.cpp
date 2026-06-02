@@ -1,12 +1,10 @@
-#include<iostream>
-using namespace std;
+#include <vector>
 namespace ns_data_structure_array_and_string_increasing_triplet {
-
 
 class Solution {
 public:
-    bool increasingTriplet(vector<int>& nums) {
-        if(nums.size() < 3){
+    bool increasingTriplet(std::vector<int>& nums) {
+        if (nums.size() < 3) {
             return false;
         }
         int small = INT_MAX;
@@ -23,4 +21,4 @@ public:
         return false;
     }
 };
-} // namespace ns_data_structure_array_and_string_increasing_triplet
+}  // namespace ns_data_structure_array_and_string_increasing_triplet

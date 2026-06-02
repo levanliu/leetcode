@@ -1,7 +1,4 @@
-#include<iostream>
-using namespace std;
 namespace ns_skills_bit_manipulation_reverse_bits {
-
 
 class Solution {
 public:
@@ -19,4 +16,4 @@ public:
         return res;
     }
 };
-} // namespace ns_skills_bit_manipulation_reverse_bits
+}  // namespace ns_skills_bit_manipulation_reverse_bits

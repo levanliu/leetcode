@@ -1,9 +1,9 @@
 #pragma once
-#include <vector>
-#include <list>
 #include <functional>
+#include <list>
 #include <stdexcept>
 #include <utility>
+#include <vector>
 
 namespace ns_data_structure_hash_map_set {
 
@@ -24,7 +24,10 @@ public:
     void insert(const K& key, const V& val) {
         auto idx = getBucket(key);
         for (auto& p : buckets[idx]) {
-            if (p.first == key) { p.second = val; return; }
+            if (p.first == key) {
+                p.second = val;
+                return;
+            }
         }
         buckets[idx].emplace_back(key, val);
         _size++;
@@ -33,14 +36,16 @@ public:
     bool contains(const K& key) const {
         auto idx = getBucket(key);
         for (const auto& p : buckets[idx])
-            if (p.first == key) return true;
+            if (p.first == key)
+                return true;
         return false;
     }
 
     V& get(const K& key) {
         auto idx = getBucket(key);
         for (auto& p : buckets[idx])
-            if (p.first == key) return p.second;
+            if (p.first == key)
+                return p.second;
         throw std::out_of_range("key not found");
     }
 
@@ -48,7 +53,11 @@ public:
         auto idx = getBucket(key);
         auto& bucket = buckets[idx];
         for (auto it = bucket.begin(); it != bucket.end(); ++it) {
-            if (it->first == key) { bucket.erase(it); _size--; return; }
+            if (it->first == key) {
+                bucket.erase(it);
+                _size--;
+                return;
+            }
         }
     }
 

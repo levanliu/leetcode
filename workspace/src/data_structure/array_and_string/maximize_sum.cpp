@@ -1,4 +1,4 @@
-#include <iostream>
+#include <algorithm>
 #include <vector>
 
 /**
@@ -24,24 +24,21 @@
 所以我们返回 18 。
 18 是可以得到的最大答案。
         */
-
-using namespace std;
 namespace ns_data_structure_array_and_string_maximize_sum {
 
 class Solution {
- public:
-  int maximizeSum(vector<int> & nums, int k)
-	{
+public:
+    int maximizeSum(std::vector<int>& nums, int k) {
 
-		int max = nums[0];
-		for(int i=1;i<nums.size();i++){
-			if (max < nums[i])
-				max = nums[i];
-		}
-		// int max = *max_element(nums.begin(),nums.end());
+        int max = nums[0];
+        for (int i = 1; i < nums.size(); i++) {
+            if (max < nums[i])
+                max = nums[i];
+        }
+        // int max = *std::max_element(nums.begin(),nums.end());
 
-		return (max + max + k-1) * (k) /2 ;
-	}
+        return (max + max + k - 1) * (k) / 2;
+    }
 };
 
-} // namespace ns_data_structure_array_and_string_maximize_sum
+}  // namespace ns_data_structure_array_and_string_maximize_sum

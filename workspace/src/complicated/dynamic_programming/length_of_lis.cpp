@@ -1,8 +1,6 @@
-#include <iostream>
+#include <utility>
 #include <vector>
-using namespace std;
 namespace ns_complicated_dynamic_programming_length_of_lis {
-
 
 class Solution {
 public:
@@ -24,12 +22,11 @@ public:
             }
             if (get(mid) < get(mid + 1)) {
                 left = mid + 1;
-            }
-            else {
+            } else {
                 right = mid - 1;
             }
         }
         return ans;
     }
 };
-} // namespace ns_complicated_dynamic_programming_length_of_lis
+}  // namespace ns_complicated_dynamic_programming_length_of_lis

@@ -1,6 +1,6 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/skills/string_algorithm/string_algorithm.cpp"
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("kmpSearch", "[skills][string_algorithm]") {
     REQUIRE(kmpSearch("abababab", "abab") == std::vector<int>{0, 2, 4});
@@ -10,7 +10,7 @@ TEST_CASE("kmpSearch", "[skills][string_algorithm]") {
 }
 
 TEST_CASE("longestPalindrome", "[skills][string_algorithm]") {
-    REQUIRE(longestPalindrome("babad").size() == 3); // "bab" or "aba"
+    REQUIRE(longestPalindrome("babad").size() == 3);  // "bab" or "aba"
     REQUIRE(longestPalindrome("cbbd") == "bb");
     REQUIRE(longestPalindrome("a") == "a");
     REQUIRE(longestPalindrome("ac").size() == 1);
@@ -26,11 +26,11 @@ TEST_CASE("StringHash", "[skills][string_algorithm]") {
     StringHash sh("abcabc");
     // "abc" at [0..2] and [3..5] should have the same hash
     REQUIRE(sh.get(0, 2) == sh.get(3, 5));
-    REQUIRE(sh.get(0, 0) != sh.get(1, 1)); // 'a' != 'b'
+    REQUIRE(sh.get(0, 0) != sh.get(1, 1));  // 'a' != 'b'
 }
 
 TEST_CASE("groupAnagrams", "[skills][string_algorithm]") {
-    auto groups = groupAnagrams({"eat","tea","tan","ate","nat","bat"});
+    auto groups = groupAnagrams({"eat", "tea", "tan", "ate", "nat", "bat"});
     REQUIRE(groups.size() == 3);
 }
 

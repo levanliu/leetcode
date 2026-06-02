@@ -1,33 +1,31 @@
-#include <iostream>
-using namespace std;
+#include <string>
+#include <vector>
 namespace ns_search_backtracking_generate_parenthesis {
-
 
 class Solution {
 public:
-    vector<string> res;
-    void dfs(string cur,int lsize,int rsize,int n){
-        if(cur.size() == 2*n){
+    std::vector<std::string> res;
+    void dfs(std::string cur, int lsize, int rsize, int n) {
+        if (cur.size() == 2 * n) {
             res.push_back(cur);
-            return ;
+            return;
         }
 
-        if(lsize<n){
+        if (lsize < n) {
             cur += "(";
-            dfs(cur,lsize+1,rsize,n);
+            dfs(cur, lsize + 1, rsize, n);
             cur.pop_back();
         }
 
-        if(rsize<lsize){
+        if (rsize < lsize) {
             cur += ")";
-            dfs(cur,lsize,rsize+1,n);
+            dfs(cur, lsize, rsize + 1, n);
             cur.pop_back();
         }
-            
     }
-    vector<string> generateParenthesis(int n) {
-        dfs("",0,0,n);
+    std::vector<std::string> generateParenthesis(int n) {
+        dfs("", 0, 0, n);
         return res;
     }
 };
-} // namespace ns_search_backtracking_generate_parenthesis
+}  // namespace ns_search_backtracking_generate_parenthesis

@@ -1,47 +1,36 @@
-#define LOCAL
-#include <cstdio>
-#define INF 1e9
+// Data statistics: min, max, average from a vector of integers.
+#include <climits>
+#include <vector>
 
-int main()
-{
-#ifdef LOCAL
-    freopen("data.in", "r", stdin);
-    freopen("data.out", "w", stdout);
-#endif
-    int x, n = 0, min = INF, max = -INF, s = 0;
-    while (scanf("%d", &x) == 1)
-    {
-        s += x;
-        if (x < min)
-            min = x;
-        if (x > max)
-            max = x;
-    }
-    /*
-    printf("x=%d,min=%d,max=%d\n",x,min,max);
-    */
-    n++;
-    printf("%d %d %.3f\n", min, max, (double)s / n);
-    return 0;
-}
+namespace ns_data_structure_array_and_string_data_statistics {
 
-int dataStatistics()
-{
-    FILE *fin, *fout;
-    fin = fopen("data.in", "rb");
-    fout = fopen("data.out", "wb");
-    int x, n = 0, min = INF, max = -INF, s = 0;
-    while (fscanf(fin, "%d", &x) == 1)
-    {
-        s += x;
-        if (x < min)
-            min = x;
-        if (x > max)
-            max = x;
-        n++;
+struct Stats {
+    int minVal = 0;
+    int maxVal = 0;
+    double avg = 0.0;
+};
+
+class Solution {
+public:
+    static Stats computeStats(const std::vector<int>& data) {
+        if (data.empty()) {
+            return {};
+        }
+        int minVal = INT_MAX;
+        int maxVal = INT_MIN;
+        long long sum = 0;
+        for (int x : data) {
+            if (x < minVal) {
+                minVal = x;
+            }
+            if (x > maxVal) {
+                maxVal = x;
+            }
+            sum += x;
+        }
+        return {minVal, maxVal,
+                static_cast<double>(sum) / static_cast<double>(data.size())};
     }
-    fprintf(fout, "%d %d %.3f\n", min, max, (double)s / n);
-    fclose(fin);
-    fclose(fout);
-    return 0;
-}
+};
+
+}  // namespace ns_data_structure_array_and_string_data_statistics

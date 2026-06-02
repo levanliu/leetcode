@@ -1,6 +1,8 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 cc_test(
     name = "heap_test",
-    srcs = ["heap_test.cpp"],
+    srcs = glob(["*_test.cpp"]),
     deps = [
         "//workspace/src/data_structure/heap",
         "@catch2//:catch2_main",

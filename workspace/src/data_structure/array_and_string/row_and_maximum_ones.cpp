@@ -1,16 +1,13 @@
 #include <vector>
-
-using namespace std;
-
 namespace ns_array_row_and_max_ones {
 
 class Solution {
-   public:
-    vector<int> rowAndMaximumOnes(vector<vector<int>>& mat) {
+public:
+    std::vector<int> rowAndMaximumOnes(std::vector<std::vector<int>>& mat) {
         int n = mat.size();
         int m = mat[0].size();
 
-        vector<int> res(2, -1);
+        std::vector<int> res(2, -1);
         for (int i = 0; i < n; i++) {
             int onesCount = 0;
             for (int j = 0; j < m; j++) {
@@ -27,4 +24,4 @@ class Solution {
     }
 };
 
-} // namespace ns_array_row_and_max_ones
+}  // namespace ns_array_row_and_max_ones

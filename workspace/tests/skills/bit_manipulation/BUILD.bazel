@@ -1,6 +1,8 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 cc_test(
     name = "bit_manipulation_test",
-    srcs = ["bit_manipulation_test.cpp"],
+    srcs = glob(["*_test.cpp"]),
     deps = [
         "//workspace/src/skills/bit_manipulation",
         "@catch2//:catch2_main",

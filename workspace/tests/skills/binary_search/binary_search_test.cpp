@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/skills/binary_search/binary_search.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("BinarySearch", "[skills][binary_search]") {
     ns_skills_binary_search::Solution bs;

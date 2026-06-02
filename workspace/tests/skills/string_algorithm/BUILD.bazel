@@ -1,6 +1,8 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 cc_test(
     name = "string_algorithm_test",
-    srcs = ["string_algorithm_test.cpp"],
+    srcs = glob(["*_test.cpp"]),
     deps = [
         "//workspace/src/skills/string_algorithm",
         "@catch2//:catch2_main",

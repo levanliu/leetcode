@@ -1,9 +1,9 @@
 #pragma once
-#include <vector>
+#include <algorithm>
+#include <deque>
 #include <string>
 #include <unordered_map>
-#include <deque>
-#include <algorithm>
+#include <vector>
 
 namespace ns_skills_sliding_window {
 
@@ -11,9 +11,11 @@ class Solution {
 public:
     // Maximum sum subarray of fixed size k
     int maxSumSubarray(const std::vector<int>& nums, int k) {
-        if ((int)nums.size() < k) return 0;
+        if ((int)nums.size() < k)
+            return 0;
         int sum = 0;
-        for (int i = 0; i < k; i++) sum += nums[i];
+        for (int i = 0; i < k; i++)
+            sum += nums[i];
         int maxSum = sum;
         for (int i = k; i < (int)nums.size(); i++) {
             sum += nums[i] - nums[i - k];
@@ -40,10 +42,13 @@ public:
         std::deque<int> dq;
         std::vector<int> result;
         for (int i = 0; i < (int)nums.size(); i++) {
-            while (!dq.empty() && dq.front() < i - k + 1) dq.pop_front();
-            while (!dq.empty() && nums[dq.back()] < nums[i]) dq.pop_back();
+            while (!dq.empty() && dq.front() < i - k + 1)
+                dq.pop_front();
+            while (!dq.empty() && nums[dq.back()] < nums[i])
+                dq.pop_back();
             dq.push_back(i);
-            if (i >= k - 1) result.push_back(nums[dq.front()]);
+            if (i >= k - 1)
+                result.push_back(nums[dq.front()]);
         }
         return result;
     }

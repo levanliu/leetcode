@@ -1,6 +1,8 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 cc_test(
     name = "tree_traversal_test",
-    srcs = ["tree_traversal_test.cpp"],
+    srcs = glob(["*_test.cpp"]),
     deps = [
         "//workspace/src/search/tree_traversal",
         "@catch2//:catch2_main",

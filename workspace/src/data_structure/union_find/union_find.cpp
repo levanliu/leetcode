@@ -12,24 +12,22 @@ private:
 
 public:
     explicit Solution(int n) : parent(n + 1) {
-        for (int i = 0; i <= n; ++i) parent[i] = i;
+        for (int i = 0; i <= n; ++i)
+            parent[i] = i;
     }
 
     // Find root with path compression
     int find(int x) {
-        if (parent[x] != x) parent[x] = find(parent[x]);
+        if (parent[x] != x)
+            parent[x] = find(parent[x]);
         return parent[x];
     }
 
     // Merge the sets containing a and b
-    void unite(int a, int b) {
-        parent[find(a)] = find(b);
-    }
+    void unite(int a, int b) { parent[find(a)] = find(b); }
 
     // Returns true if a and b are in the same set
-    bool connected(int a, int b) {
-        return find(a) == find(b);
-    }
+    bool connected(int a, int b) { return find(a) == find(b); }
 };
 
 }  // namespace ns_data_structure_union_find

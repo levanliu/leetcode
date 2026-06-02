@@ -1,15 +1,13 @@
-#include <cstdio>
-void swap(int *a, int *b)
-{
-    int t = *a;
-    *a = *b;
-    *b = t;
-}
+// Swap two integers in-place without using std::swap
+namespace ns_data_structure_array_and_string_swap {
 
-int main()
-{
-    int a = 3, b = 4;
-    swap(&a, &b);
-    printf("%d %d\n", a, b);
-    return 0;
-}
+class Solution {
+public:
+    static void swapInts(int& a, int& b) {
+        int t = a;
+        a = b;
+        b = t;
+    }
+};
+
+}  // namespace ns_data_structure_array_and_string_swap

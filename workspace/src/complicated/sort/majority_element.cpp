@@ -1,25 +1,24 @@
-#include <iostream>
-using namespace std;
+#include <map>
+#include <vector>
 namespace ns_complicated_sort_majority_element {
-
 
 class Solution {
 public:
-    map<int,int> m;
-    int majorityElement(vector<int>& nums) {
+    std::map<int, int> m;
+    int majorityElement(std::vector<int>& nums) {
         int res = nums[0];
         int count = 1;
-        for(int i=1;i<nums.size()-1;i++){
-            if(res == nums[i])
+        for (int i = 1; i < nums.size() - 1; i++) {
+            if (res == nums[i])
                 count++;
-            else{
+            else {
                 count--;
-                if(count == 0){
-                    res = nums[i+1];
+                if (count == 0) {
+                    res = nums[i + 1];
                 }
             }
         }
         return res;
     }
 };
-} // namespace ns_complicated_sort_majority_element
+}  // namespace ns_complicated_sort_majority_element

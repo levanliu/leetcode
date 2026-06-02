@@ -1,47 +1,38 @@
-#include<iostream>
+// Subset Sum via backtracking: find all subsets summing to target.
 #include <vector>
-using namespace std;
 
-void backtrack(vector<int> arr,int target,int i,vector<int>& subset){
-    if( target == 0 ){
-        for(int s:subset){
-            cout << s << " ";
+namespace ns_search_backtracking_subset_sum {
+
+class Solution {
+public:
+    static std::vector<std::vector<int>> findSubsets(
+        const std::vector<int>& arr, int target) {
+        std::vector<std::vector<int>> results;
+        std::vector<int> current;
+        backtrack(arr, target, 0, current, results);
+        return results;
+    }
+
+private:
+    static void backtrack(const std::vector<int>& arr, int remaining, int idx,
+                          std::vector<int>& current,
+                          std::vector<std::vector<int>>& results) {
+        if (remaining == 0) {
+            results.push_back(current);
+            return;
         }
-        cout << endl;
-        return;
+        if (idx == static_cast<int>(arr.size())) {
+            return;
+        }
+        // Skip arr[idx]
+        backtrack(arr, remaining, idx + 1, current, results);
+        // Take arr[idx]
+        if (arr[idx] <= remaining) {
+            current.push_back(arr[idx]);
+            backtrack(arr, remaining - arr[idx], idx + 1, current, results);
+            current.pop_back();
+        }
     }
+};
 
-    if(i == arr.size() ) return;
-
-    backtrack(arr,target,i+1,subset);
-
-    if(arr[i] <= target){
-        subset.push_back(arr[i]);
-        backtrack(arr,target-arr[i],i+1,subset);
-        subset.pop_back();
-    }
-}
-
-
-void sumK(vector<int> arr,int target){
-    vector<int> subset;
-    backtrack(arr,target,0,subset);
-}
-
-int main()
-{
-    int n;
-    cin >> n;
-    vector<int> arr;
-    for(int i=0;i<n;i++){
-        int x;
-        cin >> x;
-        arr.push_back(x);
-    }
-    
-    int target;
-    cin >> target;
-    sumK(arr,target);
-    return 0;
-}
-
+}  // namespace ns_search_backtracking_subset_sum

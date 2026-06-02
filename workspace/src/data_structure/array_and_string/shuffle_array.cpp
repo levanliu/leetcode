@@ -1,26 +1,22 @@
-#include<iostream>
-using namespace std;
+#include <algorithm>
+#include <vector>
 namespace ns_data_structure_array_and_string_shuffle_array {
-
 
 class Solution {
 private:
-    vector<int> res;
+    std::vector<int> res;
+
 public:
-    Solution(vector<int>& nums) {
-        res = nums;
-    }
-    
-    vector<int> reset() {
-        return res;
-    }
-    
-    vector<int> shuffle() {
+    Solution(std::vector<int>& nums) { res = nums; }
+
+    std::vector<int> reset() { return res; }
+
+    std::vector<int> std::shuffle() {
         int n = res.size();
-        vector<int> temp = res;
-        for(int i=n;i;i--){
-            int pos = rand()%i;
-            swap(temp[pos],temp[i-1]);
+        std::vector<int> temp = res;
+        for (int i = n; i; i--) {
+            int pos = rand() % i;
+            std::swap(temp[pos], temp[i - 1]);
         }
         return temp;
     }
@@ -29,7 +25,7 @@ public:
 /**
  * Your Solution object will be instantiated and called as such:
  * Solution* obj = new Solution(nums);
- * vector<int> param_1 = obj->reset();
- * vector<int> param_2 = obj->shuffle();
+ * std::vector<int> param_1 = obj->reset();
+ * std::vector<int> param_2 = obj->std::shuffle();
  */
-} // namespace ns_data_structure_array_and_string_shuffle_array
+}  // namespace ns_data_structure_array_and_string_shuffle_array

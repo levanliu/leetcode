@@ -1,16 +1,6 @@
-#include <iostream>
-using namespace std;
-
-struct ListNode
-{
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next){};
-};
+#pragma once
+#include "workspace/src/data_structure/linked_list/list_node.hpp"
 namespace ns_data_structure_linked_list_delete_node {
-
 
 class Solution {
 public:
@@ -19,4 +9,4 @@ public:
         node->next = node->next->next;
     }
 };
-} // namespace ns_data_structure_linked_list_delete_node
+}  // namespace ns_data_structure_linked_list_delete_node

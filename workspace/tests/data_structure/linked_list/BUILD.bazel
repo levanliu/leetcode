@@ -1,6 +1,8 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 cc_test(
     name = "linked_list_test",
-    srcs = ["linked_list_test.cpp"],
+    srcs = glob(["*_test.cpp"]),
     deps = [
         "//workspace/src/data_structure/linked_list",
         "@catch2//:catch2_main",

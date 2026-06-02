@@ -1,6 +1,4 @@
-#include<iostream>
-using namespace std;
-
+#include <algorithm>
 namespace ns_stack_min_stack {
 
 class Solution {
@@ -8,27 +6,20 @@ private:
     static constexpr int N = 30010;
     int stack[N];
     int topPointer = -1;
+
 public:
-    Solution() {
-        memset(stack,0,sizeof stack);
-    }
-    
-    void push(int val) {
-        stack[++topPointer] = val;
-    }
-    
-    void pop() {
-        --topPointer;
-    }
-    
-    int top() {
-        return stack[topPointer];
-    }
-    
+    Solution() { memset(stack, 0, sizeof stack); }
+
+    void push(int val) { stack[++topPointer] = val; }
+
+    void pop() { --topPointer; }
+
+    int top() { return stack[topPointer]; }
+
     int getMin() {
         int minVal = INT_MAX;
-        for(int index=0;index<=topPointer;index++){
-            minVal = min(minVal,stack[index]);
+        for (int index = 0; index <= topPointer; index++) {
+            minVal = std::min(minVal, stack[index]);
         }
         return minVal;
     }
@@ -42,4 +33,4 @@ public:
  * int param_3 = obj->top();
  * int param_4 = obj->getMin();
  */
-} // namespace ns_stack_min_stack
+}  // namespace ns_stack_min_stack

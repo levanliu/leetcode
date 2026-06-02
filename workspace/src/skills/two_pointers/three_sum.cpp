@@ -1,46 +1,34 @@
-#include <iostream>
-using namespace std;
+#include <algorithm>
+#include <vector>
 namespace ns_skills_two_pointers_three_sum {
 
-
-class Solution
-{
+class Solution {
 public:
-    vector<vector<int>> threeSum(vector<int> &nums)
-    {
-        vector<vector<int>> res;
-        sort(nums.begin(), nums.end());
-        for (size_t i = 0; i < nums.size() - 2; i++)
-        {
+    std::vector<std::vector<int>> threeSum(std::vector<int>& nums) {
+        std::vector<std::vector<int>> res;
+        std::sort(nums.begin(), nums.end());
+        for (size_t i = 0; i < nums.size() - 2; i++) {
             if (i > 0 && nums[i] == nums[i - 1])
                 continue;
             int left = i + 1;
             int right = nums.size() - 1;
 
-            while (left < right)
-            {
+            while (left < right) {
                 int sum = nums[i] + nums[left] + nums[right];
-                if (sum == 0)
-                {
+                if (sum == 0) {
                     res.push_back({nums[i], nums[left], nums[right]});
 
-                    while (left < right && nums[left] == nums[left + 1])
-                    {
+                    while (left < right && nums[left] == nums[left + 1]) {
                         left++;
                     }
-                    while (left < right && nums[right] == nums[right - 1])
-                    {
+                    while (left < right && nums[right] == nums[right - 1]) {
                         right--;
                     }
                     left++;
                     right--;
-                }
-                else if (sum < 0)
-                {
+                } else if (sum < 0) {
                     left++;
-                }
-                else
-                {
+                } else {
                     right--;
                 }
             }
@@ -48,4 +36,4 @@ public:
         return res;
     }
 };
-} // namespace ns_skills_two_pointers_three_sum
+}  // namespace ns_skills_two_pointers_three_sum

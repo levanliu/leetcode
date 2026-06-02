@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/skills/sliding_window/sliding_window.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("SlidingWindow", "[skills][sliding_window]") {
     ns_skills_sliding_window::Solution sw;

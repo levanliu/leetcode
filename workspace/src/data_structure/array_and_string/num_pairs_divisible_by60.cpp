@@ -1,11 +1,9 @@
-using namespace std;
 #include <algorithm>
 #include <array>
 #include <bitset>
 #include <climits>
 #include <deque>
 #include <functional>
-#include <iostream>
 #include <list>
 #include <queue>
 #include <stack>
@@ -38,21 +36,21 @@ using namespace std;
 namespace ns_data_structure_array_and_string_num_pairs_divisible_by60 {
 
 class Solution {
- public:
-  int numPairsDivisibleBy60(vector<int>& time) {
-		vector<int> cnt(60);
-		for(int t:time){
-			cnt[t%60] ++;
-		}
+public:
+    int numPairsDivisibleBy60(std::vector<int>& time) {
+        std::vector<int> cnt(60);
+        for (int t : time) {
+            cnt[t % 60]++;
+        }
 
-		long long res = 0;
-		for(int i=1;i<30;i++){
-			res += cnt[i] * cnt[60-i];
-		}
+        long long res = 0;
+        for (int i = 1; i < 30; i++) {
+            res += cnt[i] * cnt[60 - i];
+        }
 
-		res += (long long) cnt[0] * (cnt[0]-1) /2 + (long long)cnt[30]*(cnt[30-1])/2;
-		return (int)res;
-	
-};
+        res += (long long)cnt[0] * (cnt[0] - 1) / 2 +
+               (long long)cnt[30] * (cnt[30 - 1]) / 2;
+        return (int)res;
+    };
 
-} // namespace ns_data_structure_array_and_string_num_pairs_divisible_by60
+}  // namespace ns_data_structure_array_and_string_num_pairs_divisible_by60

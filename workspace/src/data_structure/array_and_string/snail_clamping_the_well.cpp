@@ -1,17 +1,15 @@
-#include <iostream>
+// acwing 5279 — Snail climbing well: 5m up per day, 4m down per night.
+// Returns the day number (1-indexed) when it reaches the top.
+#include <algorithm>
 
-using namespace std;
+namespace ns_data_structure_array_and_string_snail {
 
-/*
- acwing 5279
-蜗牛在 n
- 米深的井底往上爬，每天清晨到傍晚向上爬 5
- 米，夜间又滑下来 4
- 米，请问像这样从某天清晨开始，第几天爬到井口？*/
+class Solution {
+public:
+    // Well depth n metres. Snail climbs 5m/day, slides 4m/night.
+    // Formula: at end of day d the snail has climbed min(5d, d-1 + 5) metres.
+    // Simplifies to: reaches top on day max(1, n-4).
+    static int daysToClimb(int n) { return std::max(1, n - 4); }
+};
 
-int main() {
-  int n;
-  cin >> n;
-  cout << max(1, n - 4);
-  return 0;
-}
+}  // namespace ns_data_structure_array_and_string_snail

@@ -1,18 +1,24 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/data_structure/tree/tree.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 static TreeNode* buildBST() {
     // BST: 4 -> left:2, right:6; 2->left:1,right:3; 6->left:5,right:7
     TreeNode* r = new TreeNode(4);
-    r->left  = new TreeNode(2); r->right = new TreeNode(6);
-    r->left->left  = new TreeNode(1); r->left->right  = new TreeNode(3);
-    r->right->left = new TreeNode(5); r->right->right = new TreeNode(7);
+    r->left = new TreeNode(2);
+    r->right = new TreeNode(6);
+    r->left->left = new TreeNode(1);
+    r->left->right = new TreeNode(3);
+    r->right->left = new TreeNode(5);
+    r->right->right = new TreeNode(7);
     return r;
 }
 
 static void freeTree(TreeNode* n) {
-    if (!n) return;
-    freeTree(n->left); freeTree(n->right); delete n;
+    if (!n)
+        return;
+    freeTree(n->left);
+    freeTree(n->right);
+    delete n;
 }
 
 TEST_CASE("maxDepth", "[tree]") {
@@ -24,7 +30,8 @@ TEST_CASE("maxDepth", "[tree]") {
 
 TEST_CASE("isSymmetric", "[tree]") {
     TreeNode* sym = new TreeNode(1);
-    sym->left = new TreeNode(2); sym->right = new TreeNode(2);
+    sym->left = new TreeNode(2);
+    sym->right = new TreeNode(2);
     REQUIRE(isSymmetric(sym));
     sym->left->left = new TreeNode(3);
     REQUIRE_FALSE(isSymmetric(sym));
@@ -34,7 +41,7 @@ TEST_CASE("isSymmetric", "[tree]") {
 TEST_CASE("isValidBST", "[tree]") {
     TreeNode* r = buildBST();
     REQUIRE(isValidBST(r));
-    r->left->right->val = 10; // violate BST property
+    r->left->right->val = 10;  // violate BST property
     REQUIRE_FALSE(isValidBST(r));
     freeTree(r);
 }
@@ -59,9 +66,9 @@ TEST_CASE("sortedArrayToBST", "[tree]") {
 
 TEST_CASE("lowestCommonAncestor", "[tree]") {
     TreeNode* r = buildBST();
-    TreeNode* p = r->left->left;  // 1
-    TreeNode* q = r->left->right; // 3
-    REQUIRE(lowestCommonAncestor(r, p, q) == r->left); // LCA is 2
+    TreeNode* p = r->left->left;                        // 1
+    TreeNode* q = r->left->right;                       // 3
+    REQUIRE(lowestCommonAncestor(r, p, q) == r->left);  // LCA is 2
     freeTree(r);
 }
 
@@ -70,7 +77,8 @@ TEST_CASE("serialize and deserialize", "[tree]") {
     std::string s = serialize(r);
     TreeNode* r2 = deserialize(s);
     REQUIRE(serialize(r2) == s);
-    freeTree(r); freeTree(r2);
+    freeTree(r);
+    freeTree(r2);
 }
 
 TEST_CASE("hasPathSum", "[tree]") {

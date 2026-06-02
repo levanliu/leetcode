@@ -1,34 +1,36 @@
-#include <iostream>
-using namespace std;
+#include <map>
+#include <queue>
+#include <utility>
+#include <vector>
 namespace ns_data_structure_heap_top_kfrequent {
 
-
 class Solution {
-    public:
-      vector<int> topKFrequent(vector<int>& nums, int k) {
-        map<int, int> m;
+public:
+    std::vector<int> topKFrequent(std::vector<int>& nums, int k) {
+        std::map<int, int> m;
         for (auto num : nums) {
-          m[num]++;
+            m[num]++;
         }
 
-        auto cmp = [](pair<int, int> x, pair<int, int> y) {
-          return x.second < y.second;
+        auto cmp = [](std::pair<int, int> x, std::pair<int, int> y) {
+            return x.second < y.second;
         };
 
-        priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp)>
-  pq(cmp);
+        std::priority_queue<std::pair<int, int>,
+                            std::vector<std::pair<int, int>>, decltype(cmp)>
+            pq(cmp);
         for (auto& kv : m) {
-          pq.push(kv);
+            pq.push(kv);
         }
 
-        vector<int> res(k);
+        std::vector<int> res(k);
         for (int i = 0; i < k; i++) {
-          auto kv = pq.top();
-          pq.pop();
-          res[i] = kv.first;
+            auto kv = pq.top();
+            pq.pop();
+            res[i] = kv.first;
         }
 
         return res;
-      }
-    };
-} // namespace ns_data_structure_heap_top_kfrequent
+    }
+};
+}  // namespace ns_data_structure_heap_top_kfrequent

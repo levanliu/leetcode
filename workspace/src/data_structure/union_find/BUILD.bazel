@@ -1,5 +1,10 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
 cc_library(
     name = "union_find",
-    hdrs = ["union_find.cpp"],
+    hdrs = glob(["*.cpp"]) + glob(
+        ["*.hpp"],
+        allow_empty = True,
+    ),
     visibility = ["//visibility:public"],
 )

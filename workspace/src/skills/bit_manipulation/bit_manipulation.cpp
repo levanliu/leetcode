@@ -1,4 +1,5 @@
 #pragma once
+#include <utility>
 #include <vector>
 
 // Common bit manipulation patterns used in LeetCode problems.
@@ -14,20 +15,24 @@
 // Returns the only element that appears once (all others appear twice)
 inline int singleNumber(const std::vector<int>& nums) {
     int result = 0;
-    for (int x : nums) result ^= x;
+    for (int x : nums)
+        result ^= x;
     return result;
 }
 
 // Returns two elements that each appear once (all others appear twice)
-inline std::pair<int,int> singleNumberII(const std::vector<int>& nums) {
+inline std::pair<int, int> singleNumberII(const std::vector<int>& nums) {
     int xorAll = 0;
-    for (int x : nums) xorAll ^= x;
+    for (int x : nums)
+        xorAll ^= x;
     // Find any differing bit between the two unique numbers
     int bit = xorAll & (-xorAll);
     int a = 0, b = 0;
     for (int x : nums) {
-        if (x & bit) a ^= x;
-        else          b ^= x;
+        if (x & bit)
+            a ^= x;
+        else
+            b ^= x;
     }
     return {a, b};
 }
@@ -37,7 +42,10 @@ inline std::pair<int,int> singleNumberII(const std::vector<int>& nums) {
 // Count set bits (Brian Kernighan's algorithm)
 inline int countBits(unsigned int n) {
     int count = 0;
-    while (n) { n &= n - 1; ++count; }
+    while (n) {
+        n &= n - 1;
+        ++count;
+    }
     return count;
 }
 
@@ -70,3 +78,24 @@ inline unsigned int reverseBits(unsigned int n) {
 inline int hammingDistance(int x, int y) {
     return countBits(static_cast<unsigned int>(x ^ y));
 }
+
+namespace ns_skills_bit_manipulation {
+
+class Solution {
+public:
+    static int singleNumber(const std::vector<int>& nums) {
+        return ::singleNumber(nums);
+    }
+    static std::pair<int, int> singleNumberII(const std::vector<int>& nums) {
+        return ::singleNumberII(nums);
+    }
+    static int countBits(unsigned int n) { return ::countBits(n); }
+    static std::vector<int> countBitsRange(int n) {
+        return ::countBitsRange(n);
+    }
+    static bool isPowerOfTwo(int n) { return ::isPowerOfTwo(n); }
+    static unsigned int reverseBits(unsigned int n) { return ::reverseBits(n); }
+    static int hammingDistance(int x, int y) { return ::hammingDistance(x, y); }
+};
+
+}  // namespace ns_skills_bit_manipulation

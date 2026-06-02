@@ -1,6 +1,8 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 cc_test(
     name = "topological_sort_test",
-    srcs = ["topological_sort_test.cpp"],
+    srcs = glob(["*_test.cpp"]),
     deps = [
         "//workspace/src/complicated/topological_sort",
         "@catch2//:catch2_main",

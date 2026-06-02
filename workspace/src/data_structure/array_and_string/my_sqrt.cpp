@@ -1,16 +1,13 @@
-#include <iostream>
-using namespace std;
 namespace ns_data_structure_array_and_string_my_sqrt {
-
 
 class Solution {
 public:
     int mySqrt(int x) {
         double i = x;
-        for(;abs(x-i*i)>1e-6;){
-            i = i - (i*i-x)/(2*i);
+        for (; std::abs(x - i * i) > 1e-6;) {
+            i = i - (i * i - x) / (2 * i);
         }
         return (int)i;
     }
 };
-} // namespace ns_data_structure_array_and_string_my_sqrt
+}  // namespace ns_data_structure_array_and_string_my_sqrt

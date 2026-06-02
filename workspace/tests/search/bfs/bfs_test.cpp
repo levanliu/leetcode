@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/search/bfs/bfs.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("BFS shortestPath", "[search][bfs]") {
     ns_search_bfs::Solution bfs;

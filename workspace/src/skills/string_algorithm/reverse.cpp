@@ -1,15 +1,11 @@
-#include <iostream>
-using namespace std;
+#include <algorithm>
 namespace ns_skills_string_algorithm_reverse {
 
-class Solution
-{
+class Solution {
 public:
-    int reverse(int x)
-    {
+    int std::reverse(int x) {
         int res = 0;
-        while (x != 0)
-        {
+        while (x != 0) {
             int t = x % 10;
             if (res > INT_MAX / 10 || res < INT_MIN / 10)
                 return 0;
@@ -19,4 +15,4 @@ public:
         return res;
     }
 };
-} // namespace ns_skills_string_algorithm_reverse
+}  // namespace ns_skills_string_algorithm_reverse

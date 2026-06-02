@@ -1,45 +1,42 @@
 #include <chrono>
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <thread>
-#include <mutex>
 #include <condition_variable>
 #include <functional>
 #include <future>
+#include <iostream>
+#include <memory>
+#include <mutex>
+#include <queue>
+#include <thread>
+#include <vector>
 
 namespace ns_array_thread_pool {
 
-class Solution
-{
+class Solution {
 public:
     using Task = std::function<void()>;
 
 private:
-    std::vector<std::thread> mWorkers; // workers container.
-    std::queue<Task> mTasks;           // tasks queue
-    std::thread mManager;              // manager thread
-    std::mutex mQueueMutex;            // queue mutex
-    std::condition_variable mCondVar;  // condition variable
+    std::vector<std::thread> mWorkers;  // workers container.
+    std::queue<Task> mTasks;            // tasks queue
+    std::thread mManager;               // manager thread
+    std::mutex mQueueMutex;             // queue mutex
+    std::condition_variable mCondVar;   // condition variable
     bool mStop;
-    std::size_t mNumThreads; // the number of elements in a container
+    std::size_t mNumThreads;  // the number of elements in a container
 
     // the constructor function only be used for direct initialization
     explicit Solution(std::size_t numThreads)
-        : mStop(false), mNumThreads(numThreads)
-    {
-        for (std::size_t i = 0; i < numThreads; i++)
-        {
-            mWorkers.emplace_back([this]
-                                  {
-                while (true)
-                {
+        : mStop(false), mNumThreads(numThreads) {
+        for (std::size_t i = 0; i < numThreads; i++) {
+            mWorkers.emplace_back([this] {
+                while (true) {
                     Task task;
                     {
-                        std::unique_lock<std::mutex> lock{ mQueueMutex };
+                        std::unique_lock<std::mutex> lock{mQueueMutex};
                         //释放锁，并将调用线程置于休眠状态，直到满足以下条件之一  (mStop变为true或者任务容器mTasks不为空)
                         //在满足条件之后，并且收到notify_one()或者notify_all()将会重新去获得锁。
-                        mCondVar.wait(lock, [this] { return mStop || !mTasks.empty(); });
+                        mCondVar.wait(
+                            lock, [this] { return mStop || !mTasks.empty(); });
                         if (mStop && mTasks.empty())
                             return;
                         task = std::move(mTasks.front());
@@ -47,15 +44,14 @@ private:
                     }
                     task();
                     std::this_thread::sleep_for(std::chrono::seconds(3));
-                } });
+                }
+            });
         }
 
         // Start the manager thread
-        mManager = std::thread([this]
-                               {
-            while (!mStop)
-            {
-                std::unique_lock<std::mutex> lock{ mQueueMutex };
+        mManager = std::thread([this] {
+            while (!mStop) {
+                std::unique_lock<std::mutex> lock{mQueueMutex};
                 //释放锁，并将调用线程置于休眠状态 1 秒，之后收到notify_one()或者notify_all()会重新获得锁
                 mCondVar.wait_for(lock, std::chrono::seconds(1));
                 if (mStop)
@@ -65,18 +61,18 @@ private:
                 auto workersSize = mWorkers.size();
                 auto threadsRatio = tasksSize / (workersSize + 1);
 
-                // check if the number of tasks is greater than 
+                // check if the number of tasks is greater than
                 // the number of workers and if the task-to-worker ratio is greater than 2
-                if (tasksSize > workersSize && threadsRatio > 2)
-                {
+                if (tasksSize > workersSize && threadsRatio > 2) {
                     std::cout << "Adding new worker thread\n";
                     mWorkers.emplace_back([this] {
-                        while (true)
-                        {
+                        while (true) {
                             Task task;
                             {
-                                std::unique_lock<std::mutex> lock{ mQueueMutex };
-                                mCondVar.wait(lock, [this] { return mStop || !mTasks.empty(); });
+                                std::unique_lock<std::mutex> lock{mQueueMutex};
+                                mCondVar.wait(lock, [this] {
+                                    return mStop || !mTasks.empty();
+                                });
                                 if (mStop && mTasks.empty())
                                     return;
                                 task = std::move(mTasks.front());
@@ -88,19 +84,19 @@ private:
                 }
                 // check if the number of tasks is less than half the number of workers
                 // and if the number of workers is greater than the initial number of threads
-                else if (tasksSize < workersSize / 2 && workersSize > mNumThreads)
-                {
+                else if (tasksSize < workersSize / 2 &&
+                         workersSize > mNumThreads) {
                     std::cout << "Removing worker thread\n";
                     // Here we detach the thread so that it continues executing on its own
                     // and can be cleaned up by the operating system
                     mWorkers.back().detach();
                     mWorkers.pop_back();
                 }
-            } });
+            }
+        });
     }
 
-    ~Solution()
-    {
+    ~Solution() {
         {
             std::unique_lock<std::mutex> lock{mQueueMutex};
             mStop = true;
@@ -110,7 +106,7 @@ private:
         // Wait for manager thread to finish
         mManager.join();
         // Wait for all worker threads to finish
-        for (auto &worker : mWorkers)
+        for (auto& worker : mWorkers)
             if (worker.joinable())
                 worker.join();
     }
@@ -118,8 +114,8 @@ private:
     /** F &&f, Args &&...args work for perfect forwarding
      */
     template <typename F, typename... Args>
-    auto enqueue(F &&f, Args &&...args) -> std::future<typename std::result_of<F(Args...)>::type>
-    {
+    auto enqueue(F&& f, Args&&... args)
+        -> std::future<typename std::result_of<F(Args...)>::type> {
         // typedef for the return type of the function or function object F when it is called with the arguments Args....
         using return_type = typename std::result_of<F(Args...)>::type;
         // creates a std::shared_ptr to a std::packaged_task that wraps a callable object f and its arguments args....
@@ -135,15 +131,12 @@ private:
 
             //*task is dereferences
             // non-copyable or non-movable element.
-            mTasks.emplace([task]()
-                           { (*task)(); });
+            mTasks.emplace([task]() { (*task)(); });
         }
         // Notify one of the worker threads that a new task is available
         mCondVar.notify_one();
         return res;
     }
-
-
 };
 
-} // namespace ns_array_thread_pool
+}  // namespace ns_array_thread_pool

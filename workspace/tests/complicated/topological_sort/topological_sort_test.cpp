@@ -1,14 +1,15 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/complicated/topological_sort/topological_sort.cpp"
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("TopologicalSort", "[complicated][topological_sort]") {
-    topological_sort::Solution ts;
+    ns_complicated_topological_sort::Solution ts;
 
     SECTION("simple DAG") {
         // 0 -> 1 -> 3
         // 0 -> 2 -> 3
-        std::vector<std::pair<int, int>> edges = {{0, 1}, {0, 2}, {1, 3}, {2, 3}};
+        std::vector<std::pair<int, int>> edges = {
+            {0, 1}, {0, 2}, {1, 3}, {2, 3}};
         auto order = ts.sort(4, edges);
         REQUIRE(order.size() == 4);
         auto pos = [&](int v) {

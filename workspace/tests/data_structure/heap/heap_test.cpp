@@ -1,11 +1,15 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/data_structure/heap/heap.cpp"
-#include <vector>
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
+#include <vector>
 
 TEST_CASE("MaxHeap basic operations", "[data_structure][heap]") {
     ns_data_structure_heap::MaxHeap<int> h;
-    h.push(3); h.push(1); h.push(4); h.push(1); h.push(5);
+    h.push(3);
+    h.push(1);
+    h.push(4);
+    h.push(1);
+    h.push(5);
 
     SECTION("top is max") {
         REQUIRE(h.top() == 5);
@@ -13,14 +17,21 @@ TEST_CASE("MaxHeap basic operations", "[data_structure][heap]") {
 
     SECTION("pop in descending order") {
         std::vector<int> out;
-        while (!h.empty()) { out.push_back(h.top()); h.pop(); }
+        while (!h.empty()) {
+            out.push_back(h.top());
+            h.pop();
+        }
         REQUIRE(out == std::vector<int>{5, 4, 3, 1, 1});
     }
 }
 
 TEST_CASE("MinHeap basic operations", "[data_structure][heap]") {
     ns_data_structure_heap::MinHeap<int> h;
-    h.push(3); h.push(1); h.push(4); h.push(1); h.push(5);
+    h.push(3);
+    h.push(1);
+    h.push(4);
+    h.push(1);
+    h.push(5);
 
     SECTION("top is min") {
         REQUIRE(h.top() == 1);
@@ -28,7 +39,10 @@ TEST_CASE("MinHeap basic operations", "[data_structure][heap]") {
 
     SECTION("pop in ascending order") {
         std::vector<int> out;
-        while (!h.empty()) { out.push_back(h.top()); h.pop(); }
+        while (!h.empty()) {
+            out.push_back(h.top());
+            h.pop();
+        }
         REQUIRE(out == std::vector<int>{1, 1, 3, 4, 5});
     }
 }

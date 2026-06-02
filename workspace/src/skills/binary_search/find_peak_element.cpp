@@ -1,13 +1,12 @@
-#include <iostream>
-using namespace std;
+#include <utility>
+#include <vector>
 namespace ns_skills_binary_search_find_peak_element {
-
 
 class Solution {
 public:
-    int findPeakElement(vector<int>& nums) {
+    int findPeakElement(std::vector<int>& nums) {
         int n = nums.size();
-        auto get = [&](int i) -> pair<int, int> {
+        auto get = [&](int i) -> std::pair<int, int> {
             if (i == -1 || i == n) {
                 return {0, 0};
             }
@@ -23,12 +22,11 @@ public:
             }
             if (get(mid) < get(mid + 1)) {
                 left = mid + 1;
-            }
-            else {
+            } else {
                 right = mid - 1;
             }
         }
         return ans;
     }
 };
-} // namespace ns_skills_binary_search_find_peak_element
+}  // namespace ns_skills_binary_search_find_peak_element

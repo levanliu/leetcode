@@ -1,6 +1,6 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/skills/bit_manipulation/bit_manipulation.cpp"
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
 TEST_CASE("singleNumber", "[skills][bit_manipulation]") {

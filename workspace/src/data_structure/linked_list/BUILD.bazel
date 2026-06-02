@@ -1,5 +1,10 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
 cc_library(
     name = "linked_list",
-    hdrs = ["linked_list.cpp"],
+    hdrs = glob(["*.cpp"]) + glob(
+        ["*.hpp"],
+        allow_empty = True,
+    ),
     visibility = ["//visibility:public"],
 )

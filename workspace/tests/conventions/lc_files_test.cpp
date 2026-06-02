@@ -4,8 +4,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include <fstream>
 #include <cstdlib>
+#include <fstream>
 #include <regex>
 #include <sstream>
 #include <string>
@@ -14,7 +14,7 @@
 namespace {
 
 bool IsDirectory(const std::string& path) {
-    struct stat st {};
+    struct stat st{};
     if (stat(path.c_str(), &st) != 0) {
         return false;
     }
@@ -62,13 +62,15 @@ std::string ResolveSrcRoot() {
     const char* testSrcDir = std::getenv("TEST_SRCDIR");
     const char* testWorkspace = std::getenv("TEST_WORKSPACE");
     std::vector<std::string> candidates;
-    candidates.push_back("/workspaces/atslxws68/levanliu/leetcode/workspace/src");
+    candidates.push_back(
+        "/workspaces/atslxws68/levanliu/leetcode/workspace/src");
     candidates.push_back("workspace/src");
     candidates.push_back("./workspace/src");
     if (testSrcDir != nullptr) {
         std::string base(testSrcDir);
         if (testWorkspace != nullptr) {
-            candidates.push_back(base + "/" + std::string(testWorkspace) + "/workspace/src");
+            candidates.push_back(base + "/" + std::string(testWorkspace) +
+                                 "/workspace/src");
         }
         candidates.push_back(base + "/_main/workspace/src");
         candidates.push_back(base + "/workspace/src");
@@ -104,7 +106,8 @@ std::string ResolveSrcRoot() {
 
 }  // namespace
 
-TEST_CASE("All solution files follow naming and namespace conventions", "[conventions][solution_files]") {
+TEST_CASE("All solution files follow naming and namespace conventions",
+          "[conventions][solution_files]") {
     const std::string srcRoot = ResolveSrcRoot();
     REQUIRE_FALSE(srcRoot.empty());
 
@@ -115,7 +118,8 @@ TEST_CASE("All solution files follow naming and namespace conventions", "[conven
     const std::regex namespacePattern("namespace\\s+ns_[a-z0-9_]+\\s*\\{");
     const std::regex solutionPattern("\\bclass\\s+Solution\\b");
     const std::regex headerIncludePattern("#include\\s*\"[^\"]+\\.h\"");
-    const std::regex badHeadPattern(".*/(lc_|p_|problem_|[0-9])[a-z0-9_]*\\.cpp$");
+    const std::regex badHeadPattern(
+        ".*/(lc_|p_|problem_|[0-9])[a-z0-9_]*\\.cpp$");
 
     for (const std::string& path : cppFiles) {
         INFO(path);

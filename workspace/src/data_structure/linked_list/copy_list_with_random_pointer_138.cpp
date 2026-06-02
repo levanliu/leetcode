@@ -13,20 +13,16 @@ struct Node {
     explicit Node(int _val) : val(_val), next(nullptr), random(nullptr) {}
 };
 
-class Solution
-{
+class Solution {
 public:
     std::unordered_map<Node*, Node*> cachedNode;
 
-    Node *copyRandomList(Node *head)
-    {
-        if (head == nullptr)
-        {
+    Node* copyRandomList(Node* head) {
+        if (head == nullptr) {
             return nullptr;
         }
-        if (!cachedNode.count(head))
-        {
-            Node *headNew = new Node(head->val);
+        if (!cachedNode.count(head)) {
+            Node* headNew = new Node(head->val);
             cachedNode[head] = headNew;
             headNew->next = copyRandomList(head->next);
             headNew->random = copyRandomList(head->random);
@@ -35,4 +31,4 @@ public:
     }
 };
 
-} // namespace ns_data_structure_linked_list_138_copy_list_with_random_pointer
+}  // namespace ns_data_structure_linked_list_138_copy_list_with_random_pointer

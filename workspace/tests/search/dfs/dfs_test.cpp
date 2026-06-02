@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/search/dfs/dfs.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("DFS floodFill", "[search][dfs]") {
     ns_search_dfs::Solution dfs;

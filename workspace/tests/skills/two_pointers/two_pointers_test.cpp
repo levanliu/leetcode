@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/skills/two_pointers/two_pointers.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("TwoPointers", "[skills][two_pointers]") {
     ns_skills_two_pointers::Solution tp;

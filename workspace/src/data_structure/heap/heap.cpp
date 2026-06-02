@@ -1,7 +1,8 @@
 #pragma once
-#include <vector>
+#include <algorithm>
 #include <functional>
 #include <stdexcept>
+#include <vector>
 
 // Generic binary heap / priority queue.
 // Default: max-heap.  Pass std::greater<T> for min-heap.
@@ -28,7 +29,8 @@ private:
             if (cmp_(data_[parent], data_[i])) {
                 std::swap(data_[parent], data_[i]);
                 i = parent;
-            } else break;
+            } else
+                break;
         }
     }
 
@@ -36,9 +38,12 @@ private:
         int n = static_cast<int>(data_.size());
         while (true) {
             int best = i, l = 2 * i + 1, r = 2 * i + 2;
-            if (l < n && cmp_(data_[best], data_[l])) best = l;
-            if (r < n && cmp_(data_[best], data_[r])) best = r;
-            if (best == i) break;
+            if (l < n && cmp_(data_[best], data_[l]))
+                best = l;
+            if (r < n && cmp_(data_[best], data_[r]))
+                best = r;
+            if (best == i)
+                break;
             std::swap(data_[i], data_[best]);
             i = best;
         }
@@ -59,36 +64,45 @@ public:
     }
 
     void pop() {
-        if (data_.empty()) throw std::underflow_error("heap is empty");
+        if (data_.empty())
+            throw std::underflow_error("heap is empty");
         data_[0] = data_.back();
         data_.pop_back();
-        if (!data_.empty()) siftDown(0);
+        if (!data_.empty())
+            siftDown(0);
     }
 
     const T& top() const {
-        if (data_.empty()) throw std::underflow_error("heap is empty");
+        if (data_.empty())
+            throw std::underflow_error("heap is empty");
         return data_[0];
     }
 
     bool empty() const { return data_.empty(); }
-    int  size()  const { return static_cast<int>(data_.size()); }
+    int size() const { return static_cast<int>(data_.size()); }
 
     // Returns the K largest elements (unsorted) using a min-heap of size K
     static std::vector<T> topK(const std::vector<T>& arr, int k) {
         Solution<T, std::greater<T>> minH;
         for (const T& v : arr) {
             minH.push(v);
-            if (minH.size() > k) minH.pop();
+            if (minH.size() > k)
+                minH.pop();
         }
         std::vector<T> result;
         result.reserve(minH.size());
-        while (!minH.empty()) { result.push_back(minH.top()); minH.pop(); }
+        while (!minH.empty()) {
+            result.push_back(minH.top());
+            minH.pop();
+        }
         return result;
     }
 };
 
 // Convenience aliases
-template <typename T> using MaxHeap = Solution<T, std::less<T>>;
-template <typename T> using MinHeap = Solution<T, std::greater<T>>;
+template <typename T>
+using MaxHeap = Solution<T, std::less<T>>;
+template <typename T>
+using MinHeap = Solution<T, std::greater<T>>;
 
 }  // namespace ns_data_structure_heap

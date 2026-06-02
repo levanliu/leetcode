@@ -1,14 +1,15 @@
 #pragma once
-#include <vector>
 #include <queue>
 #include <utility>
+#include <vector>
 
-namespace topological_sort {
+namespace ns_complicated_topological_sort {
 
 class Solution {
 public:
     // Returns topological order, or empty if cycle detected
-    std::vector<int> sort(int n, const std::vector<std::pair<int,int>>& edges) {
+    std::vector<int> sort(int n,
+                          const std::vector<std::pair<int, int>>& edges) {
         std::vector<std::vector<int>> adj(n);
         std::vector<int> indegree(n, 0);
         for (auto [u, v] : edges) {
@@ -35,9 +36,9 @@ public:
         return (int)order.size() == n ? order : std::vector<int>{};
     }
 
-    bool hasCycle(int n, const std::vector<std::pair<int,int>>& edges) {
+    bool hasCycle(int n, const std::vector<std::pair<int, int>>& edges) {
         return sort(n, edges).empty();
     }
 };
 
-}  // namespace topological_sort
+}  // namespace ns_complicated_topological_sort

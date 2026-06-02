@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/complicated/sort/sort.cpp"
+#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
 static const std::vector<int> kExpected = {1, 2, 3, 4, 5};

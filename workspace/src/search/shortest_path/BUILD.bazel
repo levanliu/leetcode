@@ -1,5 +1,10 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
 cc_library(
     name = "shortest_path",
-    hdrs = ["shortest_path.cpp"],
+    hdrs = glob(["*.cpp"]) + glob(
+        ["*.hpp"],
+        allow_empty = True,
+    ),
     visibility = ["//visibility:public"],
 )

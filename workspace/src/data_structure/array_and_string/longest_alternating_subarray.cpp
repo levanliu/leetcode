@@ -1,8 +1,6 @@
-#include <iostream>
-
+#include <algorithm>
 #include <cstring>
-using namespace std;
-
+#include <vector>
 /*
         * 给你一个下标从 0 开始的整数数组 nums 和一个整数 threshold 。
 
@@ -18,11 +16,10 @@ nums[l] % 2 == 0
         */
 namespace ns_data_structure_array_and_string_longest_alternating_subarray {
 
-
 class Solution {
- public:
-  int longestAlternatingSubarray(vector<int>& nums, int threshold) {
-    /*
+public:
+    int longestAlternatingSubarray(std::vector<int>& nums, int threshold) {
+        /*
      * 考虑动态规划
      * f(l,r+1) = f(l,r)  nums[r]%2 == nums[r+1]%2 || nums[r+1] > threshold
      * or
@@ -32,28 +29,27 @@ class Solution {
      * l [0,r-2]
      * r [0,r-2]
      */
-    int res = 0, dp = 0, n = nums.size();
-    for (int l = n - 1; l >= 0; l--) {
-      if (nums[l] > threshold) {
-        dp = 0;
-      } else if (l == n - 1 || nums[l] % 2 != nums[l + 1] % 2) {
-        dp++;
-      } else {
-        dp = 1;
-      }
-      if (nums[l] % 2 == 0) {
-        res = max(res, dp);
-      }
+        int res = 0, dp = 0, n = nums.size();
+        for (int l = n - 1; l >= 0; l--) {
+            if (nums[l] > threshold) {
+                dp = 0;
+            } else if (l == n - 1 || nums[l] % 2 != nums[l + 1] % 2) {
+                dp++;
+            } else {
+                dp = 1;
+            }
+            if (nums[l] % 2 == 0) {
+                res = std::max(res, dp);
+            }
+        }
+        return res;
     }
-    return res;
-  }
 };
-
 
 /*
 class Solution {
 public:
-    bool isSatisfied(vector<int> &nums, int l, int r, int threshold) {
+    bool isSatisfied(std::vector<int> &nums, int l, int r, int threshold) {
         if (nums[l] % 2 != 0) {
             return false;
         }
@@ -65,12 +61,12 @@ public:
         return true;
     }
 
-    int longestAlternatingSubarray(vector<int>& nums, int threshold) {
+    int longestAlternatingSubarray(std::vector<int>& nums, int threshold) {
         int res = 0, n = nums.size();
         for (int l = 0; l < n; l++) {
             for (int r = l; r < n; r++) {
                 if (isSatisfied(nums, l, r, threshold)) {
-                    res = max(res, r - l + 1);
+                    res = std::max(res, r - l + 1);
                 }
             }
         }
@@ -79,4 +75,4 @@ public:
 */
 };
 
-} // namespace ns_data_structure_array_and_string_longest_alternating_subarray
+}  // namespace ns_data_structure_array_and_string_longest_alternating_subarray

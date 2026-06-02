@@ -1,46 +1,32 @@
-#include <iostream>
-
-using namespace std;
-
-struct TreeNode
-{
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+#pragma once
+#include <queue>
+#include <string>
+#include "workspace/src/data_structure/tree/tree_node.hpp"
 
 namespace ns_tree_serialize_deserialize {
 
-class Solution
-{
+class Solution {
 public:
-    string serialize(TreeNode *root)
-    {
+    std::string serialize(TreeNode* root) {
         if (root == nullptr)
             return "#";
-        return to_string(root->val) + "," + serialize(root->left) + "," + serialize(root->right);
+        return std::to_string(root->val) + "," + serialize(root->left) + "," +
+               serialize(root->right);
     }
-    TreeNode *deserializeHelper(queue<string> &dataQueue)
-    {
-        string q = dataQueue.front();
+    TreeNode* deserializeHelper(std::queue<std::string>& dataQueue) {
+        std::string q = dataQueue.front();
         dataQueue.pop();
         if (q == "#")
             return nullptr;
-        TreeNode *root = new TreeNode(stoi(q));
+        TreeNode* root = new TreeNode(std::stoi(q));
         root->left = deserializeHelper(dataQueue);
         root->right = deserializeHelper(dataQueue);
         return root;
     }
-    TreeNode *deserialize(string data)
-    {
-        queue<string> dataQueue;
-        for (int i = 0; i < data.size();)
-        {
-            if (data[i] == ',')
-            {
+    TreeNode* deserialize(std::string data) {
+        std::queue<std::string> dataQueue;
+        for (int i = 0; i < data.size();) {
+            if (data[i] == ',') {
                 i++;
             }
             int k = i;
@@ -59,4 +45,4 @@ public:
     }
 };
 
-} // namespace ns_tree_serialize_deserialize
+}  // namespace ns_tree_serialize_deserialize

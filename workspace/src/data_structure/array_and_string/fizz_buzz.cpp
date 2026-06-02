@@ -1,23 +1,26 @@
-#include<iostream>
-using namespace std;
-namespace ns_data_structure_array_and_string_fizz_buzz {
+#include <string>
+#include <vector>
 
+namespace ns_data_structure_array_and_string_fizz_buzz {
 
 class Solution {
 public:
-    vector<string> fizzBuzz(int n) {
-        vector<string> res;
-        for(int i=1;i<=n;i++){
-            if(i%3==0 && i%5==0)
+    static std::vector<std::string> fizzBuzz(int n) {
+        constexpr int kFizz = 3;
+        constexpr int kBuzz = 5;
+        std::vector<std::string> res;
+        for (int i = 1; i <= n; i++) {
+            if (i % kFizz == 0 && i % kBuzz == 0) {
                 res.push_back("FizzBuzz");
-            if(i%3==0 && i%5!=0)
+            } else if (i % kFizz == 0) {
                 res.push_back("Fizz");
-            if(i%3!=0 && i%5==0)
+            } else if (i % kBuzz == 0) {
                 res.push_back("Buzz");
-            if(i%3!=0 && i%5!=0)
-                res.push_back(to_string(i));
+            } else {
+                res.push_back(std::to_string(i));
+            }
         }
         return res;
     }
 };
-} // namespace ns_data_structure_array_and_string_fizz_buzz
+}  // namespace ns_data_structure_array_and_string_fizz_buzz

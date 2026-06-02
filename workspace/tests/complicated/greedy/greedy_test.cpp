@@ -1,5 +1,5 @@
-#include <catch2/catch_test_macros.hpp>
 #include "workspace/src/complicated/greedy/greedy.cpp"
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("Greedy", "[complicated][greedy]") {
     ns_complicated_greedy::Solution g;
@@ -11,7 +11,8 @@ TEST_CASE("Greedy", "[complicated][greedy]") {
     }
 
     SECTION("mergeIntervals") {
-        std::vector<std::pair<int, int>> intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+        std::vector<std::pair<int, int>> intervals = {
+            {1, 3}, {2, 6}, {8, 10}, {15, 18}};
         auto res = g.mergeIntervals(intervals);
         REQUIRE(res.size() == 3);
         REQUIRE(res[0] == std::make_pair(1, 6));

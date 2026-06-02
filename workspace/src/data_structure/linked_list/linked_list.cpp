@@ -22,12 +22,14 @@ public:
     }
 
     T front() const {
-        if (!head) throw std::runtime_error("empty list");
+        if (!head)
+            throw std::runtime_error("empty list");
         return head->val;
     }
 
     void pop_front() {
-        if (!head) return;
+        if (!head)
+            return;
         ListNode<T>* tmp = head;
         head = head->next;
         delete tmp;
@@ -36,7 +38,8 @@ public:
     bool empty() const { return head == nullptr; }
 
     ~Solution() {
-        while (head) pop_front();
+        while (head)
+            pop_front();
     }
 };
 

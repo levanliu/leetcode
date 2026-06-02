@@ -1,6 +1,8 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 cc_test(
     name = "lc_files_test",
-    srcs = ["lc_files_test.cpp"],
+    srcs = glob(["*_test.cpp"]),
     deps = [
         "@catch2//:catch2_main",
     ],

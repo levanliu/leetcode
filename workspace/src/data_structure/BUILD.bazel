@@ -1,15 +1,17 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
 cc_library(
     name = "data_structure",
+    visibility = ["//visibility:public"],
     deps = [
         "//workspace/src/data_structure/array_and_string",
+        "//workspace/src/data_structure/graph",
+        "//workspace/src/data_structure/hash_map_set",
+        "//workspace/src/data_structure/heap",
         "//workspace/src/data_structure/linked_list",
         "//workspace/src/data_structure/stack_and_queue",
-        "//workspace/src/data_structure/hash_map_set",
+        "//workspace/src/data_structure/tree",
         "//workspace/src/data_structure/trie",
         "//workspace/src/data_structure/union_find",
-        "//workspace/src/data_structure/heap",
-        "//workspace/src/data_structure/tree",
-        "//workspace/src/data_structure/graph",
     ],
-    visibility = ["//visibility:public"],
 )

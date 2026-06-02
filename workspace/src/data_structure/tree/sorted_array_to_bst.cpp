@@ -1,35 +1,27 @@
-#include <iostream>
-using namespace std;
+#pragma once
+#include <vector>
+#include "workspace/src/data_structure/tree/tree_node.hpp"
 
-struct TreeNode
-{
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
 namespace ns_data_structure_tree_sorted_array_to_bst {
-
 
 class Solution {
 public:
-    TreeNode* sortedArrayToBST(vector<int>& nums) {
-        if(nums.size() == 0)
+    TreeNode* sortedArrayToBST(std::vector<int>& nums) {
+        if (nums.size() == 0)
             return nullptr;
-        return sortedArrayToBSTHelper(nums,0,nums.size()-1);
+        return sortedArrayToBSTHelper(nums, 0, nums.size() - 1);
     }
 
-    TreeNode* sortedArrayToBSTHelper(vector<int>& nums,int left,int right){
-        if(left > right){
+    TreeNode* sortedArrayToBSTHelper(std::vector<int>& nums, int left,
+                                     int right) {
+        if (left > right) {
             return nullptr;
         }
-        int mid = left+right >> 1;
+        int mid = left + right >> 1;
         TreeNode* root = new TreeNode(nums[mid]);
-        root->left = sortedArrayToBSTHelper(nums,left,mid-1);
-        root->right = sortedArrayToBSTHelper(nums,mid+1,right);
+        root->left = sortedArrayToBSTHelper(nums, left, mid - 1);
+        root->right = sortedArrayToBSTHelper(nums, mid + 1, right);
         return root;
     }
 };
-} // namespace ns_data_structure_tree_sorted_array_to_bst
+}  // namespace ns_data_structure_tree_sorted_array_to_bst

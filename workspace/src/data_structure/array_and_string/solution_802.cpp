@@ -1,30 +1,30 @@
-#include<iostream>
-#include<algorithm>
-#include<vector>
+// Two-pointer: find i,j from two sorted arrays such that a[i]+b[j]==x.
+#include <utility>
+#include <vector>
 
-using namespace std;
+namespace ns_data_structure_array_and_string_two_sum_sorted_pairs {
 
-const int N = 1000010;
-
-int n,m,x;
-int a[N],b[N];
-
-
-
-
-int main()
-{
-    scanf("%d%d&d",&n,&m,&x);
-
-    for(int i=0;i<n;i++) scanf("%d",&a[i]);
-    for(int i=0;i<m;i++) scanf("%d",&b[i]);
-
-    for(int i=0,j=m-1;i<n;i++){
-        while(j>=0 && a[i]+b[j] > x) j--;
-            if(a[i] + b[j] == x){
-                printf("%d %d",i,j);
-                break;
+class Solution {
+public:
+    // Returns {i, j} such that a[i]+b[j]==x, or {-1,-1} if not found.
+    // Precondition: a is sorted ascending, b is sorted ascending.
+    static std::pair<int, int> findPair(const std::vector<int>& a,
+                                        const std::vector<int>& b, int x) {
+        int i = 0;
+        int j = static_cast<int>(b.size()) - 1;
+        while (i < static_cast<int>(a.size()) && j >= 0) {
+            int s = a[i] + b[j];
+            if (s == x) {
+                return {i, j};
+            }
+            if (s > x) {
+                --j;
+            } else {
+                ++i;
             }
         }
-    return 0;
-}
+        return {-1, -1};
+    }
+};
+
+}  // namespace ns_data_structure_array_and_string_two_sum_sorted_pairs

@@ -1,6 +1,8 @@
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
 cc_test(
     name = "monotonic_stack_test",
-    srcs = ["monotonic_stack_test.cpp"],
+    srcs = glob(["*_test.cpp"]),
     deps = [
         "//workspace/src/complicated/monotonic_stack",
         "@catch2//:catch2_main",

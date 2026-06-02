@@ -1,8 +1,8 @@
 #pragma once
-#include <vector>
 #include <algorithm>
 #include <climits>
 #include <utility>
+#include <vector>
 
 namespace ns_complicated_greedy {
 
@@ -18,15 +18,17 @@ public:
         return maxProfit;
     }
 
-    std::vector<std::pair<int,int>> mergeIntervals(std::vector<std::pair<int,int>> intervals) {
+    std::vector<std::pair<int, int>> mergeIntervals(
+        std::vector<std::pair<int, int>> intervals) {
         if (intervals.empty()) {
             return {};
         }
         std::sort(intervals.begin(), intervals.end());
-        std::vector<std::pair<int,int>> res = {intervals[0]};
+        std::vector<std::pair<int, int>> res = {intervals[0]};
         for (int i = 1; i < (int)intervals.size(); i++) {
             if (intervals[i].first <= res.back().second) {
-                res.back().second = std::max(res.back().second, intervals[i].second);
+                res.back().second =
+                    std::max(res.back().second, intervals[i].second);
             } else {
                 res.push_back(intervals[i]);
             }

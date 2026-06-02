@@ -1,18 +1,13 @@
-#include <iostream>
-using namespace std;
+#include <vector>
 namespace ns_data_structure_array_and_string_product_except_self {
 
-
-class Solution
-{
+class Solution {
 public:
-    vector<int> productExcepSelf(vector<int> &nums)
-    {
+    std::vector<int> productExcepSelf(std::vector<int>& nums) {
         int n = nums.size();
         int L = 1, R = 1;
-        vector<int> res(n, 1);
-        for (int i = 0; i < n; i++)
-        {
+        std::vector<int> res(n, 1);
+        for (int i = 0; i < n; i++) {
             res[i] *= L;
             res[n - i - 1] *= R;
             L *= nums[i];
@@ -21,4 +16,4 @@ public:
         return res;
     }
 };
-} // namespace ns_data_structure_array_and_string_product_except_self
+}  // namespace ns_data_structure_array_and_string_product_except_self
