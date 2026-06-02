@@ -1,13 +1,14 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 namespace ns_complicated_dynamic_programming_length_of_lis {
 
 
 class Solution {
 public:
-    int findPeakElement(vector<int>& nums) {
+    int findPeakElement(std::vector<int>& nums) {
         int n = nums.size();
-        auto get = [&](int i) -> pair<int, int> {
+        auto get = [&](int i) -> std::pair<int, int> {
             if (i == -1 || i == n) {
                 return {0, 0};
             }
