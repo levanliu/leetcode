@@ -1,4 +1,6 @@
-#include <iostream>
+#include <algorithm>
+#include <climits>
+#include <vector>
 using namespace std;
 namespace ns_complicated_dynamic_programming_coin_change {
 
@@ -7,13 +9,11 @@ class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) {
         sort(coins.begin(),coins.end());
-        int csize = coins.size();
-        int n = 10010;
-        int dp[n];
-        memset(dp,-1,sizeof dp);
+        int n = amount + 1;
+        vector<int> dp(n, -1);
         dp[0] = 0;
         for(int c:coins){
-            if(c > n)
+            if(c > amount)
                 continue;
             dp[c] = 1;
         }
