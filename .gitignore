@@ -38,3 +38,4 @@ a.out
 Thumbs.db
 
 .cache
+.vscode/lldb_sourcemap.txt

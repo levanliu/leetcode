@@ -2,15 +2,19 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Write execroot sourcemap",
+      "type": "shell",
+      "command": "echo \"settings set target.source-map $(readlink -f bazel-bin/../../..) ${workspaceFolder}\" > .vscode/lldb_sourcemap.txt",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": { "reveal": "never" }
+    },
+    {
       "label": "Build test (debug)",
       "type": "shell",
-      "command": "bazelisk",
-      "args": [
-        "build",
-        "-c",
-        "dbg",
-        "//${relativeFileDirname}:${fileBasenameNoExtension}"
-      ],
+      "command": "bazelisk build -c dbg //${relativeFileDirname}:${fileBasenameNoExtension}",
+      "dependsOn": "Write execroot sourcemap",
       "options": {
         "cwd": "${workspaceFolder}"
       },

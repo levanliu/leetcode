@@ -1,5 +1,3 @@
-common --disk_cache=/tmp/bazel-cache-levanliu
-test:asan --test_env=ASAN_SYMBOLIZER_PATH=/opt/hp93000rt/el9/x86_64/llvm-clang-20/bin/llvm-symbolizer
-test:ubsan --test_env=UBSAN_SYMBOLIZER_PATH=/opt/hp93000rt/el9/x86_64/llvm-clang-20/bin/llvm-symbolizer
-test:tsan --test_env=TSAN_SYMBOLIZER_PATH=/opt/hp93000rt/el9/x86_64/llvm-clang-20/bin/llvm-symbolizer
-build:coverage --action_env=GCOV=/opt/rh/gcc-toolset-13/root/usr/bin/gcov
+# macOS: keep .o files in execroot so lldb can resolve debug symbols
+build:macos --strategy=CppCompile=local
+build:macos --strategy=CppLink=local

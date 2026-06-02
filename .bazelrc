@@ -27,11 +27,6 @@ import %workspace%/tools/user_config.bazelrc
 common --experimental_disk_cache_gc_max_size=150G
 common --experimental_disk_cache_gc_max_age=8d
 
-# Remote cache (server configured in /etc/bazel.bazelrc.site)
-common --remote_upload_local_results
-common --remote_download_all
-build --remote_cache_compression
-build --remote_local_fallback
 
 # ============================================================================
 # 4. Build Settings
@@ -58,25 +53,6 @@ build:linux --host_copt=-Wno-error
 build:linux --host_per_file_copt=.*@-Wno-error
 
 run:linux --action_env=BAZEL_CXXOPTS="-std=c++17:-Wextra:-Wno-error=unused-parameter"
-
-# --- Windows (MSVC) ---
-# Note: Use build.ps1 scripts, which automatically handle
-#       Windows path length limitations via --output_user_root parameter
-# Note: Symlinks require Windows Developer Mode enabled
-#   Settings > Update & Security > For developers > Developer Mode
-# Uncomment below to enable symlinks (may improve build performance):
-# build:windows --windows_enable_symlinks
-build:windows --cxxopt=/std:c++17
-build:windows --host_cxxopt=/std:c++17
-build:windows --cxxopt=/permissive-
-build:windows --host_cxxopt=/permissive-
-build:windows --cxxopt=/utf-8
-build:windows --host_cxxopt=/utf-8
-build:windows --define=protobuf_allow_msvc=true
-build:windows --action_env=BAZEL_CXXOPTS="-std=c++17"
-build:windows --enable_runfiles=no
-
-run:windows --action_env=BAZEL_CXXOPTS="-std=c++17"
 
 # ============================================================================
 # 6. C++ Toolchains

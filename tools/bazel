@@ -14,7 +14,16 @@ REAL_BAZEL="${BAZEL_REAL:?BAZEL_REAL must be set by bazelisk}"
 if [[ ! -f "${USER_CONFIG}" ]]; then
     case "$(uname -s)" in
         Linux)
-            echo "common --disk_cache=/tmp/bazel-cache-${USER}" > "${USER_CONFIG}"
+            cat > "${USER_CONFIG}" << 'EOF'
+build:linux --disk_cache=/tmp/bazel-cache-${USER}
+EOF
+            ;;
+        Darwin)
+            cat > "${USER_CONFIG}" << 'EOF'
+# macOS: keep .o files in execroot so lldb can resolve debug symbols
+build:macos --strategy=CppCompile=local
+build:macos --strategy=CppLink=local
+EOF
             ;;
         MINGW*|MSYS*|CYGWIN*|Windows_NT)
             echo "common --disk_cache=${LOCALAPPDATA:-${USERPROFILE}/.cache}/bazel-cache" > "${USER_CONFIG}"

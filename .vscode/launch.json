@@ -8,6 +8,9 @@
       "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
       "args": [],
       "cwd": "${workspaceFolder}",
+      "initCommands": [
+        "command source ${workspaceFolder}/.vscode/lldb_sourcemap.txt"
+      ],
       "preLaunchTask": "Build test (debug)"
     }
   ]
