@@ -32,6 +32,8 @@ class Solution {
   }
 };
 
-int main() {}
+int main() {
+  return 0;
+}
 
 } // namespace ns_complicated_dynamic_programming_377_combination_sum_iv
