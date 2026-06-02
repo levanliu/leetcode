@@ -2,6 +2,9 @@
 // Difficulty: Easy | Category: Hash Map/Set
 // https://leetcode.com/problems/design-hashset/
 
+#include <list>
+#include <vector>
+
 namespace ns_hash_design_hashset {
 
 class Solution
@@ -51,7 +54,7 @@ public:
     }
 
 private:
-    vector<list<int>> hashSet;
+    std::vector<std::list<int>> hashSet;
     static const int base = 769;
     int hashCode(int key)
     {

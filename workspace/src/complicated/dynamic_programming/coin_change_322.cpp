@@ -2,19 +2,20 @@
 // Difficulty: Medium | Category: Dynamic Programming
 // https://leetcode.com/problems/coin-change/
 
-#include<bits/stdc++.h>
+#include <climits>
+#include <vector>
 
 namespace ns_dp_coin_change {
 
 class Solution
 {
 private:
-    vector<int> count;
+    std::vector<int> count;
 public:
     Solution(/* args */);
     ~Solution();
-    int dp(vector<int> &coins, int rem);
-    int coinChange(vector<int> &coins, int amount);
+    int dp(std::vector<int> &coins, int rem);
+    int coinChange(std::vector<int> &coins, int amount);
 };
 
 Solution::Solution(/* args */)
@@ -25,7 +26,7 @@ Solution::~Solution()
 {
 }
 
-Solution::dp(vector<int> &coins,int rem){
+int Solution::dp(std::vector<int> &coins, int rem) {
     if(rem < 0)
         return -1;
     if(rem == 0)
@@ -46,7 +47,7 @@ Solution::dp(vector<int> &coins,int rem){
     return count[rem - 1];
 }
 
-Solution::coinChange(vector<int> &coins,int amount){
+int Solution::coinChange(std::vector<int> &coins, int amount) {
     if(amount < 1)
         return 0;
     count.resize(amount);

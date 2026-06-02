@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <map>
+#include <memory>
 using namespace std;
 
 struct DlinkedNode
@@ -13,10 +14,10 @@ public:
     int key;
     DlinkedNode *pre;
     DlinkedNode *ne;
-    DlinkedNode() : key(0), val(0), pre(nullptr), ne(nullptr) {}
+    DlinkedNode() : val(0), key(0), pre(nullptr), ne(nullptr) {}
     DlinkedNode(int _key, int _val)
-        : key(_key),
-          val(_val),
+        : val(_val),
+          key(_key),
           pre(nullptr),
           ne(nullptr) {}
 };
@@ -27,20 +28,26 @@ class Solution
 {
 public:
     int capacity;
-    int size;
+    int size = 0;
 
-    map<int, DlinkedNode *> cache;
-    DlinkedNode *head;
-    DlinkedNode *tail;
-    Solution(int capacity)
+    map<int, unique_ptr<DlinkedNode>> cache;
+    unique_ptr<DlinkedNode> head;
+    unique_ptr<DlinkedNode> tail;
+
+    explicit Solution(int capacity)
+        : capacity(capacity),
+          head(make_unique<DlinkedNode>()),
+          tail(make_unique<DlinkedNode>())
     {
-        this->capacity = capacity;
-        this->size = 0;
-        head = new DlinkedNode();
-        tail = new DlinkedNode();
-        head->ne = tail;
-        tail->pre = head;
+        head->ne = tail.get();
+        tail->pre = head.get();
     }
+
+    Solution(const Solution&) = delete;
+    Solution& operator=(const Solution&) = delete;
+    Solution(Solution&&) = delete;
+    Solution& operator=(Solution&&) = delete;
+    ~Solution() = default;
 
     int get(int key)
     {
@@ -48,7 +55,7 @@ public:
         {
             return -1;
         }
-        DlinkedNode *cur = cache[key];
+        DlinkedNode *cur = cache[key].get();
         int val = cur->val;
         moveToHead(cur);
         return val;
@@ -60,17 +67,16 @@ public:
         addToHead(cur);
     }
 
-    void deleteCur(DlinkedNode *cur)
+    static void deleteCur(DlinkedNode *cur)
     {
         cur->pre->ne = cur->ne;
         cur->ne->pre = cur->pre;
-        // delete cur;
     }
 
-    void addToHead(DlinkedNode *cur)
+    void addToHead(DlinkedNode *cur) const
     {
         cur->ne = head->ne;
-        cur->pre = head;
+        cur->pre = head.get();
         head->ne->pre = cur;
         head->ne = cur;
     }
@@ -79,22 +85,23 @@ public:
     {
         if (!cache.count(key))
         {
-            DlinkedNode *cur = new DlinkedNode(key, value);
-            cache[key] = cur;
+            auto node = make_unique<DlinkedNode>(key, value);
+            DlinkedNode *cur = node.get();
+            cache[key] = std::move(node);
             addToHead(cur);
             size++;
             if (size > capacity)
             {
                 DlinkedNode *tailNode = tail->pre;
-                cache.erase(tailNode->key);
+                int evictKey = tailNode->key;
                 deleteCur(tailNode);
-                delete tailNode;
+                cache.erase(evictKey);
                 --size;
             }
         }
         else
         {
-            DlinkedNode *cur = cache[key];
+            DlinkedNode *cur = cache[key].get();
             cur->val = value;
             moveToHead(cur);
         }
@@ -103,17 +110,17 @@ public:
 
 int main()
 {
-    Solution* cache = new Solution(2);
-  cache->put(1, 1); 
-  cache->put(2, 2); 
-  cout << cache->get(1) << endl;     
-  cache->put(3, 3); 
-  cout << cache->get(2) << endl;     
-  cache->put(4, 4); 
-  cout << cache->get(1) << endl;   
-  cout << cache->get(3) << endl;  
-  cout << cache->get(4) << endl; 
-  return 0;
+        Solution cache(2);
+        cache.put(1, 1);
+        cache.put(2, 2);
+        cout << cache.get(1) << endl;
+        cache.put(3, 3);
+        cout << cache.get(2) << endl;
+        cache.put(4, 4);
+        cout << cache.get(1) << endl;
+        cout << cache.get(3) << endl;
+        cout << cache.get(4) << endl;
+        return 0;
 }
 
 /**

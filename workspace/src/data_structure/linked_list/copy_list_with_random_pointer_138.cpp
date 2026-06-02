@@ -2,28 +2,21 @@
 // Difficulty: Medium | Category: Linked List
 // https://leetcode.com/problems/copy-list-with-random-pointer/
 
-/*
-// Definition for a Node.
+#include <unordered_map>
+namespace ns_data_structure_linked_list_138_copy_list_with_random_pointer {
+
 struct Node {
-public:
     int val;
     Node* next;
     Node* random;
 
-    Node(int _val) {
-        val = _val;
-        next = NULL;
-        random = NULL;
-    }
+    explicit Node(int _val) : val(_val), next(nullptr), random(nullptr) {}
 };
-*/
-#include <unordered_map>
-namespace ns_data_structure_linked_list_138_copy_list_with_random_pointer {
 
 class Solution
 {
 public:
-    unordered_map<Node *, Node *> cachedNode;
+    std::unordered_map<Node*, Node*> cachedNode;
 
     Node *copyRandomList(Node *head)
     {

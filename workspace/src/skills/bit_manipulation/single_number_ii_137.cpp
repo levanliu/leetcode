@@ -1,13 +1,15 @@
 // LeetCode 137 - Single Number II
 // Difficulty: Medium | Category: Bit Manipulation
 // https://leetcode.com/problems/single-number-ii/
+
+#include <vector>
 namespace ns_skills_bit_manipulation_137_single_number_ii {
 
 
 class Solution
 {
 public:
-    int singleNumber(vector<int> &nums)
+    int singleNumber(std::vector<int> &nums)
     {
         int ans = 0;
         for (int i = 0; i < 32; i++)
@@ -22,6 +24,7 @@ public:
                 }
             }
         }
+        return ans;
     }
 };
 // @lc code=end

@@ -11,9 +11,9 @@ class Solution
 {
 public:
     static constexpr int mod = 1e9 + 7;
-    int countWays(vector<vector<int>> &ranges)
+    int countWays(std::vector<std::vector<int>> &ranges)
     {
-        sort(ranges.begin(), ranges.end());
+        std::sort(ranges.begin(), ranges.end());
         int n = ranges.size();
         long long res = 1;
         for (int i = 0; i < n;)
@@ -22,7 +22,7 @@ public:
             int r = ranges[i][1];
             while (j < n && r > ranges[j][0])
             {
-                r = max(r, ranges[j][1]);
+                r = std::max(r, ranges[j][1]);
                 j++;
                 res = res * 2 % mod;
             }
