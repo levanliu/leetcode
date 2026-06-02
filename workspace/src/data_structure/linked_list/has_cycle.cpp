@@ -1,4 +1,3 @@
-#pragma once
 #include "workspace/src/data_structure/linked_list/list_node.hpp"
 namespace ns_data_structure_linked_list_has_cycle {
 

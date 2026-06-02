@@ -1,4 +1,3 @@
-#pragma once
 #include <vector>
 
 namespace ns_skills_prefix_sum_1d {

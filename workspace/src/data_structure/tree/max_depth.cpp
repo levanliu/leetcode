@@ -1,4 +1,3 @@
-#pragma once
 #include <algorithm>
 #include "workspace/src/data_structure/tree/tree_node.hpp"
 

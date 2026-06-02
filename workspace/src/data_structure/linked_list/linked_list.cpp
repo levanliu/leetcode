@@ -1,4 +1,3 @@
-#pragma once
 #include <stdexcept>
 
 namespace ns_data_structure_linked_list {

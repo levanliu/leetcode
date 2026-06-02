@@ -1,6 +1,5 @@
 // Eigen eigenvalue solver demo (requires Eigen3 library).
 // Build with: g++ -I/path/to/eigen eigen_solve.cpp
-#pragma once
 
 namespace ns_data_structure_array_and_string_eigen_solve {
 

@@ -2,24 +2,28 @@
 #include <algorithm>
 #include <catch2/catch_test_macros.hpp>
 
+using namespace ns_skills_string_algorithm;
+
 TEST_CASE("kmpSearch", "[skills][string_algorithm]") {
-    REQUIRE(kmpSearch("abababab", "abab") == std::vector<int>{0, 2, 4});
-    REQUIRE(kmpSearch("hello", "xyz").empty());
-    REQUIRE(kmpSearch("helloworld", "world") == std::vector<int>{5});
-    REQUIRE(kmpSearch("abc", "").empty());
+    REQUIRE(Solution::kmpSearch("abababab", "abab") ==
+            std::vector<int>{0, 2, 4});
+    REQUIRE(Solution::kmpSearch("hello", "xyz").empty());
+    REQUIRE(Solution::kmpSearch("helloworld", "world") == std::vector<int>{5});
+    REQUIRE(Solution::kmpSearch("abc", "").empty());
 }
 
 TEST_CASE("longestPalindrome", "[skills][string_algorithm]") {
-    REQUIRE(longestPalindrome("babad").size() == 3);  // "bab" or "aba"
-    REQUIRE(longestPalindrome("cbbd") == "bb");
-    REQUIRE(longestPalindrome("a") == "a");
-    REQUIRE(longestPalindrome("ac").size() == 1);
+    REQUIRE(Solution::longestPalindrome("babad").size() ==
+            3);  // "bab" or "aba"
+    REQUIRE(Solution::longestPalindrome("cbbd") == "bb");
+    REQUIRE(Solution::longestPalindrome("a") == "a");
+    REQUIRE(Solution::longestPalindrome("ac").size() == 1);
 }
 
 TEST_CASE("isPalindrome", "[skills][string_algorithm]") {
-    REQUIRE(isPalindrome("racecar"));
-    REQUIRE(isPalindrome("a"));
-    REQUIRE_FALSE(isPalindrome("hello"));
+    REQUIRE(Solution::isPalindrome("racecar"));
+    REQUIRE(Solution::isPalindrome("a"));
+    REQUIRE_FALSE(Solution::isPalindrome("hello"));
 }
 
 TEST_CASE("StringHash", "[skills][string_algorithm]") {
@@ -30,13 +34,14 @@ TEST_CASE("StringHash", "[skills][string_algorithm]") {
 }
 
 TEST_CASE("groupAnagrams", "[skills][string_algorithm]") {
-    auto groups = groupAnagrams({"eat", "tea", "tan", "ate", "nat", "bat"});
+    auto groups =
+        Solution::groupAnagrams({"eat", "tea", "tan", "ate", "nat", "bat"});
     REQUIRE(groups.size() == 3);
 }
 
 TEST_CASE("lengthOfLongestSubstring", "[skills][string_algorithm]") {
-    REQUIRE(lengthOfLongestSubstring("abcabcbb") == 3);
-    REQUIRE(lengthOfLongestSubstring("bbbbb") == 1);
-    REQUIRE(lengthOfLongestSubstring("pwwkew") == 3);
-    REQUIRE(lengthOfLongestSubstring("") == 0);
+    REQUIRE(Solution::lengthOfLongestSubstring("abcabcbb") == 3);
+    REQUIRE(Solution::lengthOfLongestSubstring("bbbbb") == 1);
+    REQUIRE(Solution::lengthOfLongestSubstring("pwwkew") == 3);
+    REQUIRE(Solution::lengthOfLongestSubstring("") == 0);
 }

@@ -1,4 +1,3 @@
-#pragma once
 #include <vector>
 
 // Union-Find (Disjoint Set Union) with path compression.

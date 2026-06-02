@@ -1,4 +1,3 @@
-#pragma once
 #include "workspace/src/data_structure/linked_list/list_node.hpp"
 //
 // Created by le on 25/11/2022.
