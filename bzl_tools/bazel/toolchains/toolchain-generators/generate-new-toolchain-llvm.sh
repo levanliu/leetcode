@@ -24,7 +24,7 @@ readonly FROM_VERSION=21
 readonly TO_VERSION=22
 readonly FROM_NAME="llvm-clang-${FROM_VERSION}"
 readonly TO_NAME="llvm-clang-${TO_VERSION}"
-readonly DESTINATION="ate_tools/bazel/toolchains/${TO_NAME}"
+readonly DESTINATION="bzl_tools/bazel/toolchains/${TO_NAME}"
 
 clone_clean_bazel_examples_repo
 readonly CPP_TUTORIAL="${BAZEL_EXAMPLES}/cpp-tutorial/stage3"
@@ -97,9 +97,9 @@ cat >${sedscript} <<EOF
 /^load(":armeabi_cc_toolchain_config.bzl", "armeabi_cc_toolchain_config")$/d
 
 /^package(/i\\
-load("//:ate_tools/env_cfg/install_dirs.bzl", "rpmRoot")\\
+load("//:bzl_tools/env_cfg/install_dirs.bzl", "rpmRoot")\\
 load("//:common_environment.bzl", "gcc_toolset_${DEVTOOLSET_VARIABLE_VERSION}_path", "gcc_toolset_${DEVTOOLSET_VARIABLE_VERSION}_gcc_ver")\\
-load("@adv_rhel//:defs.bzl", "rhel_version")\\
+load("@rhel9//:defs.bzl", "rhel_version")\\
 
 s/cc_wrapper\.sh/cc_wrapper_el" + rhel_version() + ".sh/
 s/deps_scanner_wrapper\.sh/deps_scanner_wrapper_el" + rhel_version() + ".sh/g
@@ -140,7 +140,7 @@ rm --verbose ${sedscript}
 sedscript=`mktemp`
 cat >${sedscript} <<EOF
 /"ACTION_NAMES")/ a\\
-load("//:ate_tools/env_cfg/install_dirs.bzl", "rpmRoot")
+load("//:bzl_tools/env_cfg/install_dirs.bzl", "rpmRoot")
 /def layering_check_features(compiler, .*):/ i\\
 def check_concurrency_features(compiler):\\
     if compiler != "clang":\\

@@ -16,7 +16,7 @@ readonly TO_VERSION=14
 readonly RHEL7_TO_VERSION=12
 readonly FROM_NAME="gcc-toolset-${FROM_VERSION}"
 readonly TO_NAME="gcc-toolset-${TO_VERSION}"
-readonly DESTINATION="ate_tools/bazel/toolchains/${TO_NAME}"
+readonly DESTINATION="bzl_tools/bazel/toolchains/${TO_NAME}"
 
 clone_clean_bazel_examples_repo
 readonly CPP_TUTORIAL="${BAZEL_EXAMPLES}/cpp-tutorial/stage3"
@@ -74,7 +74,7 @@ cat >${sedscript} <<EOF
 
 /^package(/i\\
 load("//:common_environment.bzl", "gcc_toolset_${TO_VERSION}_gcc_ver", "gcc_toolset_${TO_VERSION}_path")\\
-load("@adv_rhel//:defs.bzl", "rhel_version")\\
+load("@rhel9//:defs.bzl", "rhel_version")\\
 
 s/cc_wrapper\.sh/cc_wrapper_el" + rhel_version() + ".sh/
 s/:builtin_include_directory_paths"/:builtin_include_directory_paths_el" + rhel_version()/

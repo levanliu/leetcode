@@ -15,11 +15,10 @@
 # This becomes the BUILD file for @local_config_cc// under non-BSD unixes.
 
 load(":cc_toolchain_config.bzl", "cc_toolchain_config")
-load("@rules_cc//cc/toolchains:cc_toolchain.bzl", "cc_toolchain")
-load("@rules_cc//cc/toolchains:cc_toolchain_suite.bzl", "cc_toolchain_suite")
+load("@rules_cc//cc:defs.bzl", "cc_toolchain")
 
-load("//:common_environment.bzl", "gcc_toolset_14_gcc_ver", "gcc_toolset_14_path")
-load("@adv_rhel//:defs.bzl", "rhel_version")
+load("//:common_environment.bzl", "gcc_toolset_13_gcc_ver", "gcc_toolset_13_path")
+load("@rhel9//:defs.bzl", "rhel_version")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -58,26 +57,14 @@ filegroup(
 )
 
 filegroup(
-    name = "validate_static_library",
-    srcs = ["validate_static_library.sh"],
-)
-
-filegroup(
-    name = "deps_scanner_wrapper",
-    srcs = ["deps_scanner_wrapper.sh"],
-)
-filegroup(
     name = "compiler_deps",
-    srcs = glob(["extra_tools/**"], allow_empty = True) + [":builtin_include_directory_paths_el" + rhel_version(),
-    ":cc_wrapper",
-    ":deps_scanner_wrapper",
-    ":validate_static_library"],
+    srcs = glob(["extra_tools/**"], allow_empty = True) + [":builtin_include_directory_paths_el" + rhel_version()],
 )
 
 cc_toolchain(
-    name = "gcc14_x86_64_toolchain",
+    name = "gcc13_x86_64_toolchain",
     toolchain_identifier = "local",
-    toolchain_config = ":gcc14_toolchain_config",
+    toolchain_config = ":gcc13_toolchain_config",
     all_files = ":compiler_deps",
     ar_files = ":compiler_deps",
     as_files = ":compiler_deps",
@@ -86,13 +73,12 @@ cc_toolchain(
     linker_files = ":compiler_deps",
     objcopy_files = ":empty",
     strip_files = ":empty",
-    supports_header_parsing = 1,
     supports_param_files = 1,
     module_map = None,
 )
 
 cc_toolchain_config(
-    name = "gcc14_toolchain_config",
+    name = "gcc13_toolchain_config",
     cpu = "k8",
     compiler = "gcc",
     toolchain_identifier = "local",
@@ -101,30 +87,27 @@ cc_toolchain_config(
     target_libc = "local",
     abi_version = "local",
     abi_libc_version = "local",
-    cxx_builtin_include_directories = [gcc_toolset_14_path + "/root/usr/lib/gcc/x86_64-redhat-linux/" + gcc_toolset_14_gcc_ver + "/include",
+    cxx_builtin_include_directories = [gcc_toolset_13_path + "/root/usr/lib/gcc/x86_64-redhat-linux/" + gcc_toolset_13_gcc_ver + "/include",
     "/usr/local/include",
-    gcc_toolset_14_path + "/root/usr/include",
+    gcc_toolset_13_path + "/root/usr/include",
     "/usr/include",
-    gcc_toolset_14_path + "/root/usr/include/c++/" + gcc_toolset_14_gcc_ver + "",
-    gcc_toolset_14_path + "/root/usr/include/c++/" + gcc_toolset_14_gcc_ver + "/x86_64-redhat-linux",
-    gcc_toolset_14_path + "/root/usr/include/c++/" + gcc_toolset_14_gcc_ver + "/backward",
+    gcc_toolset_13_path + "/root/usr/include/c++/" + gcc_toolset_13_gcc_ver + "",
+    gcc_toolset_13_path + "/root/usr/include/c++/" + gcc_toolset_13_gcc_ver + "/x86_64-redhat-linux",
+    gcc_toolset_13_path + "/root/usr/include/c++/" + gcc_toolset_13_gcc_ver + "/backward",
     ],
     tool_paths = {
-        "ar": gcc_toolset_14_path + "/root/usr/bin/ar",
-        "ld": gcc_toolset_14_path + "/root/usr/bin/ld.gold",
-        "llvm-cov": gcc_toolset_14_path + "/root/usr/bin/cov",
-        "cpp": gcc_toolset_14_path + "/root/usr/bin/cpp",
-        "gcc": gcc_toolset_14_path + "/root/usr/bin/gcc",
-        "dwp": gcc_toolset_14_path + "/root/usr/bin/dwp",
-        "gcov": gcc_toolset_14_path + "/root/usr/bin/gcov",
-        "nm": gcc_toolset_14_path + "/root/usr/bin/nm",
-        "objcopy": gcc_toolset_14_path + "/root/usr/bin/objcopy",
-        "objdump": gcc_toolset_14_path + "/root/usr/bin/objdump",
-        "strip": gcc_toolset_14_path + "/root/usr/bin/strip",
-        "c++filt": gcc_toolset_14_path + "/root/usr/bin/c++filt",
-        "cpp-module-deps-scanner": "deps_scanner_wrapper.sh",
-        "parse_headers": "cc_wrapper_el" + rhel_version() + ".sh",
-        "validate_static_library": "validate_static_library.sh"},
+        "ar": gcc_toolset_13_path + "/root/usr/bin/ar",
+        "ld": gcc_toolset_13_path + "/root/usr/bin/ld.gold",
+        "llvm-cov": gcc_toolset_13_path + "/root/usr/bin/cov",
+        "llvm-profdata": "None",
+        "cpp": gcc_toolset_13_path + "/root/usr/bin/cpp",
+        "gcc": gcc_toolset_13_path + "/root/usr/bin/gcc",
+        "dwp": gcc_toolset_13_path + "/root/usr/bin/dwp",
+        "gcov": gcc_toolset_13_path + "/root/usr/bin/gcov",
+        "nm": gcc_toolset_13_path + "/root/usr/bin/nm",
+        "objcopy": gcc_toolset_13_path + "/root/usr/bin/objcopy",
+        "objdump": gcc_toolset_13_path + "/root/usr/bin/objdump",
+        "strip": gcc_toolset_13_path + "/root/usr/bin/strip"},
     compile_flags = [
     "-fdiagnostics-color",
     "-fstack-protector-strong",
@@ -137,14 +120,13 @@ cc_toolchain_config(
     "-DNDEBUG",
     "-ffunction-sections",
     "-fdata-sections"],
-    dbg_compile_flags = ['-U_FORTIFY_SOURCE', '-g', '-O0', '-ggnu-pubnames'],
+    dbg_compile_flags = ["-g"],
     conly_flags = [],
-    cxx_flags = ["-std=c++17"],
+    cxx_flags = [],
     link_flags = ["-fuse-ld=gold",
     "-Wl,-no-as-needed",
     "-Wl,-z,relro,-z,now",
-    "-B" + gcc_toolset_14_path + "/root/usr/bin",
-    "-Wl,--gdb-index",
+    "-B" + gcc_toolset_13_path + "/root/usr/bin",
     "-pass-exit-codes"
 
     # --detect-odr-violations causes link times of sometimes > 200 secs.
@@ -186,13 +168,12 @@ cc_toolchain_config(
     coverage_compile_flags = ["--coverage"],
     coverage_link_flags = ["--coverage"],
     supports_start_end_lib = True,
-    extra_flags_per_feature = {},
 )
 
 toolchain(
-    name = "gcc14_toolchain",
-    toolchain = "gcc14_x86_64_toolchain",
-    toolchain_type = "@rules_cc//cc:toolchain_type",
+    name = "gcc13_toolchain",
+    toolchain = "gcc13_x86_64_toolchain",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
     # exec_compatible_with = ['//:toolset-gcc'],
     target_compatible_with = ['@platforms//cpu:x86_64'],
     target_settings = ["//:is_gcc"],
@@ -200,8 +181,8 @@ toolchain(
 
 toolchain(
     name = "default_toolchain",
-    toolchain = "gcc14_x86_64_toolchain",
-    toolchain_type = "@rules_cc//cc:toolchain_type",
+    toolchain = "gcc13_x86_64_toolchain",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
     # exec_compatible_with = ['//:toolset-gcc'],
     target_compatible_with = ['@platforms//cpu:x86_64'],
     # No target_settings present

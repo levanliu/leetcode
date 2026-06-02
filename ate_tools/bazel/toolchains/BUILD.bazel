@@ -1,2 +1,0 @@
-# This BUILD file makes ate_tools/bazel/toolchains/ a valid Bazel package.
-# Subdirectory toolchains each have their own BUILD files.

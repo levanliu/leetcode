@@ -38,21 +38,21 @@ when_from_version_and_to_version_not_same() {
     local from_name=$3
     local to_name=$4
     local workspace_root=$5
-    local destination="ate_tools/bazel/toolchains/${to_name}"
+    local destination="bzl_tools/bazel/toolchains/${to_name}"
 
 
     if [ "${from_version}" -ne "${to_version}" ] ; then
 
         # Support interactive debugging: The destination repository may be in an inconsistent state of the script aborted.
-        if [ -d "${workspace_root}/ate_tools/bazel/toolchains/${to_name}" ] ; then
+        if [ -d "${workspace_root}/bzl_tools/bazel/toolchains/${to_name}" ] ; then
             KNOWN_TO_GIT=`git -C ${workspace_root} ls-files ${destination}/ | wc -l`
             if [ ${KNOWN_TO_GIT} -gt 0 ] ; then
-                git -C "${workspace_root}" rm --force -r "ate_tools/bazel/toolchains/${to_name}"
+                git -C "${workspace_root}" rm --force -r "bzl_tools/bazel/toolchains/${to_name}"
             fi
-            rm --force --recursive --verbose "${workspace_root}/ate_tools/bazel/toolchains/${to_name}"
+            rm --force --recursive --verbose "${workspace_root}/bzl_tools/bazel/toolchains/${to_name}"
         fi
 
-        cp --archive --verbose "${workspace_root}/ate_tools/bazel/toolchains/${from_name}" "${workspace_root}/$destination"
+        cp --archive --verbose "${workspace_root}/bzl_tools/bazel/toolchains/${from_name}" "${workspace_root}/$destination"
         rm --verbose ${workspace_root}/${destination}/cc_wrapper*
     fi
 }

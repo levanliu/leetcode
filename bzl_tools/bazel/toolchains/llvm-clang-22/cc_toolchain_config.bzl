@@ -15,7 +15,7 @@
 """A Starlark cc_toolchain configuration rule"""
 
 load("@rules_cc//cc:action_names.bzl", "ACTION_NAMES")
-load("//:ate_tools/env_cfg/install_dirs.bzl", "rpmRoot")
+load("//:bzl_tools/env_cfg/install_dirs.bzl", "rpmRoot")
 load(
     "@rules_cc//cc:cc_toolchain_config_lib.bzl",
     "action_config",

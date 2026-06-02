@@ -172,16 +172,16 @@
   },
   "selectedYankedVersions": {},
   "moduleExtensions": {
-    "//ate_tools/bazel/adv_rhel:defs.bzl%adv_rhel_extension": {
+    "//bzl_tools/bazel/rhel9:defs.bzl%rhel9_extension": {
       "general": {
-        "bzlTransitiveDigest": "FLSeC9UxshWDDj0LJOcyQFhEbykXOtwZjJXQ/xV2rmI=",
-        "usagesDigest": "127uQ32gfF+mOXN2sWj4bdcfE40+9Vpp6H3ibyOfaCo=",
+        "bzlTransitiveDigest": "w3JLEQDQdhWnbFkyDWF3ieYCjbHvitsnv1h3bvEO3Dk=",
+        "usagesDigest": "S66DHOh6weuRY1dL2lZr6yfegutujvC0i46A1ca8QTM=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
         "generatedRepoSpecs": {
-          "adv_rhel": {
-            "repoRuleId": "@@//ate_tools/bazel/adv_rhel:defs.bzl%adv_rhel_repository",
+          "rhel9": {
+            "repoRuleId": "@@//bzl_tools/bazel/rhel9:defs.bzl%rhel9_repository",
             "attributes": {}
           }
         },

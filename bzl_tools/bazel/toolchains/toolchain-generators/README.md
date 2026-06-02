@@ -52,7 +52,7 @@ The resulting toolchain files require post-processing. At the very least
 you should compare the (possibly staged) changes with commands like
 
 ```sh
-git diff --find-copies-harder [--staged] ate_tools/bazel/toolchains
+git diff --find-copies-harder [--staged] bzl_tools/bazel/toolchains
 ```
 
 ## Testing

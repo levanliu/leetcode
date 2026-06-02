@@ -17,7 +17,7 @@ syntax = "proto3";
 package analysis;
 
 // MODIFIED FROM UPSTREAM:
-import "ate_tools/bazelcc/proto/build.proto";
+import "bzl_tools/bazelcc/proto/build.proto";
 
 option java_package = "com.google.devtools.build.lib.analysis";
 option java_outer_classname = "AnalysisProtosV2";

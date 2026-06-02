@@ -13,9 +13,9 @@ single_version_override(
     module_name = "protobuf",
     patch_strip = 1,
     patches = [
-        "//:ate_tools/bazel/patches/protobuf/disable-warnings-as-errors.patch",
+        "//:bzl_tools/bazel/patches/protobuf/disable-warnings-as-errors.patch",
     ],
 )
 
-adv_rhel_ext = use_extension("//ate_tools/bazel/adv_rhel:defs.bzl", "adv_rhel_extension")
-use_repo(adv_rhel_ext, "adv_rhel")
+rhel9_ext = use_extension("//bzl_tools/bazel/rhel9:defs.bzl", "rhel9_extension")
+use_repo(rhel9_ext, "rhel9")

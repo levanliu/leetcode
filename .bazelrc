@@ -82,17 +82,17 @@ run:windows --action_env=BAZEL_CXXOPTS="-std=c++17"
 # 6. C++ Toolchains
 # ============================================================================
 # gcc — use default_toolchain (no target_settings) to avoid circular dependency
-build:gcc-toolset-13 --extra_toolchains="//ate_tools/bazel/toolchains/gcc-toolset-13:default_toolchain"
+build:gcc-toolset-13 --extra_toolchains="//bzl_tools/bazel/toolchains/gcc-toolset-13:default_toolchain"
 
-build:gcc-toolset-14 --extra_toolchains="//ate_tools/bazel/toolchains/gcc-toolset-14:default_toolchain"
+build:gcc-toolset-14 --extra_toolchains="//bzl_tools/bazel/toolchains/gcc-toolset-14:default_toolchain"
 
 build:gcc-toolset-latest --config=gcc-toolset-14
 
 # clang
-build:clang-21 --extra_toolchains="//ate_tools/bazel/toolchains/llvm-clang-21:default_toolchain"
+build:clang-21 --extra_toolchains="//bzl_tools/bazel/toolchains/llvm-clang-21:default_toolchain"
 build:clang-21 --extra_execution_platforms="//:linux_clang_x86"
 
-build:clang-22 --extra_toolchains="//ate_tools/bazel/toolchains/llvm-clang-22:default_toolchain"
+build:clang-22 --extra_toolchains="//bzl_tools/bazel/toolchains/llvm-clang-22:default_toolchain"
 build:clang-22 --extra_execution_platforms="//:linux_clang_x86"
 
 build:clang-latest --config=clang-22

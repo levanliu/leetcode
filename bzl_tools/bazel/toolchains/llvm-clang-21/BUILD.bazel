@@ -18,9 +18,9 @@ load(":cc_toolchain_config.bzl", "cc_toolchain_config")
 load("@rules_cc//cc/toolchains:cc_toolchain.bzl", "cc_toolchain")
 load("@rules_cc//cc/toolchains:cc_toolchain_suite.bzl", "cc_toolchain_suite")
 
-load("//:ate_tools/env_cfg/install_dirs.bzl", "rpmRoot")
+load("//:bzl_tools/env_cfg/install_dirs.bzl", "rpmRoot")
 load("//:common_environment.bzl", "gcc_toolset_14_path", "gcc_toolset_14_gcc_ver")
-load("@adv_rhel//:defs.bzl", "rhel_version")
+load("@rhel9//:defs.bzl", "rhel_version")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -76,9 +76,9 @@ filegroup(
 )
 
 cc_toolchain(
-    name = "clang22_x86_64_toolchain",
+    name = "clang21_x86_64_toolchain",
     toolchain_identifier = "local",
-    toolchain_config = ":clang22_toolchain_config",
+    toolchain_config = ":clang21_toolchain_config",
     all_files = ":compiler_deps",
     ar_files = ":compiler_deps",
     as_files = ":compiler_deps",
@@ -92,7 +92,7 @@ cc_toolchain(
 )
 
 cc_toolchain_config(
-    name = "clang22_toolchain_config",
+    name = "clang21_toolchain_config",
     cpu = "k8",
     compiler = "clang",
     toolchain_identifier = "local",
@@ -101,29 +101,29 @@ cc_toolchain_config(
     target_libc = "local",
     abi_version = "local",
     abi_libc_version = "local",
-    cxx_builtin_include_directories = [rpmRoot + "/llvm-clang-22/lib64/clang/22/include",
+    cxx_builtin_include_directories = [rpmRoot + "/llvm-clang-21/lib64/clang/21/include",
     "/usr/local/include",
     "/usr/include",
-    rpmRoot + "/llvm-clang-22/lib64/clang/22/share",
+    rpmRoot + "/llvm-clang-21/lib64/clang/21/share",
     gcc_toolset_14_path + "/root/usr/include/c++/" + gcc_toolset_14_gcc_ver + "",
     gcc_toolset_14_path + "/root/usr/include/c++/" + gcc_toolset_14_gcc_ver + "/x86_64-redhat-linux",
     gcc_toolset_14_path + "/root/usr/include/c++/" + gcc_toolset_14_gcc_ver + "/backward",
-    rpmRoot + "/llvm-clang-22/include/x86_64-unknown-linux-gnu/c++/v1",
-    rpmRoot + "/llvm-clang-22/include/c++/v1",
+    rpmRoot + "/llvm-clang-21/include/x86_64-unknown-linux-gnu/c++/v1",
+    rpmRoot + "/llvm-clang-21/include/c++/v1",
     ],
     tool_paths = {
-        "ar": rpmRoot + "/llvm-clang-22/bin/llvm-ar",
-        "ld": rpmRoot + "/llvm-clang-22/bin/ld.lld",
-        "llvm-cov": rpmRoot + "/llvm-clang-22/bin/llvm-cov",
-        "llvm-profdata": rpmRoot + "/llvm-clang-22/bin/llvm-profdata",
-        "cpp": rpmRoot + "/llvm-clang-22/bin/clang-cpp",
-        "gcc": rpmRoot + "/llvm-clang-22/bin/clang-22",
-        "dwp": rpmRoot + "/llvm-clang-22/bin/llvm-dwp",
-        "gcov": rpmRoot + "/llvm-clang-22/bin/llvm-cov",
-        "nm": rpmRoot + "/llvm-clang-22/bin/llvm-nm",
-        "objcopy": rpmRoot + "/llvm-clang-22/bin/llvm-objcopy",
-        "objdump": rpmRoot + "/llvm-clang-22/bin/llvm-objdump",
-        "strip": rpmRoot + "/llvm-clang-22/bin/llvm-strip",
+        "ar": rpmRoot + "/llvm-clang-21/bin/llvm-ar",
+        "ld": rpmRoot + "/llvm-clang-21/bin/ld.lld",
+        "llvm-cov": rpmRoot + "/llvm-clang-21/bin/llvm-cov",
+        "llvm-profdata": rpmRoot + "/llvm-clang-21/bin/llvm-profdata",
+        "cpp": rpmRoot + "/llvm-clang-21/bin/clang-cpp",
+        "gcc": rpmRoot + "/llvm-clang-21/bin/clang-21",
+        "dwp": rpmRoot + "/llvm-clang-21/bin/llvm-dwp",
+        "gcov": rpmRoot + "/llvm-clang-21/bin/llvm-cov",
+        "nm": rpmRoot + "/llvm-clang-21/bin/llvm-nm",
+        "objcopy": rpmRoot + "/llvm-clang-21/bin/llvm-objcopy",
+        "objdump": rpmRoot + "/llvm-clang-21/bin/llvm-objdump",
+        "strip": rpmRoot + "/llvm-clang-21/bin/llvm-strip",
         "c++filt": "/bin/c++filt",
         "cpp-module-deps-scanner": "deps_scanner_wrapper_el" + rhel_version() + ".sh",
         "parse_headers": "cc_wrapper_el" + rhel_version() + ".sh",
@@ -146,8 +146,8 @@ cc_toolchain_config(
     dbg_compile_flags = ["-g"],
     conly_flags = [],
     cxx_flags = ["-std=c++17"],
-    link_flags = ["-fuse-ld=" + rpmRoot + "/llvm-clang-22/bin/ld.lld",
-    "-B" + rpmRoot + "/llvm-clang-22/bin",
+    link_flags = ["-fuse-ld=" + rpmRoot + "/llvm-clang-21/bin/ld.lld",
+    "-B" + rpmRoot + "/llvm-clang-21/bin",
     "-Wl,-no-as-needed",
     "-Wl,-z,relro,-z,now"],
     link_libs = ["-Wl,--push-state,-as-needed",
@@ -169,8 +169,8 @@ cc_toolchain_config(
 )
 
 toolchain(
-    name = "clang22_toolchain",
-    toolchain = "clang22_x86_64_toolchain",
+    name = "clang21_toolchain",
+    toolchain = "clang21_x86_64_toolchain",
     toolchain_type = "@rules_cc//cc:toolchain_type",
     # exec_compatible_with = ['//:clang'],
     target_compatible_with = ['@platforms//cpu:x86_64'],

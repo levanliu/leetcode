@@ -2,7 +2,7 @@
  * Copyright 2024 by ADVANTEST CORPORATION
  *
  * Convert `bazel aquery` protobuf output into a JSON compilation database.
- * See ate_tools/bazel/bin/bazel-compile-cmds for more context.
+ * See bzl_tools/bazel/bin/bazel-compile-cmds for more context.
  *
  * Return codes:
  * - 0: success

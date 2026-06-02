@@ -42,7 +42,7 @@ case "${1:-}" in
 esac
 
 echo "Create compilation database ..."
-bazelisk build --compilation_mode="$COMPILATION_MODE" //ate_tools/bazelcc:bazelcc
+bazelisk build --compilation_mode="$COMPILATION_MODE" //bzl_tools/bazelcc:bazelcc
 
 OUT_BASE="$(bazelisk info output_base)"
 EXEC_ROOT="$(bazelisk info execution_root)"
@@ -50,7 +50,7 @@ SRC_ROOT="$(bazelisk info workspace)"
 
 bazelisk aquery --compilation_mode="$COMPILATION_MODE" --output=proto \
   "mnemonic(CppCompile, deps(//workspace/...))" \
-  | bazel-bin/ate_tools/bazelcc/bazelcc "$OUT_BASE" "$EXEC_ROOT" "$SRC_ROOT" \
+  | bazel-bin/bzl_tools/bazelcc/bazelcc "$OUT_BASE" "$EXEC_ROOT" "$SRC_ROOT" \
   > compile_commands.json
 
 # Build all targets
