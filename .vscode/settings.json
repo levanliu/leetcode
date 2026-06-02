@@ -26,7 +26,9 @@
     },
 
     // ── Bazel ────────────────────────────────────────────────────
-    "bazel.executable": "bazelisk",
+    "bazel.executable": "/usr/bin/bazelisk",
+    "bazel.lsp.command": "/usr/local/bin/starpls",
+    "bazel.lsp.args": ["server", "--bazel_path=/usr/bin/bazelisk"],
 
     // ── PlantUML ─────────────────────────────────────────────────
     "plantuml.exportFormat": "svg",
