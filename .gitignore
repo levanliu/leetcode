@@ -1,7 +1,7 @@
 # Bazel
-bazel-bin/
+bazel-bin
 bazel-out/
-bazel-testlogs/
+bazel-testlogs
 bazel-leetcode/
 .bazelrc.user
 compile_commands.json
