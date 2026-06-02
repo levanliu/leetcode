@@ -7,6 +7,7 @@ namespace ns_complicated_greedy {
 
 class Solution {
 public:
+    // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
     int maxProfit(const std::vector<int>& prices) {
         int minPrice = INT_MAX;
         int maxProfit = 0;
@@ -17,6 +18,7 @@ public:
         return maxProfit;
     }
 
+    // https://leetcode.com/problems/merge-intervals/
     std::vector<std::pair<int, int>> mergeIntervals(
         std::vector<std::pair<int, int>> intervals) {
         if (intervals.empty()) {
@@ -35,6 +37,7 @@ public:
         return res;
     }
 
+    // https://leetcode.com/problems/jump-game/
     bool canJump(const std::vector<int>& nums) {
         int maxReach = 0;
         for (int i = 0; i < (int)nums.size(); i++) {

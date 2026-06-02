@@ -7,6 +7,7 @@ namespace ns_complicated_monotonic_stack {
 class Solution {
 public:
     // For each element, index of nearest smaller element to the left (-1 if none)
+    // https://leetcode.com/problems/next-greater-element-i/
     std::vector<int> prevSmaller(const std::vector<int>& nums) {
         std::vector<int> res(nums.size(), -1);
         std::stack<int> stk;
@@ -23,6 +24,7 @@ public:
     }
 
     // For each element, index of nearest greater element to the right (-1 if none)
+    // https://leetcode.com/problems/next-greater-element-i/
     std::vector<int> nextGreater(const std::vector<int>& nums) {
         int n = (int)nums.size();
         std::vector<int> res(n, -1);
@@ -38,6 +40,7 @@ public:
     }
 
     // Largest rectangle in histogram
+    // https://leetcode.com/problems/largest-rectangle-in-histogram/
     int largestRectangle(const std::vector<int>& heights) {
         std::stack<int> stk;
         int maxArea = 0;
