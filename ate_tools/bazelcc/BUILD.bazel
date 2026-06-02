@@ -1,0 +1,48 @@
+load("@protobuf//bazel:cc_proto_library.bzl", "cc_proto_library")
+load("@protobuf//bazel:proto_library.bzl", "proto_library")
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_test")
+
+package(default_visibility = ["//visibility:private"])
+
+cc_binary(
+    name = "bazelcc",
+    srcs = [
+        "src/CompileCommandsWriter.hpp",
+        "src/main.cpp",
+    ],
+    includes = [
+        "proto/",
+    ],
+    deps = ["analysis_v2_cc_proto"],
+)
+
+cc_proto_library(
+    name = "analysis_v2_cc_proto",
+    deps = [":analysis_v2_proto"],
+)
+
+proto_library(
+    name = "analysis_v2_proto",
+    srcs = ["proto/analysis_v2.proto"],
+    deps = [":build_proto"],
+)
+
+proto_library(
+    name = "build_proto",
+    srcs = ["proto/build.proto"],
+)
+
+cc_test(
+    name = "bazelcc_test",
+    srcs = [
+        "src/CompileCommandsWriter.hpp",
+        "test/CompileCommandsWriterTests.cpp",
+    ],
+    includes = [
+        "proto/",
+        "src/",
+    ],
+    deps = [
+        "@catch2//:catch2_main",
+    ],
+)

@@ -1,43 +1,39 @@
-# Prerequisites
-*.d
+# Bazel
+bazel-bin/
+bazel-out/
+bazel-testlogs/
+bazel-*/
+.bazelrc.user
+compile_commands.json
 
-# Compiled Object files
-*.slo
-*.lo
+# C++ compiled artifacts
 *.o
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
+*.a
+*.la
+*.lai
+*.lib
 *.so
 *.dylib
 *.dll
-
-# Fortran module files
+*.slo
+*.lo
+*.gch
+*.pch
 *.mod
 *.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-*.cache
-*.idea
-
-bin
-build
-lib
-CMakeFiles
-.cmake
-Makefile
-cmake-build-debug
-a.out
-
-# Executables
 *.exe
 *.out
 *.app
+a.out
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

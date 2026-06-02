@@ -1,0 +1,8 @@
+cc_test(
+    name = "sort_test",
+    srcs = ["sort_test.cpp"],
+    deps = [
+        "//workspace/src/complicated/sort",
+        "@catch2//:catch2_main",
+    ],
+)

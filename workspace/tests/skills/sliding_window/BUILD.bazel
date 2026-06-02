@@ -1,0 +1,8 @@
+cc_test(
+    name = "sliding_window_test",
+    srcs = ["sliding_window_test.cpp"],
+    deps = [
+        "//workspace/src/skills/sliding_window",
+        "@catch2//:catch2_main",
+    ],
+)

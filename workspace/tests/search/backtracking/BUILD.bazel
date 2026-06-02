@@ -1,0 +1,8 @@
+cc_test(
+    name = "n_queens_test",
+    srcs = ["n_queens_test.cpp"],
+    deps = [
+        "//workspace/src/search/backtracking",
+        "@catch2//:catch2_main",
+    ],
+)

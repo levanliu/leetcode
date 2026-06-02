@@ -1,0 +1,8 @@
+cc_test(
+    name = "hash_map_test",
+    srcs = ["hash_map_test.cpp"],
+    deps = [
+        "//workspace/src/data_structure/hash_map_set",
+        "@catch2//:catch2_main",
+    ],
+)

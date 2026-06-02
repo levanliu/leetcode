@@ -1,0 +1,5 @@
+cc_library(
+    name = "heap",
+    hdrs = ["heap.h"],
+    visibility = ["//visibility:public"],
+)

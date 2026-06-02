@@ -1,0 +1,12 @@
+cc_library(
+    name = "skills",
+    deps = [
+        "//workspace/src/skills/two_pointers",
+        "//workspace/src/skills/sliding_window",
+        "//workspace/src/skills/binary_search",
+        "//workspace/src/skills/prefix_sum",
+        "//workspace/src/skills/string_algorithm",
+        "//workspace/src/skills/bit_manipulation",
+    ],
+    visibility = ["//visibility:public"],
+)

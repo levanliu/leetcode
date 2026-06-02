@@ -1,0 +1,8 @@
+cc_test(
+    name = "two_sum_test",
+    srcs = ["two_sum_test.cpp"],
+    deps = [
+        "//workspace/src/data_structure/array_and_string",
+        "@catch2//:catch2_main",
+    ],
+)

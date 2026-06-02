@@ -1,0 +1,25 @@
+#!/bin/bash
+# =============================================================================
+# Bazelisk wrapper — generates user-specific cache paths
+# Bazelisk executes this script instead of calling Bazel directly when
+# a tools/bazel file exists in the workspace root.
+# =============================================================================
+set -euo pipefail
+
+WORKSPACE_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+USER_CONFIG="${WORKSPACE_ROOT}/tools/user_config.bazelrc"
+REAL_BAZEL="${BAZEL_REAL:?BAZEL_REAL must be set by bazelisk}"
+
+# Generate user_config.bazelrc if missing
+if [[ ! -f "${USER_CONFIG}" ]]; then
+    case "$(uname -s)" in
+        Linux)
+            echo "common --disk_cache=/tmp/bazel-cache-${USER}" > "${USER_CONFIG}"
+            ;;
+        MINGW*|MSYS*|CYGWIN*|Windows_NT)
+            echo "common --disk_cache=${LOCALAPPDATA:-${USERPROFILE}/.cache}/bazel-cache" > "${USER_CONFIG}"
+            ;;
+    esac
+fi
+
+exec "${REAL_BAZEL}" "$@"

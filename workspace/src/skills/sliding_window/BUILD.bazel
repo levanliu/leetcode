@@ -1,0 +1,5 @@
+cc_library(
+    name = "sliding_window",
+    hdrs = ["sliding_window.h"],
+    visibility = ["//visibility:public"],
+)

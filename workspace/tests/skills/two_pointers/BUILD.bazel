@@ -1,0 +1,8 @@
+cc_test(
+    name = "two_pointers_test",
+    srcs = ["two_pointers_test.cpp"],
+    deps = [
+        "//workspace/src/skills/two_pointers",
+        "@catch2//:catch2_main",
+    ],
+)

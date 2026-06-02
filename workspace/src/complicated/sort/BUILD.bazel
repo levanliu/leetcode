@@ -1,0 +1,5 @@
+cc_library(
+    name = "sort",
+    hdrs = ["sort.h"],
+    visibility = ["//visibility:public"],
+)

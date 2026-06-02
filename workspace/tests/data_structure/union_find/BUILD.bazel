@@ -1,0 +1,8 @@
+cc_test(
+    name = "union_find_test",
+    srcs = ["union_find_test.cpp"],
+    deps = [
+        "//workspace/src/data_structure/union_find",
+        "@catch2//:catch2_main",
+    ],
+)

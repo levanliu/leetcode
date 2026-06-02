@@ -1,0 +1,8 @@
+cc_test(
+    name = "dp_test",
+    srcs = ["dp_test.cpp"],
+    deps = [
+        "//workspace/src/complicated/dynamic_programming",
+        "@catch2//:catch2_main",
+    ],
+)

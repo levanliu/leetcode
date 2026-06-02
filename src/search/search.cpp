@@ -1,5 +1,0 @@
-#include "bfsSearch.h"
-#include "dfsSearch.h"
-#include "dijstra.h"
-#include "nQueen.h"
-#include "weightCenterTree.h"

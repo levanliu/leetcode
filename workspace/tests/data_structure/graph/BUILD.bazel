@@ -1,0 +1,8 @@
+cc_test(
+    name = "graph_test",
+    srcs = ["graph_test.cpp"],
+    deps = [
+        "//workspace/src/data_structure/graph",
+        "@catch2//:catch2_main",
+    ],
+)

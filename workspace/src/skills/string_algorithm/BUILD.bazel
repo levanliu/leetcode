@@ -1,0 +1,5 @@
+cc_library(
+    name = "string_algorithm",
+    hdrs = ["string_algorithm.h"],
+    visibility = ["//visibility:public"],
+)

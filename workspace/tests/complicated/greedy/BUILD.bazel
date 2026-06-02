@@ -1,0 +1,8 @@
+cc_test(
+    name = "greedy_test",
+    srcs = ["greedy_test.cpp"],
+    deps = [
+        "//workspace/src/complicated/greedy",
+        "@catch2//:catch2_main",
+    ],
+)

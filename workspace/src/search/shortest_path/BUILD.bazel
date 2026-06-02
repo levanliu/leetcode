@@ -1,0 +1,5 @@
+cc_library(
+    name = "shortest_path",
+    hdrs = ["shortest_path.h"],
+    visibility = ["//visibility:public"],
+)

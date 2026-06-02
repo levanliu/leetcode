@@ -1,0 +1,8 @@
+cc_test(
+    name = "tree_traversal_test",
+    srcs = ["tree_traversal_test.cpp"],
+    deps = [
+        "//workspace/src/search/tree_traversal",
+        "@catch2//:catch2_main",
+    ],
+)

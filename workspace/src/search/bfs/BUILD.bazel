@@ -1,0 +1,5 @@
+cc_library(
+    name = "bfs",
+    hdrs = ["bfs.h"],
+    visibility = ["//visibility:public"],
+)

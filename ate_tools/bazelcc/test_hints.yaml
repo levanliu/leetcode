@@ -1,0 +1,5 @@
+- suite: BAZEL_COMP_TEST
+  mode: offline
+
+- suite: ZSG_TEST
+  mode: offline

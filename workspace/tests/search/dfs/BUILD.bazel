@@ -1,0 +1,8 @@
+cc_test(
+    name = "dfs_test",
+    srcs = ["dfs_test.cpp"],
+    deps = [
+        "//workspace/src/search/dfs",
+        "@catch2//:catch2_main",
+    ],
+)

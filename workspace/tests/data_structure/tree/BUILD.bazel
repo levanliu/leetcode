@@ -1,0 +1,8 @@
+cc_test(
+    name = "tree_test",
+    srcs = ["tree_test.cpp"],
+    deps = [
+        "//workspace/src/data_structure/tree",
+        "@catch2//:catch2_main",
+    ],
+)

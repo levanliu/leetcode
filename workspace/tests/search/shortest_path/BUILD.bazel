@@ -1,0 +1,8 @@
+cc_test(
+    name = "shortest_path_test",
+    srcs = ["shortest_path_test.cpp"],
+    deps = [
+        "//workspace/src/search/shortest_path",
+        "@catch2//:catch2_main",
+    ],
+)

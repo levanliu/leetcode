@@ -1,0 +1,47 @@
+# ============================================================================
+# Sanitizer and Coverage Configurations
+# Usage: bazelisk build --config=asan //workspace/...
+#        bazelisk test --config=tsan //workspace/tests/...
+#        bazelisk coverage --config=coverage //workspace/tests/...
+# ============================================================================
+
+# Common sanitizer groundwork
+build:san --strip=never
+build:san --copt=-fno-omit-frame-pointer
+build:san --linkopt=-fno-omit-frame-pointer
+
+# AddressSanitizer with LeakSanitizer explicitly enabled
+build:asan --config=san
+build:asan --copt=-fsanitize=address,leak
+build:asan --linkopt=-fsanitize=address,leak
+build:asan --copt=-g
+build:asan --copt=-Og
+build:asan --copt=-fstack-protector-strong
+build:asan --copt=-fstack-clash-protection
+build:asan --copt=-D_GLIBCXX_ASSERTIONS
+test:asan --test_env=ASAN_OPTIONS=print_stacktrace=1:report_error_type=1:symbolize=1:abort_on_error=0
+test:asan --test_env=ASAN_SYMBOLIZER_PATH=/opt/hp93000rt/el9/x86_64/llvm-clang-19/bin/llvm-symbolizer
+
+# UndefinedBehaviorSanitizer
+build:ubsan --config=san
+build:ubsan --copt=-fsanitize=undefined
+build:ubsan --linkopt=-fsanitize=undefined
+build:ubsan --copt=-g
+build:ubsan --copt=-Og
+build:ubsan --copt=-fstack-protector-strong
+build:ubsan --copt=-fstack-clash-protection
+build:ubsan --copt=-D_GLIBCXX_ASSERTIONS
+test:ubsan --test_env=UBSAN_OPTIONS=print_stacktrace=1:report_error_type=1:symbolize=1:abort_on_error=0
+test:ubsan --test_env=UBSAN_SYMBOLIZER_PATH=/opt/hp93000rt/el9/x86_64/llvm-clang-19/bin/llvm-symbolizer
+
+# ThreadSanitizer
+build:tsan --config=san
+build:tsan --copt=-fsanitize=thread
+build:tsan --linkopt=-fsanitize=thread
+build:tsan --copt=-g
+build:tsan --copt=-Og
+build:tsan --copt=-fstack-protector-strong
+build:tsan --copt=-fstack-clash-protection
+build:tsan --copt=-D_GLIBCXX_ASSERTIONS
+test:tsan --test_env=TSAN_OPTIONS=halt_on_error=1:print_stacktrace=1:symbolize=1:abort_on_error=0:second_deadlock_stack=1
+test:tsan --test_env=TSAN_SYMBOLIZER_PATH=/opt/hp93000rt/el9/x86_64/llvm-clang-19/bin/llvm-symbolizer

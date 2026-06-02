@@ -1,0 +1,8 @@
+cc_test(
+    name = "divide_and_conquer_test",
+    srcs = ["divide_and_conquer_test.cpp"],
+    deps = [
+        "//workspace/src/complicated/divide_and_conquer",
+        "@catch2//:catch2_main",
+    ],
+)

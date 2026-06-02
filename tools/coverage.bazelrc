@@ -1,0 +1,14 @@
+# ============================================================================
+# Coverage Configuration
+# Usage: bazelisk coverage --config=coverage //workspace/tests/...
+# ============================================================================
+# Coverage
+# Use opt to maximize cache hits — non-instrumented deps (external/protobuf/gRPC)
+# share action cache with normal opt builds. Only //workspace/... targets are
+# re-compiled with gcov instrumentation (-fprofile-arcs -ftest-coverage).
+build:coverage --action_env=GCOV=/opt/rh/gcc-toolset-13/root/bin/gcov
+build:coverage --collect_code_coverage
+build:coverage --instrumentation_filter=//workspace/...
+build:coverage --combined_report=lcov
+build:coverage --compilation_mode=opt
+build:coverage --test_timeout_filters=-eternal

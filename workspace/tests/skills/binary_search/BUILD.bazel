@@ -1,0 +1,8 @@
+cc_test(
+    name = "binary_search_test",
+    srcs = ["binary_search_test.cpp"],
+    deps = [
+        "//workspace/src/skills/binary_search",
+        "@catch2//:catch2_main",
+    ],
+)

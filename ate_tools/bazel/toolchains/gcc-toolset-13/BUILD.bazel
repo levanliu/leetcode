@@ -1,0 +1,189 @@
+# Copyright 2016 The Bazel Authors. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# This becomes the BUILD file for @local_config_cc// under non-BSD unixes.
+
+load(":cc_toolchain_config.bzl", "cc_toolchain_config")
+load("@rules_cc//cc:defs.bzl", "cc_toolchain")
+
+load("//:common_environment.bzl", "gcc_toolset_13_gcc_ver", "gcc_toolset_13_path")
+load("@adv_rhel//:defs.bzl", "rhel_version")
+
+package(default_visibility = ["//visibility:public"])
+
+licenses(["notice"])  # Apache 2.0
+
+cc_library(name = "empty_lib")
+
+# Label flag for extra libraries to be linked into every binary.
+# TODO(bazel-team): Support passing flag multiple times to build a list.
+label_flag(
+    name = "link_extra_libs",
+    build_setting_default = ":empty_lib",
+)
+
+# The final extra library to be linked into every binary target. This collects
+# the above flag, but may also include more libraries depending on config.
+cc_library(
+    name = "link_extra_lib",
+    deps = [
+        ":link_extra_libs",
+    ],
+)
+
+cc_library(
+    name = "malloc",
+)
+
+filegroup(
+    name = "empty",
+    srcs = [],
+)
+
+filegroup(
+    name = "cc_wrapper",
+    srcs = ["cc_wrapper_el" + rhel_version() + ".sh"],
+)
+
+filegroup(
+    name = "compiler_deps",
+    srcs = glob(["extra_tools/**"], allow_empty = True) + [":builtin_include_directory_paths_el" + rhel_version()],
+)
+
+cc_toolchain(
+    name = "gcc13_x86_64_toolchain",
+    toolchain_identifier = "local",
+    toolchain_config = ":gcc13_toolchain_config",
+    all_files = ":compiler_deps",
+    ar_files = ":compiler_deps",
+    as_files = ":compiler_deps",
+    compiler_files = ":compiler_deps",
+    dwp_files = ":empty",
+    linker_files = ":compiler_deps",
+    objcopy_files = ":empty",
+    strip_files = ":empty",
+    supports_param_files = 1,
+    module_map = None,
+)
+
+cc_toolchain_config(
+    name = "gcc13_toolchain_config",
+    cpu = "k8",
+    compiler = "gcc",
+    toolchain_identifier = "local",
+    host_system_name = "local",
+    target_system_name = "local",
+    target_libc = "local",
+    abi_version = "local",
+    abi_libc_version = "local",
+    cxx_builtin_include_directories = [gcc_toolset_13_path + "/root/usr/lib/gcc/x86_64-redhat-linux/" + gcc_toolset_13_gcc_ver + "/include",
+    "/usr/local/include",
+    gcc_toolset_13_path + "/root/usr/include",
+    "/usr/include",
+    gcc_toolset_13_path + "/root/usr/include/c++/" + gcc_toolset_13_gcc_ver + "",
+    gcc_toolset_13_path + "/root/usr/include/c++/" + gcc_toolset_13_gcc_ver + "/x86_64-redhat-linux",
+    gcc_toolset_13_path + "/root/usr/include/c++/" + gcc_toolset_13_gcc_ver + "/backward",
+    ],
+    tool_paths = {
+        "ar": gcc_toolset_13_path + "/root/usr/bin/ar",
+        "ld": gcc_toolset_13_path + "/root/usr/bin/ld.gold",
+        "llvm-cov": gcc_toolset_13_path + "/root/usr/bin/cov",
+        "llvm-profdata": "None",
+        "cpp": gcc_toolset_13_path + "/root/usr/bin/cpp",
+        "gcc": gcc_toolset_13_path + "/root/usr/bin/gcc",
+        "dwp": gcc_toolset_13_path + "/root/usr/bin/dwp",
+        "gcov": gcc_toolset_13_path + "/root/usr/bin/gcov",
+        "nm": gcc_toolset_13_path + "/root/usr/bin/nm",
+        "objcopy": gcc_toolset_13_path + "/root/usr/bin/objcopy",
+        "objdump": gcc_toolset_13_path + "/root/usr/bin/objdump",
+        "strip": gcc_toolset_13_path + "/root/usr/bin/strip"},
+    compile_flags = [
+    "-fdiagnostics-color",
+    "-fstack-protector-strong",
+    "-Wall",
+    "-Wunused-but-set-parameter",
+    "-fno-omit-frame-pointer"],
+    opt_compile_flags = ["-g0",
+    "-O3",
+    "-D_FORTIFY_SOURCE=1",
+    "-DNDEBUG",
+    "-ffunction-sections",
+    "-fdata-sections"],
+    dbg_compile_flags = ["-g"],
+    conly_flags = [],
+    cxx_flags = [],
+    link_flags = ["-fuse-ld=gold",
+    "-Wl,-no-as-needed",
+    "-Wl,-z,relro,-z,now",
+    "-B" + gcc_toolset_13_path + "/root/usr/bin",
+    "-pass-exit-codes"
+
+    # --detect-odr-violations causes link times of sometimes > 200 secs.
+    # SWTOOL-592
+    #"-Wl,--detect-odr-violations",
+
+    # TODO: Disabled: SWTOOL-538
+    # "-Wl,--fatal-warnings",
+    # +++ start: protobuf
+    # "protobuf" does not link with the original settings:
+    #
+    # > [...] error: undefined reference to 'std::__throw_out_of_range_fmt(char const*, ...)'
+    #
+    # This seems to be a link order issue.
+    # Fix according to https://github.com/bazelbuild/bazel/issues/9254#issuecomment-562748903:
+    #
+    #"-lstdc++",
+    #"-lm"
+    ],
+    link_libs = ["-Wl,--push-state,-as-needed",
+    "-lstdc++",
+    "-Wl,--pop-state",
+    "-Wl,--push-state,-as-needed",
+    "-lm",
+    "-Wl,--pop-state"],
+    opt_link_flags = [
+        "-Wl,--gc-sections",
+        # --detect-odr-violations causes link times of sometimes > 200 secs.
+        # SWTOOL-592
+        #"-Wl,--detect-odr-violations",
+        # TODO: Disabled: SWTOOL-538
+        # "-Wl,--fatal-warnings",
+    ],
+    unfiltered_compile_flags = ["-fno-canonical-system-headers",
+    "-Wno-builtin-macro-redefined",
+    "-D__DATE__=\"redacted\"",
+    "-D__TIMESTAMP__=\"redacted\"",
+    "-D__TIME__=\"redacted\""],
+    coverage_compile_flags = ["--coverage"],
+    coverage_link_flags = ["--coverage"],
+    supports_start_end_lib = True,
+)
+
+toolchain(
+    name = "gcc13_toolchain",
+    toolchain = "gcc13_x86_64_toolchain",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+    # exec_compatible_with = ['//:toolset-gcc'],
+    target_compatible_with = ['@platforms//cpu:x86_64'],
+    target_settings = ["//:is_gcc"],
+)
+
+toolchain(
+    name = "default_toolchain",
+    toolchain = "gcc13_x86_64_toolchain",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+    # exec_compatible_with = ['//:toolset-gcc'],
+    target_compatible_with = ['@platforms//cpu:x86_64'],
+    # No target_settings present
+)

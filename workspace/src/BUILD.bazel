@@ -1,0 +1,10 @@
+cc_library(
+    name = "algorithms",
+    deps = [
+        "//workspace/src/data_structure",
+        "//workspace/src/skills",
+        "//workspace/src/search",
+        "//workspace/src/complicated",
+    ],
+    visibility = ["//visibility:public"],
+)

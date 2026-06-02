@@ -1,0 +1,8 @@
+cc_test(
+    name = "stack_test",
+    srcs = ["stack_test.cpp"],
+    deps = [
+        "//workspace/src/data_structure/stack_and_queue",
+        "@catch2//:catch2_main",
+    ],
+)

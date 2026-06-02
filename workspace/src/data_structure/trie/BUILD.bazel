@@ -1,0 +1,5 @@
+cc_library(
+    name = "trie",
+    hdrs = ["trie.h"],
+    visibility = ["//visibility:public"],
+)

@@ -1,0 +1,5 @@
+cc_library(
+    name = "linked_list",
+    hdrs = ["linked_list.h"],
+    visibility = ["//visibility:public"],
+)

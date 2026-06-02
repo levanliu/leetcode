@@ -1,0 +1,8 @@
+cc_test(
+    name = "bfs_test",
+    srcs = ["bfs_test.cpp"],
+    deps = [
+        "//workspace/src/search/bfs",
+        "@catch2//:catch2_main",
+    ],
+)

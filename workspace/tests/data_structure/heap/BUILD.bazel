@@ -1,0 +1,8 @@
+cc_test(
+    name = "heap_test",
+    srcs = ["heap_test.cpp"],
+    deps = [
+        "//workspace/src/data_structure/heap",
+        "@catch2//:catch2_main",
+    ],
+)

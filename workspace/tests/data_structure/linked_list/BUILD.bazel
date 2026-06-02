@@ -1,0 +1,8 @@
+cc_test(
+    name = "linked_list_test",
+    srcs = ["linked_list_test.cpp"],
+    deps = [
+        "//workspace/src/data_structure/linked_list",
+        "@catch2//:catch2_main",
+    ],
+)

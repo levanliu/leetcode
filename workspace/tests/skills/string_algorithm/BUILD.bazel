@@ -1,0 +1,8 @@
+cc_test(
+    name = "string_algorithm_test",
+    srcs = ["string_algorithm_test.cpp"],
+    deps = [
+        "//workspace/src/skills/string_algorithm",
+        "@catch2//:catch2_main",
+    ],
+)

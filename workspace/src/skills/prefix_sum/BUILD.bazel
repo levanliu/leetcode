@@ -1,0 +1,5 @@
+cc_library(
+    name = "prefix_sum",
+    hdrs = ["prefix_sum.h"],
+    visibility = ["//visibility:public"],
+)

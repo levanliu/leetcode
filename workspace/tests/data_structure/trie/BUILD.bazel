@@ -1,0 +1,8 @@
+cc_test(
+    name = "trie_test",
+    srcs = ["trie_test.cpp"],
+    deps = [
+        "//workspace/src/data_structure/trie",
+        "@catch2//:catch2_main",
+    ],
+)

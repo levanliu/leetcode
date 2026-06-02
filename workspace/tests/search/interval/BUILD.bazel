@@ -1,0 +1,8 @@
+cc_test(
+    name = "interval_test",
+    srcs = ["interval_test.cpp"],
+    deps = [
+        "//workspace/src/search/interval",
+        "@catch2//:catch2_main",
+    ],
+)

@@ -1,0 +1,5 @@
+cc_library(
+    name = "monotonic_stack",
+    hdrs = ["monotonic_stack.h"],
+    visibility = ["//visibility:public"],
+)

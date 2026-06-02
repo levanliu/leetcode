@@ -1,0 +1,5 @@
+cc_library(
+    name = "topological_sort",
+    hdrs = ["topological_sort.h"],
+    visibility = ["//visibility:public"],
+)

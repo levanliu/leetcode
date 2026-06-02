@@ -1,0 +1,122 @@
+---
+
+# See https://clang.llvm.org/extra/clang-tidy/checks/list.html for a list of all checks.
+
+Checks:
+  # Enable most non-project-specific checks by default.
+  - boost-*
+  - bugprone-*
+  - cert-*
+  - clang-analyzer-*
+  - clang-diagnostic-*
+  - concurrency-*
+  - cppcoreguidelines-*
+  - hicpp-*
+  - misc-*
+  - modernize-*
+  - performance-*
+  - portability-*
+  - readability-*
+
+  # C++20 provides mostly the same benefits, let's wait for that instead.
+  - -boost-use-ranges
+
+  # Useful but violated too many times in our code base, thus generating a lot of noise.
+  - -bugprone-easily-swappable-parameters
+
+  # This check flags global/static/thread_local variables with throwing initializers.
+  # While useful in general, it also applies to global `AutoReference`s (which we use a lot),
+  # thus generating a lot of noise.
+  - -cert-err58-cpp
+
+  # Useful but violated too many times in our code base, thus generating a lot of noise.
+  - -cppcoreguidelines-avoid-const-or-ref-data-members
+
+  # While there exist better options in many situation,
+  # do-while loops can be genuinely useful in some.
+  # Unconditionally raising warnings is a bit too much.
+  - -cppcoreguidelines-avoid-do-while
+
+  # While useful in general, this also applies to global `AutoReference`s (which we use a lot),
+  # thus generating a lot of noise.
+  - -cppcoreguidelines-avoid-non-const-global-variables
+
+  # Unit conversions (60, 1000, etc.) and small numeric literals are self-documenting.
+  # This rule generates excessive noise for obvious conversions.
+  - -cppcoreguidelines-avoid-magic-numbers
+
+  # Potentially useful but violated too many times in our code base, thus generating a lot of noise.
+  - -cppcoreguidelines-pro-bounds-constant-array-index
+
+  # Useful but violated too many times in our code base, e.g., for Slang structs.
+  - -cppcoreguidelines-pro-bounds-pointer-arithmetic
+
+  # This check essentially forbids using unions.
+  # While `std::variant` is better in most use cases, there are still some valid uses left.
+  - -cppcoreguidelines-pro-type-union-access
+
+  # Violated too many times in our code base, thus generating a lot of noise.
+  # While unsigned types are conceptually better suited for bitwise operations,
+  # most operations are still safe when using signed integers.
+  - -hicpp-signed-bitwise
+
+  # This check is too general, there are some good use cases for recursion.
+  - -misc-no-recursion
+
+  # Useful but violated too many times in our code base, thus generating a lot of noise.
+  - -misc-non-private-member-variables-in-classes
+  - -cppcoreguidelines-non-private-member-variables-in-classes # alias
+
+  # Our codebase predominantly uses traditional return types.
+  # And although trailing return types do have some advantages,
+  # the diagnostic quickly gets really annoying.
+  - -modernize-use-trailing-return-type
+
+  # Violated too many times in our code base, thus generating a lot of noise.
+  # Output streams are mostly used for debugging/error reporting purposes in our code base,
+  # so not performance sensitive.
+  - -performance-avoid-endl
+
+  # There can be very good reasons to violate this rule.
+  # If both branches are logically equivalent,
+  # then it makes sense to also show this equivalence syntactically.
+  - -readability-else-after-return
+
+  # Useful but violated too many times in our code base, thus generating a lot of noise.
+  - -readability-identifier-length
+
+  # Our codebase extensively uses sal_Bool, which is an alias for `unsigned char`.
+  - -readability-implicit-bool-conversion
+
+  # Accessing a static member through an instance can avoid bugs
+  # because the programmer does not need to look up the type first.
+  - -readability-static-accessed-through-instance
+
+CheckOptions:
+  bugprone-assert-side-effect.AssertMacros: assert,XOC_ASSERT,XOC_ASSERT_DIFFERS,XOC_ASSERT_DIFFERS_MSG,XOC_ASSERT_EQUALS,XOC_ASSERT_EQUALS_MSG,XOC_ASSERT_LESS_THAN,XOC_ASSERT_LESS_THAN_EQUALS,XOC_ASSERT_LESS_THAN_EQUALS_MSG,XOC_ASSERT_LESS_THAN_MSG,XOC_ASSERT_MSG,XOC_POST,XOC_POST_DIFFERS,XOC_POST_EQUALS,XOC_POST_LESS_THAN,XOC_POST_LESS_THAN_EQUALS,XOC_PRE,XOC_PRE_DIFFERS,XOC_PRE_EQUALS,XOC_PRE_LESS_THAN,XOC_PRE_LESS_THAN_EQUALS
+
+  # This style is used at Google to reduce the overhead of the rule-of-five.
+  cppcoreguidelines-special-member-functions.AllowMissingMoveFunctionsWhenCopyIsDeleted: true
+  hicpp-special-member-functions.AllowMissingMoveFunctionsWhenCopyIsDeleted: true
+
+  # Our assertion macros can quickly increase the complexity measured by clang-tidy,
+  # leading to many warnings with detailed diagnostic messages.
+  readability-function-cognitive-complexity.DescribeBasicIncrements: false
+  readability-function-cognitive-complexity.IgnoreMacros: true
+
+HeaderFileExtensions:
+  - ''
+  - h
+  - hdl
+  - hh
+  - hpp
+  - hxx
+  - inc
+
+ImplementationFileExtensions:
+  - c
+  - cc
+  - cpp
+  - cxx
+
+...
